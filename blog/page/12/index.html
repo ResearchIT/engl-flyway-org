@@ -1,0 +1,1369 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page12' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page12' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page12' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page12' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2530.html">Book Review: Body and Bread</a></h2>
+	<div class="entrydate">12 Nov 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Nan Cuba’s <em>Body and Bread</em> (a novel)<br />
+Review by K. L. Cook</p>
+<p>Engine Books, 2013<br />
+$14.95 (paperback)</p>
+<p>Truth Scavengers</p>
+<p>Time’s pressure and elasticity is the great subject of fiction. The best stories and novels meditate on the complex braiding of past, present, and future. Narrative happens in time, through time, and upon a time. In Nan Cuba’s vivid and haunting debut novel, <em>Body and Bread</em>, the narrator, Sarah Pelton, is a woman obsessed with time and place. An acclaimed anthropologist, she specializes in decoding the past, in discovering the secrets of ancient North American civilizations. She was part of a team that found new evidence in Texas that revised the previous narrative about the Clovis culture.</p>
+<p>This is what Sarah does: she revises the past. She’s a “truth scavenger,” as she says, and in this novel, she’s scavenging the subterranean secrets that lay hidden beneath the surface narrative of her family’s history. Her parents are dead, and her two brothers, both conventional doctors, are busy strategizing ways to deny their dead brother’s widow her share of the family inheritance. The stakes are high because the widow’s daughter, Cornelia, is in desperate need of an expensive transplant.</p>
+<p>When Sarah befriends Cornelia and finds herself at odds with her brothers, she is also forced to examine her relationship to her dead brother, Sam, the black sheep of the family with whom Sarah felt especially close and whose death, decades ago, still haunts her. The narrative oscillates between the present family battle over the inheritance and Sarah’s anguished probing of the dozen years leading up to Sam’s suicide.</p>
+<p>Despite the weighty subject, Cuba’s handling of the material is graceful and leavened by both intelligence and wit. Though we know about the suicide from the beginning, and that knowledge darkens the narrative, Sam is a lovable iconoclast, encouraging his sister to question received dogma and examine hypocrisies. He gently teases Sarah when she becomes involved, as a young woman, in a religious cult, and he pokes fun at his brothers, who have become fundamentalist in their religious beliefs. “Faith, hope, charity, these three,” he says to her at one point, “roads advertised but less taken.”</p>
+<p>By the end of the novel, we mourn the loss of this beautiful, troubled, essentially generous man—and we root for the optimistic Cornelia. She is an embodiment of Sam’s spirit, and Sarah’s effort to help Cornelia is an anthropologist’s and sister’s act of faith, hope, and charity.</p>
+<p>Though the novel is populated by a rich cast of characters, deftly depicted, Sarah is the great creation here. She is a woman full of contradictions, which she probes but doesn’t try to erase. Her voice, the voice of the novel, is crisp, clean, vividly precise, and replete with complex insights that make her sound like the questioning heroines of Nobel Prize laureate Alice Munro’s great, expansive stories. Like Munro, Cuba knows how to immerse us in the eloquent, intelligent, and unpretentious consciousness of a woman whose fidelity is to the unraveling of the many layers of truth that lay hidden, like ancient civilizations, beneath the surface of time. This truth scavenging makes <em>Body and Bread</em> an emotionally, ethically, and aesthetically riveting experience.</p>
+<p><em>K. L. Cook is the author of three books of fiction, most recently </em>Love Songs for the Quarantined<em>. A tenth-anniversary edition of his short story cycle, </em>Last Call<em>, was published by Bison Books/University of Nebraska Press in fall 2013. He teaches in the MFA in Creative Writing and Environment program at Iowa State University.</em></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2530.html#respond-2530" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book_review_nan_cuba/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book_review_nan_cuba/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book_review_nan_cuba/&text=Book+Review%3A+Body+and+Bread"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book_review_nan_cuba/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book_review_nan_cuba/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: Body and Bread&body=Book Review: Body and Bread%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book_review_nan_cuba/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2538.html">Flyway Fundraising Auction</a></h2>
+	<div class="entrydate">10 Nov 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Every year we hold a fun-filled fundraising auction so that we can keep this journal going strong. It&#8217;s boisterous, convivial, and entertaining, and here we share some of the highlights so you can see what we get up to behind the scenes.</p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><a href="http://flyway.org/wp-content/uploads/2013/11/auction1.jpg"><img class=" wp-image-2539 aligncenter" alt="auction1" src="http://flyway.org/wp-content/uploads/2013/11/auction1-580x870.jpg" width="348" height="522" srcset="../../../wp-content/uploads/2013/11/auction1-580x870.jpg 580w, ../../../wp-content/uploads/2013/11/auction1-1333x2000.jpg 1333w, ../../../wp-content/uploads/2013/11/auction1.jpg 1500w" sizes="(max-width: 348px) 100vw, 348px" /></a></p>
+<p style="text-align: center;">Supervising Editor Steve Pett rocks a <em>Flyway</em> hat and gets ready to announce the winner of the raffle. Gary Guthrie, kind donor of the sweet corn for our Sweet Corn Fiction Contest won the grand prize, an iPad Mini!  Good karma comes around!</p>
+<p style="text-align: center;"><a href="../../../wp-content/uploads/2013/11/auction2.jpg"><img class="wp-image-2540 aligncenter" alt="auction2" src="../../../wp-content/uploads/2013/11/auction2-580x386.jpg" width="543" height="361" /></a></p>
+<p style="text-align: center;">The crowd browses silent auction items.</p>
+<p style="text-align: center;"><a href="../../../wp-content/uploads/2013/11/auction3.jpg"><img class="alignnone size-medium wp-image-2541" alt="auction3" src="../../../wp-content/uploads/2013/11/auction3-580x386.jpg" width="580" height="386" /></a></p>
+<p style="text-align: center;">The fabulous Nick Brennick amuses the audience with his stand-up comedy.</p>
+<p style="text-align: center;"><a href="../../../wp-content/uploads/2013/11/auction4.jpg"><img class="alignnone size-medium wp-image-2542" alt="auction4" src="../../../wp-content/uploads/2013/11/auction4-580x386.jpg" width="580" height="386" /></a></p>
+<p style="text-align: center;">Former poetry editor, Xavier Cavazos, awards the winner of the poetry slam the golden duck.</p>
+<p style="text-align: center;"><a href="../../../wp-content/uploads/2013/11/auction9.jpg"><img class="alignnone size-medium wp-image-2545" alt="auction9" src="../../../wp-content/uploads/2013/11/auction9-580x386.jpg" width="580" height="386" /></a></p>
+<p style="text-align: center;"><a href="http://jordanmayland.bandcamp.com/">Jordan Mayland and the Thermal Detonators</a> rocks out some tunes. The gorgeous woman in the zebra dress? That&#8217;s our very own poetry editor, Claire Kruessel!</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2538.html#respond-2538" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/flyway-fundraising-auction/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/flyway-fundraising-auction/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/flyway-fundraising-auction/&text=Flyway+Fundraising+Auction"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/flyway-fundraising-auction/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/flyway-fundraising-auction/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Flyway Fundraising Auction&body=Flyway Fundraising Auction%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/flyway-fundraising-auction/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2509.html">Interview: A Conversation with Wang Ping</a></h2>
+	<div class="entrydate">7 Nov 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Friday, March 29th, 2013<br />
+9th Annual Symposium on Wildness, Wilderness &amp; the Environmental Imagination: The Future of Water</p>
+<p>Interview by Nick Bogdanich</p>
+<p>Wang Ping is the author of over ten books of poetry and prose. She is the recipient of the Loft Literary Center 2009 McKnight Artist Fellowship Award for Writers, the winner of the Minnesota Book Awards (2008), and the Book Award from the Association for Asian American Studies (2007). See more at http://www.wangping.com.</p>
+<p>In March, <em>Flyway</em>’s Assistant Fiction Editor, Nick Bogdanich had the chance to sit down with Wang Pin who was in town for Iowa State University’s Symposium on Wildness, Wilderness, and the Creative Imagination.</p>
+<p>&nbsp;</p>
+<p><i>Flyway: </i>As a writer of poetry who often employs dialogue and a writer of prose who often waxes lyrical, the line between the two genres seems particularly blurry in your case Mrs. Ping. I wonder if you could tell us how you find that one genre informs the other. Or at what point in drafting a story do you usually figure out what genre the story is trying to be?</p>
+<p>WP: I usually let the form of the story decide the form. When I have some idea and when I have some raw materials, I often take long walks. As I walk I use the rhythm to take me to where it needs to be and very often, also I let dreams take me.  So often the form for poetry, for a poem, is decided in between the sleep and the waking.  Like today I wrote a poem called <i>Of Mice and Men</i>, and I’m semi-waking up and the poem just started writing the first stanza.  When I woke up I knew, I’m writing this today. As for form, because I write poetry, I also write prose and fiction, short stories; sometimes it surprises me.</p>
+<p>In my last book, <em>The Last Communist Virgin,</em> (it’s a novella actually, it’s a fifty page story), when I started writing the story I wanted no more than ten pages, for that story, and then it just expanded and expanded into fifty pages. Then, the manuscript I’ve been working on for the last ten years is the same thing; I wanted to write it as a short story but it turned into a five hundred page manuscript. Every time I complete it, I destroy it and start anew.  So this is my fifth version. Even when a big time agent from New York really liked that manuscript and wanted to publish it, he wanted me to do some minor tweaks.  And I just couldn’t do it. I destroyed it.  Started completely new.  So just like a story, a poem has its own voice and personality and very often, I just have to follow.</p>
+<p><i>Flyway</i>: Your stories cover some pretty difficult subject matter: racism, rape, abortion. In one of your poems, <i>Distilled Spirit</i>, we catch a glimpse of the poet speaker discussing her work with a professor.  The professor says, and I’m paraphrasing, “people are going to read what you write as personal stories if you write in “she” or “I.” Especially as a Chinese immigrant who writes about Chinese immigrants, how do you guard against people reading your fiction as non-fiction?</p>
+<p>WP: People come to me all the time and say, “I’m so sorry you went through this.”  And my book agent, always wanted me to write, to turn my story into non-fiction.  When I told people, I said maybe they are ten percent factual.  The others are all historical and emotional truths, which I think is much more truthful than just day-to-day autobiographical accounts. Often life is so dramatic that it becomes melodrama. If you just write down as it is, it’s not truthful. It appears fake.  And so people get really nervous. They often feel cheated. They say, “I cried all these tears for you for nothing?” I say, “no it’s not true; you know these things may have happened to me and to my friends, to the generation, to immigrants even more.”  When you cry, you’re not just crying for me, you’re crying for all the people who have gone through this. That’s why I’m writing this, because if I just write about myself, it’s a very small world, but if I allow myself to go through the pain and joy of millions of other people than my world is expanded a million times larger. And that’s the task for a writer and poet. You cannot just write for yourself. You have to write through the voice of others. Those who do not have access. That’s how you create this kind of vibration and energy that make connections with other people.  They call it resonance. People say I can connect with this person, I can connect with this poem, I can connect with this book. That’s that bridging ability as a poet and a writer, but, meanwhile, as a writer, when I write about other peoples’ stories, and I turn their story into my own story, I always ask myself this question: what right do I have to write their story?  And I always come to this conclusion because I have suffered, because I’ve gone through so many things, because I know pain, because I did not run away from pain. I go through pain and I turn the pain into something positive. That is my connection, my bridge into other peoples’ pain. That’s my license to write for other people.</p>
+<p><i>Flyway</i>: You spoke about that ratio: you said ten percent true ninety percent untrue. A lot of writers talk about putting their lives on stage or mining their experiences or relationships for fictive material. Would you say that ratio generally holds true? How much personal truth in fiction do you think is too much?</p>
+<p>WP:I don’t know if it’s too much or not too much. Everyone is different. I can only speak for myself. I use my personal experience or emotion as a kind of springboard to dive into that ocean. Writing is often like standing on the cliff. It’s terrifying to jump in. And standing from the familiar ground, your personal story, is often a very easy and comforting and necessary springboard for you to dive into that. I think everyone, every writer, should start with the familiar ground. Then you get into this vast ocean and just play.</p>
+<p><i>Flyway</i>: Place is obviously very important to you and it is to your characters as well. They make pariahs of themselves and even risk death in order to preserve their ties with home. And yet these characters are often abroad. Yesterday we met at the Casey property to discuss your Kinship of Rivers program where you’ll actually be paddling the Mississippi and Yangtze with a fiction class. What is it with your own experiences being abroad that you’re trying to pass along to your students through this trip? Is there something about traveling that makes us focus on home?</p>
+<p>WP: As an immigrant, home definitely is an extremely important and constant theme, and dreams, consciousness and unconsciousness, in the psyche. I think it’s also becoming the psyche for all the modern contemporary people. Can you tell me where’s your home, really? In the past, the Chinese people all said Old Home, which is your ancestor’s home. My ancestor’s home is in the north part of China and I never went there. I was born in Shanghai in the south and I grew up on the island. I’ve never been to my ancestor’s home. But that notion that I am part of the ancestral land, really settles me, gives me a kind of roots, it’s our roots. That root is just so difficult now and really exists only in the linguistic, in our dreams, in our writing, in our words. So it’s more important for us to become much more conscious and constantly go back and examine ourselves and the concept of home because I do believe we came out of dust, the earth. We do need to put our feet, as roots into the earth, no matter how far we try to get away from the earth. Taking my students paddling in the river is really to bring them back to nature, which is our roots. We’re so disconnected with nature, with the water, with the land, with the woods. Once I bring them back into the nature, into the river, I immediately bring them back into the past history, and the living history. For example, the Minnesota River is the living history of Minnesota. That’s the white settlers conflict with Native Americans. 1862’s Conflict, Little Crow’s Uprising, and the famous Mancato Massacre that Lincoln ordered to hang about 200 Dakota men. No one knows about that. But it’s really the most infamous massacre. And also there’s the Trail of Tears. After the uprising was defeated by the federal army, all the Dakota people were exiled out of Minnesota. But all the conflict is really, if you think about it, the root of capitalism, and all the conflict between white and Native Americans, it’s all about the home, it’s about the land. This concept is so deep and in our psyche. As writers we really have to dig into that and otherwise we just skip the surface. In my teaching I really challenge students; we do all kinds of things: going paddling in the river, meditation, even some whirling movements and tai chi movements: to open up because we’re all so closed. If you want to be a good writer, you have to open up, to become vulnerable first.</p>
+<p><i>Flyway: </i>Speaking about the Mississippi and the Yangtze, they come up recurrently in your fiction. About these two rivers, characteristically, is there something about them you find similar or worth comparison?</p>
+<p>WP: Of course. It’s all about the cradle of civilization. Agricultural, cultural, hydraulic dams, all these things. And also New Orleans and Shanghai both are sinking.  In the pretty near future, both cities could be under water. It’s all really interesting. But, the main thing is not really a comparison. The main thing is really to link all the water system because all the water, the earth is one body of water. All the water is linked one way or another through underground network, through rivers, through the ocean. The water just wants to flow into the river. And the rivers just want to flow into the ocean. It’s just their nature.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2509.html#respond-2509" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/interview-a-conversation-with-wang-ping/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/interview-a-conversation-with-wang-ping/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/interview-a-conversation-with-wang-ping/&text=Interview%3A+A+Conversation+with+Wang+Ping"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/interview-a-conversation-with-wang-ping/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/interview-a-conversation-with-wang-ping/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview: A Conversation with Wang Ping&body=Interview: A Conversation with Wang Ping%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/interview-a-conversation-with-wang-ping/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2503.html">Flyway Fundraising: A Thank You To Our Donors</a></h2>
+	<div class="entrydate">5 Nov 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Every year in November, <em>Flyway</em> puts on a Fundraising Auction. We have a poetry slam, live music, and silent and live auctions. We just had our live auction last Sunday and it was a success! Pictures from the fun event are to come, but in the meantime we wanted to send a huge thank you out to all of our donors.</p>
+<p>THANK YOU TO OUR DONORS:</p>
+<ul>
+<li>ISU Book Store</li>
+<li>JAX</li>
+<li>Connie and Steve Ringlee</li>
+<li>Jacquelyn’s Photography</li>
+<li>Ames Silversmithing</li>
+<li>Stomping Grounds</li>
+<li>Café Diem</li>
+<li>Applebees</li>
+<li>Sports Clips</li>
+<li>Lucullan’s</li>
+<li>Della Viti</li>
+<li>Theil Bicycle Company</li>
+<li>Ames Yoga Center</li>
+<li>PCI Academy</li>
+<li>Ayden Lee</li>
+<li>Skunk River Bicycle</li>
+<li>Random Goods</li>
+<li>Stephens Auditorium</li>
+<li>Kil’n Time Studio</li>
+<li>Ducth Over Bakery</li>
+<li>Jeff’s Pizza</li>
+<li>BAM</li>
+<li>The Grove</li>
+<li>Brown’s Shoes</li>
+<li>Studio7Salon</li>
+<li>Dublin Bay</li>
+<li>Portobelo Road</li>
+<li>Wild Birds Unlimited</li>
+<li>The Hoffmans</li>
+<li>Catherine Engstrom</li>
+<li>Ingrid Lilligren</li>
+<li>Mary Swander</li>
+<li>Barbara Cheng</li>
+<li>C. Langenberg</li>
+<li>K.L. Cook</li>
+<li>David Zimmerman</li>
+<li>Danielle Wirth</li>
+<li>ISU Bee Club</li>
+<li>Steve Pett</li>
+<li>Will Pett</li>
+<li>Gary Guthrie</li>
+<li>Joe Lynch</li>
+<li>Nick Brennick</li>
+<li>Chris Wiewiora</li>
+<li>Sheryl Kamps</li>
+<li>Geetha Iyer</li>
+<li>Audrey McCombs</li>
+<li>Kelly Slivka</li>
+<li>Dana Thomann</li>
+<li>Meg Brown</li>
+<li>Nick Bogdanich</li>
+<li>Adam Wright</li>
+<li>Stefanie Trout</li>
+<li>Lance Sacknoff</li>
+</ul>
+<p>And so many others! Thank you!</p>
+<p><i> </i></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2503.html#respond-2503" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/&text=Flyway+Fundraising%3A+A+Thank+You+To+Our+Donors"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Flyway Fundraising: A Thank You To Our Donors&body=Flyway Fundraising: A Thank You To Our Donors%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/flyway-fundraising-a-thank-you-to-our-donors/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2496.html">Web Rove: Of Ghosts and Others</a></h2>
+	<div class="entrydate">31 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>By Chloe Clark</p>
+<p>It&#8217;s time for Halloween! Why does Halloween strike such a chord with some people? As children, it might be the fun of dressing up, the ghost stories, and the candy. But, what about once you’re older? There is still the candy and the ghosts and the pleasure that can be found in changing identity for a night. But, there is also the changing understanding of what Halloween might mean to you. It isn’t about fear, as much as being about the way we, for once, are allowed to let fear in.  Halloween is a time when we can open our doors and see the ghosts and the demons outside and its okay to be frightened of them.</p>
+<p>Then, in the days following Halloween are All Soul’s Day and the Day of the Dead— celebrations of life through those we have lost. The conjunction of these days always makes me think about darkness, about ghosts, and because I’m a writer, about the ways in which writers tackle those two subjects.</p>
+<p><a href="http://www.thrushpoetryjournal.com/september-2013-megan-peak.html">“Emptying Point”</a> by Megan Peak (from <em>Thrush</em>)</p>
+<p>This poem skillfully creates a sense of unease and longing that coalesce into something quite haunting.</p>
+<p><a href="http://www.thediagram.com/13_4/clark.html">“Devil’s Nostalgia”</a> by: Charlie Clark (from <em>Diagram</em>)</p>
+<p>I am physically incapable of resisting poems and stories that deal with the devil. You show me a poem about the devil in sonnet form and it would be a sin for me to resist (yeah, like I was resisting that pun). In this poem, Charlie Clark explores the devil in a way that gives us a glimpse into the devil’s state of mind. It is slightly chilling and slightly sad and just exactly what anyone would want.</p>
+<p><a href="http://bombsite.com/issues/83/articles/2557">Steven Millhauser</a> interviewed by Jim Shepard (from <em>Bomb)</em></p>
+<p>This is an older interview but the greatness of Millhauser makes it a worthwhile reread (or discovery-read for some). Millhauser is an author who gets the edges that exist in our vision, the phantoms that we can’t quite name, the magic in the just slightly othered. One of my favorite story quotes of all time comes from him and to me sums up my own Halloween philosophy: &#8220;You pass through a world so thick with phantoms that there is barely enough room for anything else.&#8221;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2496.html#respond-2496" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-of-ghosts-and-others/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-of-ghosts-and-others/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-of-ghosts-and-others/&text=Web+Rove%3A+Of+Ghosts+and+Others"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-of-ghosts-and-others/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-of-ghosts-and-others/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Of Ghosts and Others&body=Web Rove: Of Ghosts and Others%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-of-ghosts-and-others/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2471.html">Web Rove: Food Art, Writing, and&#8230;Apparel?</a></h2>
+	<div class="entrydate">29 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Erin Schmiel</p>
+<p>I have been noticing a lot of really odd to pretty disturbing displays of food art and food writing in magazines lately. Food writing and food art used to be the only the foray publications like <i>Gourmet Magazine </i>and their beautiful photography of gorgeous spreads of lovely meals or holiday dessert ideas.</p>
+<p>Now, with magazines like <i>Lucky Peach</i> from McSweeny&#8217;s and <i>MeatPaper</i> (out of SanFransico) food art has gone a whole new route. Much of it is making a literal fashion statement with meat dresses, the philosophy of meat art, to creepy pig paintings in Jill Goodman&#8217;s art series, &#8220;Comment and Dissent&#8221; and one man&#8217;s quest for donuts, which is just great writing, with fun illustrations.</p>
+<p>&nbsp;</p>
+<p><a href="http://www.gourmet.com">Dessert Ideas</a> (from Gourmet.com)</p>
+<p>Family-friendly and creative fun Halloween dessert ideas.</p>
+<p><a href="http://www.meatpaper.com/articles/2011/mp_fourteen_gaga.html ">&#8220;Behind the Meat Dress&#8221;</a> (from <i>Meat Paper) </i></p>
+<p>This is an interview with the designer and maker of the meat dress made for Lady Gaga by Franc Fernandez to wear at the 2010 Video Music Awards (VMA&#8217;s) awards. At first I thought it was a waste of food, but then I realized it was amazing: why not? Meat dresses! Food as a fashion statements.</p>
+<p><i><a href="http://www.meatpaper.com/articles/2010/0129_fulmer.html">&#8220;</a></i><a href="http://www.meatpaper.com/articles/2010/0129_fulmer.html">Carne Diem:</a><i><a href="http://www.meatpaper.com/articles/2010/0129_fulmer.html"> What Food Art can tell us about Life and Death&#8221;  </a></i>by Richard Fulmar<i> (</i>from <em>Meat Paper)</em></p>
+<p>This describes the purpose of food and art together in this article.</p>
+<p><a href="http://lky.ph/post/44555539606/interview-john-crowley-and-chris-adrian">&#8220;Interview: John Crowley and Chris Adrian&#8221;</a> (from <em>Lucky Peach)</em></p>
+<p>This<em> </em>is a goofy, boundary-bending magazine that mixes food and art at every turn like these pig head paintings by Jill Goodman, the tamer aspects of her art series, &#8220;Comment and Dissent.&#8221; The pig portrait is in included in this interview in <i>Lucky Peach</i>. See also the <a href="https://store.mcsweeneys.net/products/lucky-peach-issue-8">Gender Issue (Cover)</a> from <em>Lucky Peach</em> shows off the sexy side of food.</p>
+<p><a href="http://lky.ph/post/49369673139/richard-parks-on-doughnuts">&#8220;Richard Parks on Donuts&#8221; </a>(from <em>The Lucky Peach)</em></p>
+<p>This depicts Parks journey through donut shop after donut shop. This is experiential writing at it&#8217;s very delicious and thoughtful.</p>
+<p>&nbsp;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2471.html#respond-2471" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-food-art-writing-and-apparel/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-food-art-writing-and-apparel/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-food-art-writing-and-apparel/&text=Web+Rove%3A+Food+Art%2C+Writing%2C+and%26%238230%3BApparel%3F"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-food-art-writing-and-apparel/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-food-art-writing-and-apparel/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Food Art, Writing, and&#8230;Apparel?&body=Web Rove: Food Art, Writing, and&#8230;Apparel?%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-food-art-writing-and-apparel/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2456.html">Web Rove: Unconventional Viewpoints</a></h2>
+	<div class="entrydate">24 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Corrina Carter</p>
+<p>A writer must have a good reason for venturing outside an expected point of view (human, first or third person, etc.). Otherwise, her work will derive power from novelty alone. With that in mind, I combed the Internet for stories or poems told from unusual perspectives and flagged the rare pieces with substance. Those pieces are linked below.</p>
+<p>“<a title="Smoked Carp" href="http://www.bu.edu/agni/fiction/print/2013/77-germanacos.html" target="_blank">Smoked Carp</a>” by Anne Germanacos (from <i>Agni Online</i>)</p>
+<p>It is difficult to write in the second person without generalizing excessively. It is even more difficult to organize a series of questions into a narrative arc. Germanacos does both. The final line (“Are you merely my type? Or truly someone special?”) is particularly potent.</p>
+<p>“<a title="The Lambs Wool Strap Speaks from the Gurney, 1915" href="http://www.blackbird.vcu.edu/v12n1/poetry/hoffman_c/lambs_page.shtml" target="_blank">The Lambs Wool Strap Speaks from the Gurney, 1915</a>” by Cynthia Marie Hoffman (from <i>Blackbird</i>)</p>
+<p>The premise of Hoffman’s poem is bizarre: a scrap of wool used to tie the wrists of a woman in labor recalls its life as a lamb. However, the wool’s deep respect for human suffering—it tries to be “as soft as I can remember”—lifts the work from a gimmick to a wrenching endorsement of compassion.</p>
+<p><a title="The Faulkes Chronicle, excerpt" href="http://www.blackbird.vcu.edu/v12n1/fiction/huddle_d/faulkes_page.shtml" target="_blank">Excerpt from <i>The Faulkes Chronicle</i></a> by David Huddle (from <i>Blackbird</i>)</p>
+<p>This selection, a meditation on the death of a homely mother who grows beautiful in her cancer-haunted final days, stands out for its successful use of the collective voice. The “we” narrator reminds us that the loss of a single life diminishes us all.</p>
+<p><a title="Partridge: Paradise Lost" href="http://www.bu.edu/agni/poetry/online/2013/kearney-partridge.html" target="_blank">Partridge: Paradise Lost</a>” by Meg Kearney (from <i>Agni Online</i>)</p>
+<p>Authors able to inhabit the minds of animals without stripping their subjects of wildness are hard to find. Count Meg Kearney among them. Her partridges love, grieve, and wonder but also understand the world in terms of “toe-scratch,” “egg heat,” and “seed-hunger.”</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2456.html#respond-2456" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-unconventional-viewpoints/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-unconventional-viewpoints/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-unconventional-viewpoints/&text=Web+Rove%3A+Unconventional+Viewpoints"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-unconventional-viewpoints/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-unconventional-viewpoints/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Unconventional Viewpoints&body=Web Rove: Unconventional Viewpoints%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-unconventional-viewpoints/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2440.html">Interview: A Conversation with Julian Hoffman</a></h2>
+	<div class="entrydate">22 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Brenna Dixon</p>
+<p><i>Julian Hoffman’s collection of essays, </i>The Small Heart of Things: Being at Home in a Beckoning World<i>, is the winner of the Association of Writers and Writing Programs Award for Creative Nonfiction, selected by Terry Tempest Williams. In 2010, Flyway published his essay, </i>“The Memory of Land and Water,”<i> a piece exploring the Prespa Lakes region in the Balkan peninsula—its history, its ecology, and its role as meeting place for the borders of Greece, Albania, and the former Yugoslav Republic of Macedonia.  Hoffman uses this region to lead readers through an examination of home, community, and the ease with which we’ll find both if we only pay attention. Check out the book trailer, </i><a href="http://vimeo.com/74914875" target="_blank"><i>here.</i></a></p>
+<p>&nbsp;</p>
+<p><i>Flyway</i>: I’m especially interested in the hard-to-draw lines that define, and differentiate, “home,” “place,” and “environment.”  In the preface to your book you talk about place as being “hard to define…its rough edges and over-looked shades, the so-close-to-home that it’s easily missed.” I couldn’t agree more. You then argue that a person can turn any <i>environment </i>into a <i>place</i> by engaging with that environment and brokering a relationship with it. My question is this: after brokering that relationship, how does one turn a <i>place </i>into a <i>home</i>?</p>
+<p>JH: Home, in its many guises, is founded on love, on a sense of care towards it that’s shaped by reciprocity. A house that feels like home – and not all of them do &#8211; provides safety and warmth, a shelter for growth and a store for familial memories. In return the family looks after that house, fixing broken beams and cracked tiles, shoring up after a storm. And that relationship is no different in the case of a place. Through a process of opening ourselves to the possibilities inherent in a place, which might be anything from a rare quality of light or the beautiful shape of a hill to its significance for wild animals and the cultural traditions that are embedded there, we can cultivate a love for a place which becomes part of a wider landscape of home. If a house can become home, why not the places that surround that house? Why not the places that we encounter at other times? Countless places across the planet are under threat from one human activity or another, and yet love can be profoundly protective, whether witnessed in parents raising a child or that family house that’s threatened by fire. We’ll go to any lengths to protect that child, that house. If that same kind of love can transform a place into a home, we may come to value its preservation through our own connection to it, and that of the wider environment over time.</p>
+<p>There’s a worrying trend in the UK at the moment whereby we’re seeing more and more politicians advocating biodiversity offsetting. Developers are allowed to build on previously protected land as long as they “create” similar wildlife habitat elsewhere. Many of these politicians argue that it’s even a way to improve nature. George Monbiot has best encapsulated the dangers of this terminology: “Accept the principle of biodiversity offsetting and you accept the idea that place means nothing. That nowhere is to be valued in its own right any more, that everything is exchangeable for everything else…” Place is a unique composite of qualities, and if any of those places that politicians and developers are keen to level felt like home, then our cultural relationship to their loss would be completely different than it is at the moment.</p>
+<p><i>Flyway</i>: Speaking of home, in “Homing,” you write that “home is also an idea, a complicated human construct often built over unstable foundations…an idea formed by intricate cultural traditions frequently contingent on coincidence and unforeseen circumstances.” In the introduction to <i>Finding Home</i>, a collection of essays from <i>Orion</i>, Peter Sauer writes, “A society’s conceptual relationship to nature is at the core of its culture: it is a relationship that underlies what we believe and how we live.” Do you think this is a fair point for Sauer to make? If nature creates culture, and culture creates home, can there be home without nature?</p>
+<p>JH: Human culture is responsible for how we’ve come to see home as both a physical place and an idea, but in the wider animal world there are a remarkable number of examples of how certain species settle down in a place in ways reminiscent of our own. A badger sett is a warren of burrows and dens not dissimilar to the rooms of a human house, sometimes providing shelter for centuries, reused and renovated with each generation. Or the way a male bowerbird builds an ornate structure that it decorates with brightly colored or glittering objects, an ostentatious offering to a mate that the might resonate with the fabulously wealthy. Wild creatures are more like us than we think and, conversely, quite often we are more like them than we would care to admit.</p>
+<p>Alone on a mountain ridge last summer, I unexpectedly startled a brown bear, and those few minutes in its presence taught me more about our nature than years of reading about it in books had done. The immediate, visceral response of my body to the situation was the evolutionary reaction of prey to a predator. My skin was electric and alive; my mind operating on some ancient, preserving level. Despite the rich cultures that humans have created and cultivated, we remain, in essence, simply animals, as reliant upon the same clean air, water and ecosystems as they are. Accepting that we are a part of the natural world may well be the only way of finding home in a future clouded by environmental damage.</p>
+<p><i>Flyway</i>: In your essay, “The Other Shore,” you say of people, “bonds that last years can be forged within minutes.”  Later, in “Shadow Grounds,” you talk about your “short, but emotionally rich, period of time” on the moors. Do you find that lasting bonds between people and places can be made just as suddenly and quickly as those formed between two people?</p>
+<p>JH: Yes, absolutely. Place works on us in mysterious ways; we never really know when a connection will be made. But the more open we are to our surroundings, the more curious we are about them, the greater chance of forging a bond. The relationship between people and place is very much about the quality of our attention. You could spend your whole life in one place and not necessarily develop an affinity with it, but you could equally spend a day somewhere and through the “process of experiencing deeply,” as Alan Gussow suggests, cultivate an immediate attachment. Of course a single day isn’t sufficient to plumb the depths of any given place, but it’s a beginning – a beginning that might lead on to something else, a beginning that might endure.</p>
+<p>I’ve recently been visiting a place called the Hoo Peninsula on the Thames Estuary. I’d only ever intended to spend a single day there interviewing some people for a project I was doing, but in those few hours, amidst slanting slow and winter-cold winds, the place cast a spell on me. The longing calls of geese fell from the sky and the marshes misted over with an evocative, ghostly haze. I heard that place calling to me, in its unique and unmistakable voice. Now I find myself returning to that same spur of land at the edge of the sea again and again, to explore it and, hopefully, come to know it more deeply, but it all began with a glimpse, nothing more.</p>
+<p><i>Flyway</i>: Okay, here’s a lighter question (maybe): Reading your book—maybe because I’m a birder, too—made me want to immediately jump on a plane and fly off to explore the Prespa Lakes. Then Edward Abbey appeared in the back of my mind, chastising me. “Leave it alone!” he cried. “More humans means more damage!” Are you nervous about bringing attention to the Prespa Lakes landscape?</p>
+<p>JH: This is a great question, with no easy answer. Going back to the Hoo Peninsula for just a second: that place at the edge of the sea is a remarkable landscape –both culturally and ecologically – that’s under threat of being flattened after a proposal was put forward to build Europe’s largest airport on top of it. Part of the reason that a proposal like that was able to happen was because the area was so unsung; for whatever reason &#8211; despite it being the setting for Charles Dickens’ <i>Great Expectations </i>and the home of centuries-old marshland communities and being protected by a host of protective measures because of the vast number of wild species it supports &#8211; it remains so little known. It seems to occupy a blank space on the map of southern England and that invisibility, that lack of attention, makes it all the more vulnerable. It’s far easier to get the go-ahead for development, regardless of what might be potentially lost, when a place is non-existent in the public imagination.</p>
+<p>Of course there needs to be balance in an ecosystem as delicate as this, but I would like others to be able to experience something of this wonderful place called Prespa as well. Those visitors not only experience something of great beauty, as rare pelicans circle over the lakes and ancient hermitages glint in the afternoon sun, and but they provide business for local people who run guest lodges and tavernas, and support, through their presence here, the idea that nature conservation can have a positive effect on remote livelihoods instead of being a hindrance to them, as is often perceived to be the case.</p>
+<p><i>Flyway</i>: At the beginning of “The Memory of Land and Water” you mention that the Prespa Lakes region is the first transboundary park in the Balkan peninsula.  The leaders of Albania, Greece, and the Former Yugoslav Republic of Macedonia pledged to protect the area while “maintaining a peaceful collaboration between countries.” It sounds like land, then, becomes a peacekeeper, acting as the great unifier, surpassing differences between peoples.  Do you see land as an equalizer? A cultural safe zone, so to speak?</p>
+<p>JH: Land is, or can be, a great unifier. And so can water. The lake basin is a shared resource that straddles the borders and neither the fish nor the water that local communities are reliant on understands these distinctions. The European Union’s Water Framework Directive, which was adopted in 2000, had a great bearing on the cross-border agreement. The directive is premised on the fact that “rivers do not stop at national frontiers.” It’s an enlightened legislative approach to a shared resource, based not on national or political delineations, but instead on natural geographical and hydrological formations, like river basins and catchment areas that can be found across borders in a place like Prespa. So people are talking across the territorial lines to each other increasingly more often here, trying to find a way to jointly manage these resources. Of course there remain serious divisions in general – about logging, fishing, irrigation, migration, to name a few of them, together with the differences in language and ethnicity – and I worry, not just here but throughout Europe, as we witness a resurgence of populist nationalism, that those border lines could harden again. Land can unify or divide, and our tendency as a species has long been towards the latter. But as the water directive has shown, and as Myrsini Malakou says in one of the essays in the book, “Where there are borders, there are bridges.” We should always be on the lookout for those bridges.</p>
+<p><i>Flyway</i>: While writing “The Memory of Land and Water,” published in <i>Flyway</i> in 2010, did you imagine it as part of a larger narrative?</p>
+<p>JH: Not really, to be honest. Pieces of writing had been emerging in response to living here and “The Memory of Land and Water” was another of those snapshots, a glimpse into the lives and landscapes of this place. But it wasn’t for another year or so that I began to see that these snapshots might fill an album; they were connected by themes that I hadn’t actually seen at the time of writing. They were being threaded together without me being aware of it. In many ways, the process of writing them was as much a part of the journey towards home as physically living here and settling into this place.</p>
+<p><i>Flyway</i>: Where did this book come from? What first urged you to write it?</p>
+<p>JH: It took me a long time to come to terms with the necessary commitment to be a writer. For many years I’d been more in love with the idea than the practice. And I think much of that was about an inner restlessness; I constantly felt like I was searching for some place to live that was meaningful. Moving here to the Prespa Lakes, though, I began to see how my restlessness arose from within. Instead of acknowledging the interiority of my struggles, I’d essentially mapped them onto the outer world, moving on and on in search of somewhere to belong. I began writing about this one place in order to see how I might look at all places.</p>
+<p><i>Flyway</i>: In your essay, “A Winter Moth,” you write, of Artistide Caradja’s micro-moth collection, “according to its contents, a collection reflects back something of the collector himself, some intangible glimpse into the quality of his fascination.”  I can’t help but apply this apt statement to writing, too.  Do collections of prose and poetry speak about their authors in the same way?</p>
+<p>JH: Very much so. I love the constancy of an author’s voice when reading essay and short story collections; how it’s an abiding presence, but one that’s refracted through a set of different lenses, so that the focus of attention is always shifting, revealing new facets and angles on an overall theme or preoccupation. This is very much the case with the book I’m reading at the moment, Elizabeth Dodd’s <i>Prospect</i>. In it she wonderfully circles the Kansas landscape from varying heights, telescoping in from different geological and historical ages, but throughout the essays I’m always grounded by her voice. You end up with a mosaic, a brilliant image built slowly from the smallest, individual pieces.</p>
+<p><i>Flyway</i>: You’ve lived in Toronto, London, Greece… Is there a place that has shaped you most as a writer?  How has living in such vastly different places influenced your writing?</p>
+<p>JH: Each place has shaped my writing in different ways. There is a store of memories of initial engagements with landscapes, people and place from my childhood in Canada and summer holidays in England that are crucial, in sometimes unknowable ways, to my work. Like finding a small shark washed up on a beach in northern England while I was with my Uncle as a young boy. The image of that shark &#8211; bruised about its head from being battered against rocks; the feel of its rough, gray skin; the dark, open eyes – remains vivid. What role it plays I’ll never know, but these resonant memories linger, and have helped shape my relationship with the natural world in a larger sense over time, eventually filtering into the writing on some level.</p>
+<p>But it was living in Greece that shaped my writing in a practical sense. We spent five years as market gardeners after moving here, working a set of fields at the edge of the mountains. Each day some new story emerged from those fields, whether it was a falcon sheering over the crops, finding an old Ottoman coin while turning the soil, or a conversation with an itinerant shepherd as he led his flock through the valley. I felt that the stories of this place were important, but for first time I began to realize how the stories of any place are important. That was a significant shift for me, and living a rural life here enabled me to eventually have the time and the quiet – both internal and external &#8211; to put some of them down on paper, a time and quiet that had been difficult for me to find when I’d been living in cities.</p>
+<p><i>Flyway</i>: What do you see as the writer’s role in regards to the subjects of home, place, and environment?</p>
+<p>JH: I see the writer’s role as the same for any subject he or she approaches: to tell a good story. Ideally one that reaches out to a reader in some meaningful way about our place in the world. But story, that weave of language and imagination, is the essential heart.</p>
+<p><i>Flyway</i>: In “An Accumulation of Light,” you turn to Rilke “to illustrate a method of seeing”: “The art of perceiving is more about reception than it is vision. We don’t have to struggle to see things, Rilke suggests, for they are already there, calling us. The difficulty lies in unlearning our tendency toward indifference.” What advice do you have for those attempting to better ground themselves in place by unlearning this indifference?</p>
+<p>JH: The great guides to experiencing place are children. You can watch a young child utterly absorbed in a small square of meadow or a patch of scrubby ground where she might be fascinated by a butterfly or lost in watching a solitary insect wriggle along a stem. A child can connect so deeply, so intensely with whatever she’s watching that there’s no longer a distinction between her and the observed. She’s absolutely part of the very place she’s standing in.</p>
+<p>What’s so remarkable about children’s perception, even more so than its intensity, is that it’s characterized by an equality of interest. Everything a child encounters in nature, no matter how small, offers possibility and is therefore equally fascinating. Children make little distinction between major and minor motifs. A feather found on the beach is as wondrous as the creature it belonged to. As childhood is left behind, adults tend to shed that capacity for curiosity, that spirit that animates the smallest of things. We yearn for greater and faster excitements; we seek larger vistas, grander views. But as a child can show us, all places contain the seeds of astonishment.</p>
+<p><i>Flyway</i>: If you could have readers take away one thing from <i>The Small Heart of Things</i>, what would it be?</p>
+<p>JH: That rich possibility, or “murmurs at every turn” in Rilke’s words, can be found in the places around us when we look at them with curiosity and openness. I would be delighted if a reader wanted to step outside into a place of their own after reading the book.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2440.html#comments-2440" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/interview-julian-hoffman/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/interview-julian-hoffman/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/interview-julian-hoffman/&text=Interview%3A+A+Conversation+with+Julian+Hoffman"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/interview-julian-hoffman/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/interview-julian-hoffman/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview: A Conversation with Julian Hoffman&body=Interview: A Conversation with Julian Hoffman%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/interview-julian-hoffman/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2433.html">Meet Your Editors: Nick Bogdanich, Assistant Fiction Editor</a></h2>
+	<div class="entrydate">19 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>In this latest installment of our &#8220;Meet the Editors&#8221; series, we talk with Assistant Fiction Editor Nick Bogdanich about the recent renaissance in linked short stories, setting as character, and the importance of No Capes!</p>
+<p><em>Flyway</em>: In a couple of sentences, share something about your background—writing related or otherwise.</p>
+<p>NB: I am a graduate of the University of Wisconsin at Madison where I completed my B.A. in English literature and creative writing. The three most interesting jobs I’ve had (besides working for <em>Flyway</em>) are: spelunking leader, bouncer at a concert venue, and carny.</p>
+<p><em>Flyway</em>: What book(s) can you not stop talking about?</p>
+<p>NB: One collection of short stories that I can’t stop talking about is <em>Dead Boys</em> by Richard Lange. I liked how the wonky, noir setting in this book essentially serves as a recurring character that links the stories.</p>
+<p><em>Flyway</em>: What book(s) inspires or compels you writing?</p>
+<p>NB: I am currently at work on a collection of linked short stories, and Lange’s collection has informed the development of my own. I also admire Elizabeth Strout’s <em>Olive Kitteridge</em>—a collection of short stories linked by a common character.</p>
+<p><em>Flyway</em>: What writers do you seek out in literary magazines?</p>
+<p>NB: When I read a lit magazine, I gravitate toward writers skilled in characterization. As one of my professors reminded me recently, fiction has above all other genres the greatest propensity to probe a character’s inner life. Considering, any story that does not do this needs to have a good reason. Concept-heavy stories frequently fall flat for me since they often engender characters whose allegorical functions trump complexity and believability—there are, of course, plenty of exceptions.</p>
+<p><em>Flyway</em>: Is there an aspect of the writing life, or the writing industry, that deserves more attention than it gets?</p>
+<p>NB: As you can probably guess from my responses to the previous questions, I like linked short stories. Although this form has gained some popularity in recent years, I still think it deserves more attention. I’d be very interested in serializing a collection of linked stories on our website. Flash fiction is also something that we haven’t really published yet, but that I would like to see more of. Comic fiction or sequential art also interests me. Since our magazine is now online, the added cost posed by publishing artwork is no longer an issue for us. Just remember: dynamic setting, memorable characters, and no capes.</p>
+<p><em>Flyway</em>: What advice do you have for potential contributors of <em>Flyway</em>?</p>
+<p>NB: My advice to prospective contributors to <em>Flyway</em> is to think of your setting as a character that must develop throughout the course of the story, and not merely serve as a backdrop. I don’t want to be too prescriptive, but <em>Flyway</em> is a journal of writing and the environment. As such, “place based” stories earn preference in cases where all other elements of craft prove equal.</p>
+<p>Although we are a journal of the environment based in Iowa, I don’t consider <em>Flyway</em> a regionally specific journal. The folks who run it come from a diverse background, both regionally and in terms of our varied approaches to our craft. What makes us similar is our appreciation for writing’s power to elucidate environmental themes and concerns in ways that formulas cannot.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2433.html#respond-2433" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/meet-your-editors-bogdanich/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/meet-your-editors-bogdanich/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/meet-your-editors-bogdanich/&text=Meet+Your+Editors%3A+Nick+Bogdanich%2C+Assistant+Fiction+Editor"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/meet-your-editors-bogdanich/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/meet-your-editors-bogdanich/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Meet Your Editors: Nick Bogdanich, Assistant Fiction Editor&body=Meet Your Editors: Nick Bogdanich, Assistant Fiction Editor%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/meet-your-editors-bogdanich/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=2402.html">October 15: Haunting New Content!</a></h2>
+	<div class="entrydate">15 Oct 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Michelle Donahue, Managing Editor</p>
+<p>New content for October is here! Celebrate Halloween with <em>Flyway</em> by checking out some haunting fiction (&#8220;What Haunts the Endless Night Sky&#8221;), an essay ending with terror (&#8220;A Summons to Macon&#8221;) and poetry that begins with a dead body (&#8220;Body Farm), poetry that creates spooky setting (<em>asphalt cloaked in thinning skin of ice, </em>&#8220;Man Whole,&#8221;) and poetry that features shadowy oaks and stalking owls (&#8220;Should One Stare Down a Bull’s-Eye a Blink Would be Unnerving&#8221;). Also check out our (mostly) black and white visual art.</p>
+<p><a href="../../../wp-content/uploads/2013/10/eleanor_leonnebennett-visual_art-p1370494.jpg"><img class=" wp-image-2397 alignright" alt="Spikey Map" src="http://flyway.org/wp-content/uploads/2013/10/eleanor_leonnebennett-visual_art-p1370494-580x773.jpg" width="244" height="325" srcset="../../../wp-content/uploads/2013/10/eleanor_leonnebennett-visual_art-p1370494-580x773.jpg 580w, ../../../wp-content/uploads/2013/10/eleanor_leonnebennett-visual_art-p1370494-1500x2000.jpg 1500w" sizes="(max-width: 244px) 100vw, 244px" /></a></p>
+<p>We invite you to peruse:</p>
+<ul>
+<li><span style="font-size: 13px; line-height: 19px;">Fiction from </span><span style="font-size: 13px; line-height: 19px;">Cassandra Lopez</span></li>
+<li><span style="font-size: 13px; line-height: 19px;">Nonfiction from Larry Verburg</span></li>
+<li><span style="font-size: 13px; line-height: 19px;">Poetry by Mary Ballard, Jennifer Tappenden, and Brian McCarty</span></li>
+<li><span style="font-size: 13px; line-height: 19px;">Art by Eleanor Leonne Bennet </span></li>
+</ul>
+<p>Also, <em>Flyway</em> is pleased to congratulate Mary Quade whose essay &#8220;Hatch&#8221; was listed as a &#8220;Notable&#8221; by the series editor of the <a href="http://www.houghtonmifflinbooks.com/hmh/bestamerican/essaysbookdetails">Best American Essays.</a> &#8220;Hatch&#8221; was first published in <em>Flyway</em>&#8216;s 2012 anthology. Congrats!</p>
+<p>If anyone is interested in purchasing an issue of our 2012 Anthology, our last print run, please send us an email at flywayjournal@gmail.com</p>
+<p>Also, nonfiction writers, don&#8217;t forget to submit to our 2013 <a href="../../notes-from-the-field-contest-with-guest-judge-rick-bass/index.html">Notes from the Field Contest!</a></p>
+<p>&nbsp;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=2402.html#respond-2402" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/october-15-haunting-new-content/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/october-15-haunting-new-content/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/october-15-haunting-new-content/&text=October+15%3A+Haunting+New+Content%21"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/october-15-haunting-new-content/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/october-15-haunting-new-content/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: October 15: Haunting New Content!&body=October 15: Haunting New Content!%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/october-15-haunting-new-content/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../11/index.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../13/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>

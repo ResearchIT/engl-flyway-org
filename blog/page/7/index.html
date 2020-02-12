@@ -1,0 +1,1394 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page7' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page7' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page7' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page7' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3491.html">Interview with Natalie Diaz</a></h2>
+	<div class="entrydate">27 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Samantha Futhey</p>
+<p><i>Natalie Diaz grew up in the Fort Mojave Indian Village in Needles, California, on the banks of the Colorado River. She is Mojave and an enrolled member of the Gila River Indian Community. After playing professional basketball in Europe and Asia for several years, she completed an MFA in poetry and fiction from Old Dominion University in 2007. She currently lives in Mohave Valley, Arizona, and directs a language revitalization program at Fort Mojave, her home reservation. There she works with the last Elder speakers of the Mojave language. </i>When My Brother Was an Aztec<i>, published in 2012 by Copper Canyon Press, is her first poetry collection.</i></p>
+<p><i>This interview was conducted at Iowa State University’s Memorial Union, during the Wilderness Symposium, a series of lectures sponsored by ISU’s Creative Writing and Environment MFA program. It has been edited for length and clarity.</i></p>
+<p><i>Futhey</i>: I read in your bio that you used to play basketball professionally, which I find fascinating. After that whole experience, what made you decide to go back to writing, or did you start writing at Old Dominion and come back to it after your basketball career?</p>
+<p><i>Diaz</i>: I’ve always liked to read and write, but I never read poetry. I was training at Old Dominion to continue to play basketball — I had a contract to play in another country, and I was ready to go. I blew my knee out during one of my practices, and I had to do rehab. There’s an expedited rehab process, but I decided to just take the full six months. A few of my undergrad professors who I’d kept in touch with were teaching in the creative writing department at Old Dominion and let me enroll without being a part of the program yet, which was very generous of them. I mean, it wasn’t free, of course; they weren’t that generous (<i>Laughs</i>). So I took a bunch of workshops and I decided that I liked it. I think had I not been injured, and maybe had I not been injured there, I might not have given myself the time ever to see if I wanted to be a writer.</p>
+<p><i>F</i>: Why does poetry attract you?</p>
+<p><i>D</i>: You know, I don’t know. I also write fiction, but I fell into poetry — maybe because some of the physical rhythms are similar to basketball. I didn’t see it at the time, but now that I can look back in retrospect, I feel like my poetry mirrors some of the rhythms of basketball — or maybe the way I played basketball. Sometimes it’s very fast paced, and it’s accumulating, and there’s a lot of momentum and momentum switches.</p>
+<p>Poetry still feels very physical to me, because you’re trying to be concise, and every word counts. It’s like on the court: You don’t just go out there and run around like crazy. Spacing is important, and that’s how my lines feel to me. I can see the rhythm and spacing of them, whereas with fiction, I don’t feel that as much, because there is more space. Maybe it’s more like soccer — heck of a lot bigger field for sure (<i>Laughs</i>). But I’ve been thinking about basketball and my poetry a lot, partly because people have mentioned it to me, that they see some of the connections between the two, the momentum and rhythms of it.</p>
+<p><i>F</i>: I’d certainly agree to that. In, <i>When My Brother Was an Aztec</i> your poetry collection that came out a few years ago, you employ such stunning use of image. The images were unexpected in their development and created fast-paced rhythms (as in first lines of “When My Brother Was an Aztec”: “He thought he was/ <i>Huitzilopochtli</i>, a god, half-man half-hummingbird. My parents/ at his feet, wrecked honeysuckles, he lowered his swordlike mouth,/ gorged on them, draining color until their eyebrows whitened”). Can you describe your creative process while you were writing that collection of poems?</p>
+<p><i>D</i>: With any writing, whether it’s poetry or fiction, I start with an image. So I start very small. One, because my mind is a little bit wild: It’s very noisy, and I get excited about every little thing. Every word is a rabbit hole for me, so I can get very far from where I need to be. I try to focus on a single image, and one of the things I try to do is break it. So whatever that image is —whatever it is I’m seeing or trying to figure out how I feel about — I try to break it into as many pieces as possible.</p>
+<p>Entomology is really important to me. The history of the word, the mythology of that word, where it comes from, how it’s been used before in other literatures&#8230; I try to figure out what the image means to <i>me</i> instead of letting it mean what it’s already meant to other people. I have this faith that if I can find a way to make that image or word new to me again, brand new, it will be brand new to my reader as well. I don’t mean brand new as in I feel I have to be fantastical and do back flips, but emotionally, which is sometimes difficult with poems like “When My Brother was an Aztec.” It’s about my brother, and for me, I could never write about my brother. I would never be able to tell you how I feel about him, but if I can create an image to hold or smash or cage the emotions I’m feeling, then that’s what I pour all my emotional energy into. And then I don’t have to be sentimental, then I don’t have to write about my brother, because now I’m creating an image. I think that’s what my readers feel, because again no one’s been to my house or my reservation, but they are still able to come to those images or the narratives the images built and feel something. Most importantly, it becomes theirs not mine anymore. That’s what I notice when I have conversations with people about it. They feel like they know me or that I know them, and none of that is true, except the emotional truth is there on the page. I think the images are what let people access that.</p>
+<p><i>F</i>: You mentioned your brother, and a lot of the poems in that collection talk about serious issues: reservation life, poverty, drug addiction. I also noticed your use of form. There’s the pantoum in “My Brother at 3 am” and the abecedarian, which has one of my favorite titles of the whole collection (“Abecedarian Requiring Further Examination of Anglikan Seraphym Subjugation of a Wild Indian Rezervation”). How do you use form? Was that a deliberate choice to use a structured form in order to talk about some of the more serious aspects of the book?</p>
+<p><i>D</i>: I used to hate form when I was in my MFA program. Every time I’d have an assignment, I would just go blank. I was rebelling against it — I would not write it, and everything would shut down. My very first form poem was the abecedarian, and I wrote that because my instructor Gloria told me in class, “I’ve never read any good narrative abecedarians. I haven’t read any good narratives poems in that form.” And that was my challenge to it.</p>
+<p>I’ve always needed a way to break form, and that’s never the way it’s given to you. It’s, “This is what you have to do.”  So when she gave it to me with this off-handed challenge, it was almost like she was saying this needed to be broken, so that let me into it. I think form is important to me, especially because of certain emotions, because we don’t even understand them. I think the whole point of writing poetry is to figure out what we feel or why we feel that way. I always saw form as a cage, but what I realized is in the boundaries of it, you don’t have anything to worry about. This is as far as you can go on either side. And there was a freedom in that, so I found a lot of freedom in form to go places I wouldn’t normally have gone.</p>
+<p>“My Brother at 3 am” is a pantoum. I had a conversation with my mother, and it was bothering me for months, and I didn’t know how to access it or what to do with it. And writing for me is the way I access a lot of things. But I couldn’t access this thing my mother had recounted to me while I was away. So what I did was I read Cecilia Woloch’s “Bareback Pantoum,” and I felt something comforting in the rhythm of it. So I sat down and took two images — my mother opening a door and my brother crying on the front steps in the middle of the night — and I pushed them and pushed them and pushed them. I tried to bring in dialog, snippets of what my mother told me on the phone, and by the time I got into the second page, the poem started. I didn’t have to worry, because I was so focused on the repetition that I got to disconnect from some of the filters we normally have. Form frees us. The filter is already there the boundaries are already there, so now I can relax, I don’t have to worry. I can’t go too far and I’m going to go at least this far. So form for me — especially triolet, pantoum, the ghazal, that repetition — makes me discover new things.</p>
+<p><i>F</i>: When I’m trying to write in form, it takes me a long time to figure out how exactly to approach it. As I was reading poems from this collection, I wondered how long it took you to write the book. Did some poems take longer to write, to process, or were others just immediate?</p>
+<p><i>D</i>: I’m a really hard worker, and I do a ton of revision. For example, I don’t believe in writer’s block, because I don’t <i>have</i> to write a poem. I know I can work with it, and I know there’s something in there, maybe just a simple word I can pull from it. I do a lot of free writing. I always have a notebook. I write a lot. Even if I don’t have time, I trust I can sketch out enough of a poem, so when I get an idea or impulse, I stop and write down as much as I can and go from there.</p>
+<p>In my MFA, I started writing my first real poems in my third year. It took me that long. My program was three years, and also I was not a writer, was not a poet, had not been reading poetry. But finally, my third year, I wrote things that surprised me, so I knew they were something. And I just continued to write after my MFA. It was 2007 when I started writing real poems, and then I continued in 2008 and 2009. I was writing for three years. But even when I had the book ready, three months before press, I completely revised all of them.</p>
+<p>In my next collection, I have poems I tried writing in my MFA program. I just finished a couple of them, and they feel good to me, but it’s taken me since 2007. I always thought it was crazy when old white guys would say, “Oh I wrote this poem for seven years,” and I was like, “What? You’re crazy! You have anything else to do?” But now that I’m treating myself as a writer, I notice my growth a lot more, and I’m a lot more patient.</p>
+<p>A lot of my friends, contemporaries like James Arthur, Tomas Morraine, Roger Reeves — people my age who I’ve been getting to know the last few years — have books that took five years to produce, and in those five years they’ve grown, and they’ve grown within those poems. Sometimes a poem will happen a little more quickly, but my guess is that when I put this final manuscript together for the next book, I’ll tweak everything. That being said, lately I don’t mind reading poems when they’re really new. I might read some this evening. They’ve been around for three or four months, but I know I’ll change the heck out of them. My process can be very long.</p>
+<p><i>F</i>: You mentioned that you have another book coming out, so I was wondering what other projects you have going on. What are you most interested in exploring at this point in your writing?</p>
+<p><i>D</i>: My new book is slated for the end of 2015, but I have the option of saying I’m not ready if I want to.</p>
+<p>I think the third half of “When My Brother Was An Aztec” moves towards this new book. I think a lot of people read my first book chronologically, so they assume the third half — poems about love or war — is where my work has been growing towards. But I wrote all those poems around the same time.</p>
+<p>A lot of my poems now are looking at home, my reservation, but in a very different way. There’s a lot more about my language work, about the layers of language I’ve been working with. And I’m writing at home — before, I was writing about home away from home, so that’s completely different. There are still brother poems (people have had a lot of strange comments about that, like, “You’re still writing brother poems?”). But I’m just going to write what I have to write. Still, it’s very different. I noticed that in my first book, I was often not in the poems, or if I was, it was a very small “i.” But in the poems I’m writing now, the “i” and the brother are largely the only two people in the poems. One reason this is the case is because I’m home, but also I’m thirty-five and so I’m much older now, and my relationship with my brother is complex, and same with my family. I’ve changed in the way I see his change it and the way I feel about it.</p>
+<p>The new book is tentatively titled “Native American Berserk.” But I don’t know that the book is wildly different. I didn’t all-of-the sudden switch to writing nature poems, yet it’s an older speaker now.</p>
+<p>That wasn’t a very straightforward answer (<i>Laughs</i>).</p>
+<p><i>F</i>: No, no that was great answer! Finally, what advice would you give to new writers or people who struggle to find their place in writing?</p>
+<p><i>D</i>: This is kind of lame, but read. I remember when Sherman Alexie came and spoke at my school — this was the first time I’d met him — and asked everyone in the audience, “Who are you reading? Who are you’re writers?” And most people had no answer. You can read anything you want, but you have to know your writers. And if you don’t know your writers, you’re probably not reading enough. Borges — that’s my guy. I go back to him again and again. Or Lorca, or Yehuda Amichai. I go back to them all the time. Those are mine. And they are all threaded through my books.</p>
+<p>I think another piece of good advice is to be patient. It seems like everybody’s scrambling to be published or be known, but the best advice I got was that you only get one shot at a first book. And you only get one shot at a second book. So you have to be patient. I’m very patient — too patient. My press had to ask me if I wanted to put out another book, because I’m not publishing-crazy. I do think it’s important, of course. I keep trying to tell my students: Be patient, give your poem a chance to be what it is, what it wants to be.</p>
+<p>Those two are really big points. Also, don’t put pressure on yourself to write. A mentor of mine once explained to me that our lives are in so much flux, the hardest part about writing is always trying to relearn whatever rhythm you need so that you can write within that. Just understand that you have to continually adapt and find new ways to write, because we hear other people’s stories and we say, “Oh they get up at 4:30 every morning!” That’s completely unrealistic for me. There is no way. I do like to get up early sometimes to write. I make my students do it once a week, so they can see the difference in their minds. We call it the “War Cry Writing Group,” and every Wednesday at 4:30 everyone gets up and does that. But anyway, I think it’s really important that we take the pressure off, because writing should never be pressured. I always tell my students that, because they get so pressured they don’t write, and then they have writer’s block. How can you have writer’s block? This whole world needs to be written or rewritten.</p>
+<p>So. Read. Be patient. And trust your language. You read journals where so many people are trying to write like everybody else. So you read a poem, and there’s that one line where you’re like, “ugh,” and everyone else is like, “ugh,” but you don’t know what the poem meant, and you walk away from the poem without carrying any of it with you. I think this could be because people aren’t relying on their own language. You could write anything, but if your images don’t mean anything to you, they’re not going mean anything to me. Trusting the words you know are meaningful to you, trusting your own lexicon, is really important. Otherwise, everyone is writing “shadow,”  “ash.” I’ve been to so many readings and festivals over the last year, and it never fails — anytime anyone says the word “ash,” everybody in the audience goes “ugh.” And I just think, now, that’s not language.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3491.html#comments-3491" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/interview-with-natalie-diaz/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/interview-with-natalie-diaz/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/interview-with-natalie-diaz/&text=Interview+with+Natalie+Diaz"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/interview-with-natalie-diaz/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/interview-with-natalie-diaz/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview with Natalie Diaz&body=Interview with Natalie Diaz%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/interview-with-natalie-diaz/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3458.html">My Dad Tried to Buy Costa Rica: An Interview with K. L. Cook</a></h2>
+	<div class="entrydate">22 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>K. L. Cook is the author of three books of fiction. His most recent book, <em>Love Songs for the Quarantined</em>, won the Spokane Prize for Short Fiction. His novel, <em>The Girl from Charnelle</em>, won The Willa Award for Contemporary Fiction, and his first book, <em>Last Call,</em> won the inaugural Prairie Schooner Book Prize in Fiction. Cook’s work has appeared in <em>Glimmer Train</em>, <em>One Story</em>, <em>Poets &amp;Writers</em>, <em>Prairie Schooner</em>, the <em>Harvard Review</em> and other journals.  He is an associate professor of English at Iowa State University where he teaches in the MFA Program in Creative Writing and Environment.</p>
+<p>On March 31st, 2014, Cook read his short story &#8220;Costa Rica&#8221; as part of the 10th Annual Symposium on Wildness, Wilderness and the Environment at Iowa State University.  The theme for this year&#8217;s Wildness Symposium was &#8220;Resilience Thinking in Dystopic Times.&#8221;  <em>Flyway</em> editors caught up with Cook after the reading to talk about, among other things, niche markets such as environmental writing and short story cycles.</p>
+<p><em>Flyway</em>: The short story you read at the Wildness Symposium, &#8220;Costa Rica,&#8221; was included in your collection <em>Last Call</em>, which came out in 2004.  You&#8217;ve written quite a lot since then.  Why do you keep coming back to this story?  Why did you read it at the symposium?</p>
+<p><span style="line-height: 1.5em;">KLC: A number of factors determine what I’ll read at any given event. Some factors are practical. Which self-contained piece or pieces work within the time limit?  Which books of mine will be for sale?  What is the theme of the reading?  My first book, </span><i style="line-height: 1.5em;">Last Call, </i><span style="line-height: 1.5em;">was just re-released in a 10</span><sup style="line-height: 1.5em;">th</sup><span style="line-height: 1.5em;"> anniversary paperback edition, and so I wanted to help sell books for my publisher. The story also, I think, reads well in the timeframe allotted. And the theme of the Wildness Symposium was “Resilience Thinking in Dystopic Times” and the particular theme of this reading was “Interior Mythologies.”  Though I considered many other pieces for this reading, “Costa Rica” seemed to address those themes most directly.</span></p>
+<p>Perhaps most importantly, I enjoy reading “Costa Rica” aloud.  It moves me, and I like to share it. I like to <i>sing</i> it.  Since this was my first public reading at Iowa State University (my new home base), I wanted to read something that linked my past to my present to my future as a writer. What I depict in “Costa Rica”—a reimagining of my father’s ill-fated scheme to purchase a large swath of Costa Rican jungle, an event that became mythic in my family’s history—was one of the reasons I became a writer in the first place.  I’ve told the story as an amusing anecdote for years.  But <i>writing</i> the story was a breakthrough for me, and the story has grown in my imagination, serving as the seed for the novel I’ve been working on for the past few years.</p>
+<p><em>Flyway</em>: Speaking more broadly, you&#8217;re currently working in the MFA Program in Creative Writing and Environment at Iowa State University, and you recently came from Prescott College in Arizona, a small liberal arts college with a focus on the environment and social justice.  When people talk about &#8220;environmental writing,&#8221; often they mean writing about environmentalism, or writing with an environmental agenda.  On the other hand, sometimes people define &#8220;environment&#8221; in fiction so broadly that it just means &#8220;setting.&#8221;  How do you think about &#8220;environmental writing&#8221; so that the term is not so broad as to be meaningless, but not so narrow that it can still accommodate the limitless variety that is fiction?<b> </b></p>
+<p>KLC: Fiction, which is my preferred genre, is the genre most fully engaged with a specific sense of place.  Short story writers and novelists tend to be cultural anthropologists, family systems theorists, and ethnographers—that is, close (even obsessive) observers of how people behave with one another in their natural (or unnatural) habitats.  A story needs a place to contain it, to give it meaning.  I don’t think I’ve ever written a story or a novel in which place didn’t figure significantly into the conception, writing, and revision of the piece.  I’m not sure I know how.  The environment—place—is always, for me, a character.</p>
+<p>Having taught in “green programs” for more than twenty years, I’ve read a great deal of environmental fiction, poetry, plays, and essays—much of it simplistic, sentimental, overly earnest, didactic, strident, or pseudo-spiritual.  Frequently the problem is tonal.  As a teacher of creative writing in environmental programs, I often believe that my primary job is to help fellow writers avoid some of these pitfalls of tone.  If a story—or any piece of art—starts to sound too much like a sermon or a lecture or a campaign speech or a pity plea or a scare tactic or propaganda of any kind, then the writer loses his or her fundamental authority as a storyteller.  A story may teach the reader something or it may provide a distinctive moral or ethical vision (preferably one that embraces the complexities of environment), but teaching and preaching aren’t the primary goals of art. The storyteller’s first responsibility is to create a vivid and continuous dream in the reader’s mind, as John Gardner famously said, to create a shining performance, a storm of exuberantly rendered experience.  A writer, of course, needs to think carefully about the implications—environmental, ethical, emotional, spiritual—of this performance.  But I try to encourage my students to be the best artists they can be and to let their love of, and anxieties about, the state of the environment serve their art rather than have the art serve the activist.</p>
+<p><em>Flyway</em>: Tell us a little bit about short story cycles.  What draws you to this form of writing?  What do you see as the strengths and weaknesses of this form, both on a literary level and on a practical (publishing) level?  How do short story cycles intersect with other elements of both the publishing culture and of popular culture?</p>
+<p>KLC: As you know, I love the short story cycle form (a.k.a. linked stories, novel-in-stories, short story sequence) and have written and spoken about it at length. (I have a page on my <a title="K.L. Cook" href="http://klcook.net" target="_blank">website</a> devoted to short story cycles, including a video of a lecture I gave about the subject.) It is the defining form for our post-postmodern times, as evidenced in part by the quality these days of television shows, where much of the best narrative storytelling is happening.  What I might add here is this: when you commit to this form, you are in essence committing to mosaic narrative design. There may be energetic linear storytelling within a short story cycle, but the form challenges linear narrative design. If you have what I call a “cyclical imagination,” then you tend to embrace individual stories as much as you do novels. But there’s a trade-off in immediate power. Nothing quite beats the urgency of a big linear narrative, cleanly and intelligently told. We’re talking about the power of causation: <i>this caused that which in turned caused this</i>.  The short story cycle writer is always, even if only subtly, trying to compensate for that loss of linear narrative urgency.</p>
+<p>Another issue.  Because the form values individual stories as much as it does larger holistic narrative effects, values self-contained parts as much as organic unity, values polyphony over a unified authorial voice—then there can be a tendency toward preciousness.  Story writers, I think, are nervous about holding the reader’s attention, afraid some editor will not read past the first page, concerned that everything in a story must contribute to the overall effect. That anxiety often leads short story writers toward <i>tour de force</i> performances—often preening in the language itself, or dependent on some kind of unusual formal distinctiveness, or pared down with a radical minimalism that forces the reader to work very hard to understand the submerged narrative. Writers and readers of long-form narratives usually prefer a more measured pace, a slower stride, and a clearer, less anxious sensibility.</p>
+<p><em>Flyway</em>: As your students in the MFA program at ISU will attest, your classes provide strong evidence against the theory that creative writing can&#8217;t be taught.  How does one teach creative writing?  How do you teach creative writing?</p>
+<p><span style="line-height: 1.5em;">KLC: I’ve always thought that the “creative writing can’t be taught” theory is, at best, half-baked. Of course, it can be taught, like any art form can.  The mentoring process—more experienced practitioners teaching apprentices craft, aesthetics, and habits of art in a hands-on way—has a very long tradition, longer in fact than any modern educational system. There’s no </span><i style="line-height: 1.5em;">one </i><span style="line-height: 1.5em;">way to approach the teaching of creative writing.  I don’t have a </span><i style="line-height: 1.5em;">way </i><span style="line-height: 1.5em;">really, but I do have certain principles, goals, and strategies that guide me as a teacher.  My first goal is to encourage what is legitimately distinctive about a younger writer’s sensibility: all artists need authentic encouragement. I also believe that the workshop process itself rapidly accelerates your development as a writer; if you treat this process generously and rigorously, then you get better while grappling with your peers’ works-in-progress. Through this process, you expand your aesthetic and learn very practical strategies for dealing with craft issues that may not be present in the current manuscript you’re working on but that may be useful to you in the next piece or a piece you write a decade from now. Above all, I try to speak to the ambition of writers.  I urge boldness, emotional and aesthetical risk-taking, and compassion, and I try to do this not from a position of authority but as a fellow writer.  I want my students to know that it’s perfectly fine to fail; failure is a natural byproduct of boldness and therefore should be embraced.  I’ve found that if you persuade talented writers that their desire to make art is worthy and honorable, and that the process itself can be joyous rather than paralyzing, then they get better simply because they want to and are willing to work harder than they’ve ever worked before to discover and refine their vision. </span><b> </b></p>
+<p><em>Flyway</em>: What are some advantages of going through an MFA program, and what are some disadvantages?</p>
+<p>KLC: My MFA experience was the most valuable educational experience in my life.  It changed me.  I had mentors who treated me and my work generously, fairly, and rigorously, imploring me to do better.  I had peers who supported, challenged, and inspired me.  And I had a community that said it was okay to do this thing I wasn’t sure I really <i>could </i>do.  I believe every writer needs those three things—experienced writers taking an interest, peers whose work inspires, and a community that allows you to create without apology or defensiveness.  A creative writing program isn’t the only kind of writing community, and not every writer wants or needs these mentors, peers, and community.  But most creative writing programs champion these principles and frequently provide genuinely transformative experiences for writers.  Even if I had never published a single piece, I would still cherish my experience as a student in an MFA program.  At the very least, it taught me how to read like a writer reads, how to think like an artist, and such a lesson has enriched me as a reader, as a writer, and as a teacher.  I feel very privileged to have spent my professional life teaching creative writing and literature to both undergraduate and graduate students.  Every semester I have amazing students who inspire and challenge me.  I’m a lucky dog.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3458.html#comments-3458" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/k_l_cook_interview/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/k_l_cook_interview/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/k_l_cook_interview/&text=My+Dad+Tried+to+Buy+Costa+Rica%3A+An+Interview+with+K.+L.+Cook"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/k_l_cook_interview/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/k_l_cook_interview/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: My Dad Tried to Buy Costa Rica: An Interview with K. L. Cook&body=My Dad Tried to Buy Costa Rica: An Interview with K. L. Cook%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/k_l_cook_interview/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3444.html">Interview with Kevin Brockmeier</a></h2>
+	<div class="entrydate">20 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>By Chloe Clark</p>
+<p>Kevin Brockmeier is one of those authors who I often wish was forced to put out a book every month or so. His writing has been enchanting and surprising me since I first read one of his short stories (from his collection <em>Things that Fall from the Sky</em>) almost a decade ago. Mr Brockmeier attended the Wilderness Symposium at Iowa State and was kind enough to answer some questions with Flyway. I, of course, leaped (literally leaping out of my seat, screaming “I Volunteer!”) at the chance to interview him.</p>
+<p>1.) Your writing often falls into what is sometimes broadly referred to as “New Wave Fabulism” (among other names). Magic and ghosts and strangeness seem to occur naturally in your work. Is that something you strive for intentionally? Or is it something that just comes out of the writing itself? What do you think are some of the things that stories gain through the fabulist? Are there drawbacks that come out of this as well?</p>
+<p>When people ask me about the attraction of the fantastic, I always like to quote a line from G. K. Chesterton’s <i>The Poet and the Lunatics</i>, in which a character says of St. Peter that, dying upside down, he “saw the landscape as it really is: with the stars like flowers, and the clouds like hills, and all men hanging on the mercy of God.” The intuition of this passage — and my own intuition, as well — is to believe that the world itself is deeply strange but that sometimes it takes a change of perspective for us to see it clearly. I turn to the fantastic, then — or the magical, or the fabulist: whatever you want to call it — in part because it presents the world at a tilt and brings me that curious shock of sharpened vision, but also because the metaphors it provides seem potent and beautiful to me, and because the imagery of fantasy allows me to write particular kinds of sentences that I enjoy writing, and finally, frankly, because I grew up reading a lot of science fiction and superhero comics and there are certain forms of oddity that simply excite my imagination. The deficit to writing this way is that some readers will simply refuse to participate in such stories, but that’s true of mimetic realism, as well.</p>
+<p>2.) You’ve written many short stories, novels (adult and young adult), and your latest book, <i>A Few Seconds of Radiant Filmstrip</i>, is a memoir. Is it easy for you to write in all of these forms? What was the process like to take a leap into memoir-writing versus fiction?</p>
+<p>It’s not easy for me to write in any form, but I found piecing the memoir together particularly difficult. The reason is that I had to cleave not only to the arc of the narrative and the necessities of the sentences, both of which I always try to do anyway, but also to the facts of my life as they actually happened — and moreover I had to accommodate the arc of the narrative and the necessities of the sentences<i>to</i> those facts. This was totally foreign ground for me. I was trying to write an immersive memoir rather than a reflective one, to resurrect a long-gone version of my own consciousness and experience the book from inside it, to divorce myself from the current day. I kept expecting that this effort would come to seem like second nature to me at some point, but it never did. With every sentence, I had to remind myself that I needed to abide by the contours of a very particular mind — mine, as it existed some 28 years ago — rather than by the contours of my mind as it exists today.</p>
+<p>3.) Could you tell us a bit about your new book and how it came to be?</p>
+<p>It’s a memoir of my seventh grade year of junior high school, beginning on the first day of class and ending on the last. The book has been gestating for quite a while. In fact, I tried to start it several years ago, but couldn’t figure out how to approach the material, so I set it aside to work on a novel called <i>The Illumination</i> instead. There’s this idea that only big lives, <i>momentous</i> lives, are worthy of memoir, and I remember thinking, Well, maybe, but isn’t every life momentous—or at least wouldn’t it be if you approached it with enough care, enough perceptiveness? Take any one year of any one life, recount it with clarity and sympathy, and shouldn’t it matter? Seventh grade was far and away the most difficult year of my childhood, but it’s also the year I’ve spent the most time trying to understand, as well as the source of a lot of the stories I’ve continued to tell, and I thought it would make for fruitful narrative soil.</p>
+<p>4.) You came to Iowa State University’s Wildness Symposium in a year that was focused on Dystopia and Apocalypse. Your novel, <i>The Brief History of the Dead</i>, is a novel of apocalypse (though, I struggle to place it into the dystopic — maybe the afterlife you portray in the novel is a gentle dystopia?). What do you think of the current fixation in pop culture on the apocalyptic? What drew you to taking on an apocalypse in the novel?</p>
+<p>I think there’s a widely shared feeling that the next century is likely to unfold as a sort of contest between human carelessness and human ingenuity, and who knows which will prevail? That must explain, at least in part, the recent appeal of apocalyptic literature — but the fact is that such literature has always spoken to people, stretching all the way back to Noah and the Flood. Maybe there’s simply a sense that the world is very tenuous, very mysterious, and that something so tenuous and mysterious can’t possibly last. In any case, you’re right that there’s not much of the dystopia about <i>The Brief History of the Dead</i>, but there’s definitely something of the apocalypse about it, albeit an apocalypse-by-narrative-necessity. I was interested in writing about a city of the remembered dead — a city populated by those who continue to exist solely because they linger in the memory of those who are still alive. How many people is any one person capable of remembering? That’s what I wondered, and in order to address the question lucidly I felt that I needed to reduce the numbers of the living; thus, the apocalypse. That said, I’ve read an awful lot of apocalyptic literature, and I’m sure my interest in the form affected my exploration of it. The single greatest example of the genre, to my mind, is the short fiction of J. G. Ballard, in which the various apocalypses the world suffers are made to seem at once very unsettling and very beautiful. A few years ago, I wrote about some of my other favorites in <a title="This Article" href="http://www.oxfordamerican.org/articles/authors/brockmeier-kevin/" target="_blank"><span style="text-decoration: underline;">this article</span></a> for <i>The Oxford American</i>.</p>
+<p>5.) Can you take us through your writing process? Do you have any words of wisdom for other writers?</p>
+<p>The two pieces of advice that every working writer would offer every aspiring writer are to read as much as you can and to write as diligently as you are able. Aside from that, I like what Antoine de Saint-Exupery had to say: “If you want to build a ship, don’t drum up people together to collect wood and don’t assign them tasks and work, but rather teach them to long for the endless immensity of the sea.” The books you love best — those are the immensity of the sea. As for me, I tend to think in metaphors of shape. I conceived of <i>The Illumination</i>, for instance, as a set of six transparencies, each nearly the same size and containing its own little abstract fragments of line and color, which finally, when layered on top of each other, would reveal a single complete image. <i>A Few Seconds of Radiant Filmstrip</i> I thought of as a seesaw, weighted at its ends by the first and the last days of the school year, and pivoting atop the middle chapter, which is an odd little speculative digression at the heart of the narrative. So I usually know the architecture of a project before I begin writing, and I also know the title, which I think of as the target toward which I shoot the arrow of the story. What I always say is that with those features firmly in place, and with the presiding notion of the story in mind, I start at the beginning of the narrative and proceed very slowly, broaching my sentences one tiny piece at a time, termiting away at them until I’m satisfied that they present the right effect and doing my best to complete each one before I move on to the next.</p>
+<p>6.) Because I feel a need to ask this of all writers: what is on your current bookshelf? Are there any writers you think everyone needs to read right now?</p>
+<p>Like most writers I know, I think of myself as a reader first and a writer second, so I’m always happy to make recommendations. Right now I’m reading a poetry collection by Donna Stonecipher called <i>The Cosmopolitan</i>, as well as a novel by James Morrow called <i>Galapagos Regained</i>. The best author I’ve discovered from out of nowhere recently is Chloe Aridjis, who’s published two novels, <i>Book of Clouds</i>and <i>Asunder</i>. The best book I’ve read in the past few months is probably <i>Dept. of Speculation</i> by Jenny Offill, and in the past year probably <i>Turtle Diary</i> by Russell Hoban, which is a novel in two voices, about a lonely middle-aged man and a lonely middle-aged woman, each growing less and less recognizable to themselves with the decades, who decide to free the sea turtles from the London Zoo. That’s it, really, as far as the plot goes, but the pages unfold so beautifully and with so little trickery, so much humanity, and so little sap or gracelessness or narrative prying and wedging that my eyes kept tearing up as I read it. I keep a list of my fifty favorite books, which I’m constantly reconsidering, and I’ll append the most recent version of it below.</p>
+<p>Fifty Favorite Books</p>
+<p>Several rules: (1) I have listed these books in alphabetical order by the author’s last name, rather than in order of preference—though I’ve marked each of my ten very favorites with an asterisk. (2) I have chosen no more than one book per author, except in those cases where a pair of books or a trilogy seemed to call for a single shared listing. (3) I have tried to be honest, which is why there are so few classics on this list and so many semi-obscure fantasists and slim, sad coming of age stories.<br />
+Kevin Brockmeier, June 29, 2013</p>
+<p>1. A Death in the Family by James Agee (*)<br />
+2. Ghosts by César Aira<br />
+3. The Complete Short Stories by J. G. Ballard (*)<br />
+4. A Fine and Private Place by Peter S. Beagle (*)<br />
+5. The Gold Sisters Trilogy by Kate Bernheimer<br />
+6. Collected Fictions by Jorge Luis Borges<br />
+7. The Master and Margarita by Mikhail Bulgakov (*)<br />
+8. Parable of the Sower and Parable of the Talents by Octavia Butler<br />
+9. The Tartar Steppe by Dino Buzzati<br />
+10. The Baron in the Trees by Italo Calvino (*)<br />
+11. Orthodoxy by G. K. Chesterton<br />
+12. Mrs. Bridge by Evan S. Connell<br />
+13. The Latin American Trilogy by Louis de Bernières<br />
+14. Tales of Nevèrÿon by Samuel R. Delany<br />
+15. The Unexpected Universe by Loren Eiseley<br />
+16. Blue Has No South by Alex Epstein<br />
+17. A Passage to India by E. M. Forster<br />
+18. The Dangerous Lives of Altar Boys by Chris Fuhrman<br />
+19. Paris Stories by Mavis Gallant<br />
+20. The Torturer’s Wife by Thomas Glave<br />
+21. The End of the Affair by Graham Greene<br />
+22. The Cockroaches of Stay More by Donald Harington<br />
+23. The Gone-Away World by Nick Harkaway<br />
+24. Turtle Diary by Russell Hoban<br />
+25. I Served the King of England by Bohumil Hrabal (*)<br />
+26. Mrs. Caliban by Rachel Ingalls<br />
+27. Elegy by Larry Levis<br />
+28. Magic for Beginners by Kelly Link<br />
+29. The Heart Is a Lonely Hunter by Carson McCullers<br />
+30. One Hundred Years of Solitude by Gabriel García Márquez (*)<br />
+31. All the Days and Nights: The Collected Stories by William Maxwell (*)<br />
+32. My Happy Life by Lydia Millet<br />
+33. Essays by Michel de Montaigne<br />
+34. Complete Works and Other Stories by Augusto Monterroso<br />
+35. The Sharpshooter Blues by Lewis Nordan<br />
+36. The Things They Carried by Tim O’Brien<br />
+37. Esther Stories by Peter Orner<br />
+38. Metamorphoses by Ovid<br />
+39. Alan Mendelsohn, the Boy from Mars by Daniel Pinkwater<br />
+40. Selected Poems by Francis Ponge<br />
+41. My Name Is Asher Lev by Chaim Potok<br />
+42. The His Dark Materials Trilogy by Philip Pullman<br />
+43. Housekeeping by Marilynne Robinson (*)<br />
+44. Vampires in the Lemon Grove by Karen Russell<br />
+45. The Gospel According to Jesus Christ by José Saramago<br />
+46. The Dragon Griaule by Lucius Shepard<br />
+47. The Neighborhood by Gonçalo M. Tavares<br />
+48. The Man Who Fell to Earth by Walter Tevis (*)<br />
+49. War and Peace by Leo Tolstoy<br />
+50. Stoner by John Williams</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3444.html#respond-3444" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/interview-with-kevin-brockmeier/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/interview-with-kevin-brockmeier/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/interview-with-kevin-brockmeier/&text=Interview+with+Kevin+Brockmeier"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/interview-with-kevin-brockmeier/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/interview-with-kevin-brockmeier/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview with Kevin Brockmeier&body=Interview with Kevin Brockmeier%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/interview-with-kevin-brockmeier/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3438.html">ANNOUNCEMENT: 2014 SWEET CORN SHORT FICTION CONTEST WINNERS!</a></h2>
+	<div class="entrydate">15 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Congratulations to the winner and runner-up of Flyway’s 2014 Sweet Corn Short Fiction Contest!</p>
+<p>Mike Alberti’s story “The Gully” was chosen by judge Dean Bakopoulos as our first-place winner. Bakopoulos called this captivating story, about coming of age in Colorado, “a beautifully pensive and lyrical story that understands the complexity of nostalgia — the unbridled human capacity to pine for a place we have fled, to simultaneously love and loathe a place with an intensity that is terrifying and dark.</p>
+<p>Alberti is from Albuquerque, New Mexico, and is currently working towards an MFA in Creative Writing at the University of Minnesota, where he serves as managing editor of <i>dislocate</i>, the literary magazine based at his MFA program. As our first-place winner, Alberti will receive a prize of $500 and a box full of delicious Iowa sweet corn.</p>
+<p>“Going It Alone,” Laura Price Steele’s story about the choices we do and don’t, can and can’t make, is this year’s Sweet Corn runner-up. Bakopoulos was impressed with Steele’s “convincing narrative voice that is equal parts melancholic and jaded,” and he found the story’s thread, which “lingers around the hard edges of being stuck, with its adrift narrator avoiding a complicated buried truth,” especially compelling.</p>
+<p>As runner-up up, Steele will receive a prize of $50. She is originally from Denver, Colorado, and her work has been published in The Oval and Moment Magazine Online. She is currently pursuing her MFA at University of North Carolina, Wilmington.</p>
+<p><b>Look for these stories on Flyway’s homepage on July 15, 2014.</b></p>
+<p>Thank you to everyone who submitted to our 2014 Sweet Corn Short Fiction Contest. It was a strong pool, and we at Flyway were impressed by and thankful for the good reading!</p>
+<p>Finally, we’d like to offer up a special thanks to our excellent and assiduous judge, Dean Bakopoulus.</p>
+<p>*_*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/contest/index.html" rel="tag">contest</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/fiction/index.html" rel="tag">Fiction</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3438.html#respond-3438" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/&text=ANNOUNCEMENT%3A+2014+SWEET+CORN+SHORT+FICTION+CONTEST+WINNERS%21"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: ANNOUNCEMENT: 2014 SWEET CORN SHORT FICTION CONTEST WINNERS!&body=ANNOUNCEMENT: 2014 SWEET CORN SHORT FICTION CONTEST WINNERS!%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/announcement-2014-sweet-corn-short-fiction-contest-winners/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3427.html">Book Review: If I’d Known You Were Coming</a></h2>
+	<div class="entrydate">13 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>If I&#8217;d Known You Were Coming</em><br />
+by Kate Milliken</p>
+<p>University of Iowa Press<br />
+$17.00</p>
+<p>By William Bonfiglio</p>
+<p>The conditional phrase that titles Kate Milliken’s debut book of stories, <i>If I’d Known You Were Coming</i>,<i> </i>prefaces a theme of the collection.  Though the characters depicted within might frenziedly deny it, they are weak.  They are uncertain.  And &amp;mdash;perhaps most telling of all&amp;mdash;they are dependent.</p>
+<p>Disregard the clichés of drug use, alcoholism, and forlorn lovers who can’t figure out how they can quit each other; Milliken is too clever to let these drive her work.  Instead, it is loneliness, and the need for outside acknowledgement, that pervades each of the twelve stories within this intriguing and deceptively simple set.</p>
+<p>Setting the majority of her stories in the emotional dead lands of southern California, Milliken presents characters that are desperate to reverse their fortunes and break a chronic, palpable solitude.  That they should overwhelmingly fail speaks more of their misguided approaches than it does of their efforts, which are commendably &#8211; dedicated.  In this regard, the book replicates the methodology of cringe comedies deprived of humor, and renders the readers helplessly and uncomfortably engaged.</p>
+<p>While this delivery might discourage more sensitive readers, Milliken works committedly to hold her audience.  The construction of the book certainly helps to that aim, as its brisk 134 pages alternate between short-shorts and longer &amp;mdash;but not too long – narratively rooted pieces.  Modest, evocative writing does even more, as evidenced by the descriptions of a pathetic backyard in “A Matter of Time”: “…the little kidney-shaped pool with the cracked floor, empty, leaving only a slick of green pointing toward the drain.”  The author’s descriptions of atmospheres, whether urban or rural, congested or expansive, are particularly adept, and are indicative of a writer that has given full consideration to her material.</p>
+<p>Though Milliken’s stories feature alternatively affluent and impoverished characters, each reads similarly, which serves to highlight the universality of their plight.  The pervasive loneliness felt by each transcends material wealth, and appeals to the audience through pathos.  While the lonesome consistently narrate the pieces that follow, the author occasionally takes a distancing view.</p>
+<p>“A Matter of Time,” which opens the collection and which was previously published in <i>Zyzzyva</i>, illustrates that approach.  The speaker and protagonist is not the charming, winsome, and miserable actor Nick Regan, but a friend from college desperate to secure a role for her partner.  Through the story, the protagonist, Lorrie, moves desperately to manipulate Regan.  She plans a dinner party, keeps the liquor close at hand, and flirts shamelessly, all for the advancement of the cheerfully unconcerned Marty.  These are not likeable characters, and they are not drawn in outrageously colored detail.  But the singularity of their personalities, again, reinforces the notion that their dissatisfaction is dramatically and entirely debilitating.  And the view of the afflicted from another character’s perspective only augments that delivery.</p>
+<p>Which returns to the title, and poses the question of what the speakers might have done were some change to occur.  From the outside looking in, it is clear that their lives are not to be enriched in waiting for change to occur.  Loneliness is a ubiquitous trait, one that, just as on the outside, can always be depended upon.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3427.html#respond-3427" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book-review-if-id-known-you-were-coming/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book-review-if-id-known-you-were-coming/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book-review-if-id-known-you-were-coming/&text=Book+Review%3A+If+I%E2%80%99d+Known+You+Were+Coming"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book-review-if-id-known-you-were-coming/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book-review-if-id-known-you-were-coming/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: If I’d Known You Were Coming&body=Book Review: If I’d Known You Were Coming%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book-review-if-id-known-you-were-coming/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3416.html">Web Rove: Summer Pop Culture Bonanza</a></h2>
+	<div class="entrydate">9 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Adam Blake Wright</p>
+<p>With last weekend’s release of <i>The Amazing Spider-Man 2</i>, the summer entertainment season is officially upon us. If you’re anything like me, you’ll soon be spending the next few months reading, binging on Netflix, grilling on the back porch, and wasting too much money on crappy blockbuster movies. Consequently, here are several pieces that celebrate the best of TV, films, food, and more:</p>
+<h1></h1>
+<p>“<a title="Seitz on the Rise of the Bespoke TV Series" href="http://www.vulture.com/2014/05/seitz-tvs-new-golden-age-mini-series.html" target="_blank">Seitz on the Rise of the Bespoke TV Series</a>” by Matt Zoller Seitz (from <i>Vulture</i>)</p>
+<h1></h1>
+<p>With this rise of DVRs and Internet streaming, the landscape of television is rapidly changing for the better. This essay argues that we are currently in a “golden age” of the TV mini-series, as exemplified by such genre-defying works as <i>True Detective </i>and <i>American Horror Story. </i>Perhaps what is most striking about this essay is the suggestion that by borrowing heavily from film and literature, “television” has morphed into a new category of entertainment all together that has yet to be defined.</p>
+<p>“<a title="10 Years Later, the Clique Still Reigns" href="http://www.nytimes.com/2014/04/27/movies/from-internet-chat-to-related-projects-mean-girls-endures.html?WT.mc_id=D-NYT-MKTG-MOD-19378-04-29-PH&amp;WT.mc_ev=click&amp;WT.mc_c=$%7BCAMPAIGN_ID%7D&amp;_r=0" target="_blank">10 Years Later, the Clique Still Reigns</a>” by Megan Angelo (from <i>The New York Times</i>):</p>
+<p>In the decade since its release, the 2004 comedy film <i>Mean Girls </i>remains as relevant as ever in our era of Tweeting, texting, and cyber-bullying. In an oral history essay, the cast and crew recount this now-classic movie’s impact on society and pop culture. To absolutely no one’s surprise, Lindsay Lohan fails to participate, probably because she’s too busy crying on Oprah’s shoulder. And no, Gretchen, fetch is never going to happen, so just stop trying.</p>
+<p><a title="Fictitious Dishes" href="http://fictitiousdishes.com" target="_blank">Fictitious Dishes</a> by Dinah Fried</p>
+<p>In her amazing new book and website, photographer Dinah Fried recreates some of literature’s most famous meals. “Menu items” include the tea party from <i>Alice’s Adventures in Wonderland</i>, an unappealing bowl of slop from <i>Oliver Twist</i>, and a Southern fried feast from <i>To Kill a Mockingbird. </i>Ultimately Fried’s work captures a whimsical yet elegant spirit that delights the palate as well as the mind.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3416.html#respond-3416" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-summer-pop-culture-bonanza/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-summer-pop-culture-bonanza/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-summer-pop-culture-bonanza/&text=Web+Rove%3A+Summer+Pop+Culture+Bonanza"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-summer-pop-culture-bonanza/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-summer-pop-culture-bonanza/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Summer Pop Culture Bonanza&body=Web Rove: Summer Pop Culture Bonanza%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-summer-pop-culture-bonanza/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3388.html">Web Rove:Love Affairs, Tiny Windows, and Hand Grenades</a></h2>
+	<div class="entrydate">1 May 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>By Stefanie Brook Trout</p>
+<p style="padding-left: 30px;">&#8220;A short story is a love affair; a novel is a marriage.&#8221;<br />
+—Lorrie Moore</p>
+<p style="padding-left: 30px;">&#8220;Short stories are tiny windows into other worlds and other minds and other dreams. They are journeys you can make to the far side of the universe and still be back in time for dinner.&#8221;<br />
+—Neil Gaiman</p>
+<p style="padding-left: 30px;">&#8220;Short fiction seems more targeted—hand grenades of ideas, if you will. When they work, they hit, they explode, and you never forget them.&#8221;<br />
+—Paolo Bacigalupi</p>
+<p>May is National Short Story Month, a time to embrace love affairs, peer through tiny windows, and catch hand grenades of ideas. I’ve selected a few stories to get your literary celebration started. From a longer short story broken up into subtitled sections, to a flash fiction piece of just a single paragraph without a stitch of dialogue, to a story written entirely through dialogue, these three stories illustrate some of the wonderfully various forms short fiction can take.</p>
+<p>“<a title="Bony Fishes" href="http://www.drunkenboat.com/db18/richard-hartshorn" target="_blank">Bony Fishes</a>” by Richard Hartshorn (from <i>Drunken Boat</i>)</p>
+<p>In this love affair of a short story, Hartshorn’s narrator April is a college dropout and museum docent who watches strangers, writes their fake memoirs, and reads them aloud at open mic nights. In “Bony Fishes,” April craves meaningful relationships but approaches people like exhibits: something to observe, analyze, and perhaps even debate but at the same time static, one-sided, and ephemeral, soon reduced to a storage room.</p>
+<p>“<a title="Face" href="http://thecollagist.com/the-collagist/2014/3/29/face.html" target="_blank">Face</a>” by Ravi Mangla (from <i>The Collagist</i>)</p>
+<p>Mangla’s Lyle is a face placer. But when he cannot place a particular face, Lyle realizes that the skill that has now abandoned him is a curse but one with which his identity was inextricably bound. At less than five hundred words, “Face” is one of the tiniest kinds of windows, and even though the story is contained entirely within Lyle’s mind, the third-person narration keeps readers on the surface looking in.</p>
+<p>“<a title="Night Orderly" href="http://www.bartlebysnopes.com/nightorderly.htm" target="_blank">Night Orderly</a>” by Ronald Friedman (from <i>Bartleby Snopes</i>)</p>
+<p>Friedman delivers his hand grenade exclusively through dialogue. Winner of the <i>Bartleby Snopes</i> 5th Annual Dialogue Contest, “Night Orderly” is a conversation between Artie, a night orderly who was asked to transport a body to the morgue but broke protocol doing so, and someone else—perhaps another orderly simply commiserating or else a psychologist evaluating Artie after the traumatic incident. The story may be ambiguous in that regard, but it doesn’t stop this hand grenade from hitting and exploding in an unforgettable way.</p>
+<p>Bonus Content:</p>
+<p>“<a title="Graywolf Authors" href="https://www.graywolfpress.org/blogs/graywolf-authors-celebrate-national-short-story-month" target="_blank">Graywolf Authors Celebrate National Short Story Month</a>” (from Graywolf Press Blog)</p>
+<p>Last May, Graywolf Press interviewed six of their authors, asking each them six questions about short stories, tough questions like “If short stories and poetry were to enter in a fight to the death, who would win?” and “Short stories are sexier than novels because __________.” Find out what Ben Percy, Susan Steinberg, A. Igoni Barrett, Jessica Francis Kane, Alan Heathcock, and Belle Boggs had to say and then follow the links to short stories by each of those authors. I promise you’ll be back in time for dinner.</p>
+<p>Happy reading this Short Story Month!</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3388.html#comments-3388" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/&text=Web+Rove%3ALove+Affairs%2C+Tiny+Windows%2C+and+Hand+Grenades"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove:Love Affairs, Tiny Windows, and Hand Grenades&body=Web Rove:Love Affairs, Tiny Windows, and Hand Grenades%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/web-rovelove-affairs-tiny-windows-and-hand-grenades/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3379.html">Book Review: Almanac: Poems</a></h2>
+	<div class="entrydate">29 Apr 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><i>Almanac: Poems</i><br />
+by Austin Smith</p>
+<p>Princeton University Press, 2013<br />
+Paperback, $12.95</p>
+<p>Review by Claire E. Kruesel</p>
+<p>Tempera: a weathered but ghostly man, farmer Karl Kuerner, lies supine in a dark green field, haloed in a dense mound of remnant snow. Black and white photograph: a boy and girl embrace on the grass, knees splayed, the boy shirtless, seen from above. The first (<i>Spring</i>, 1978 by Andrew Wyeth) serves as cover image of Austin’s Smith debut poetry collection, <i>Almanac</i>; the second (<i>Nancy and Dwayne, Danville, Virginia, 1970 </i>by Emmet Gowin) is title and subject of one of <i>Almanac</i>’s poems</p>
+<p>Fitting, to frame Smith’s rich visual lines behind a painting of a dying farmer: Smith comes from a 300 acre Illinois dairy farm, one his parents have left but which he still considers home; Andrew Wyeth made an artistic home at the Kuerner farm (Kuerner’s grandson speculates “maybe [Wyeth] looked at my grandfather as a surrogate father.”) In the same way, perhaps Smith—developing and refining his voice—looked at Wyeth as a surrogate speaker-for-the-farm. How does one honor and speak for this place—this life—simplified and marginalized from common view?</p>
+<p>In “Postcards to Andrew Wyeth,” Smith doesn’t ask for the answer. He observes “war medals, frying pans,/crow feet, all sizes … a bell rope, deranged … the colorless ocean/ and a barbwire fence/ in the same window … a man on his bed, his shoes on … beneath the mulberry,/ two fresh graves.” It turns out Smith does not need help interpreting his <i>Almanac</i> experience, and he exercises deft and clear delicacy in conveying the parallel experiences buoying this collection.</p>
+<p>In the ekphrastic “<i>Nancy and Dwayne, Danville, Virginia, 1970,</i>” the narrator stands in front of the photo in a museum, never thinking of sex until staff mentions it, and “even after the curator said the word/ I preferred to consider [Nancy’s] bliss to be the bliss of saints and artists/ at the moment of death. How else to describe/ her face?”</p>
+<p>Who else to describe her face but Austin Smith? He honors even the humanity in book-burning Nazis. The collection’s title surfaces briefly, as a sacrifice, in “Nazi Soldier with a Book in his Pants.” The two boys tasked with burning books sometimes flip one open before condemning it to fire. “It’s like touching a woman’s face/ before you shoot her,” one boy says. The other boy encounters a book that “feels different./ Thin as the spine of a seahorse” and sees “it’s a book/ of letters by a poet he remembers/ reading in school.” Reading this poem, the boy’s tetheredness to and transcendence of his duty were palpable; he pockets the book, explaining “My friend, I hate this/ one so much I’m going to take it back/ to the barracks to burn it./ He shoves the book down his pants/ and picks up an almanac.”</p>
+<p>Omission or creative truth, Smith shows, can be a gesture of grace, evolution, even kindness. In “Queen Anne&#8217;s Lace” the narrator decides not to stop and speak to a girl he knew as a child, now pregnant and walking the paved road where they used to search for fossils when it was still gravel. “I didn’t want to startle her./ She was walking down the road barefoot/ over fossils that will never be found,// thinking what to name her child.”</p>
+<p>In other poems, poetic license offer tenderness: in “The Brinkmeiers,” Smith memorializes the thoughts of each Brinkmeier immediately before their house succumbs to a sudden grain bin explosion. It must be speculation, because the newspapers report they were asleep and “didn’t suffer,” but we feel and believe how “Sam Brinkmeier has just turned/ the lamp on again to read … a picture of a brontosaurus/ spreading across both pages.”</p>
+<p>Smith’s most common form is a long line extending out into narrative territory sometimes with resolution, sometimes with an unexpected image. The meaning of these pseudo-prose poems depends upon the flexibility of each line; breaks accrue a momentum of stumbling remembrance in which the authenticity of each observation derives from the surprise with which it is made. In “The Night My Mother,” absent entirely of punctuation, violence brims between the father—who in this poem chases an obnoxious driver to protect the psychological peace of his ailing wife—and anything he touches: “I could tell by the way the bottle/ popped off his lips my father/ was getting ready to blow/ my mother lying above us”; “I’m certain/my father would’ve killed him/ when we got home my mother/ was standing on the porch.”</p>
+<p>Whatever spatial form to which his words adhere, however, Smith infuses each poem with imagistic priority. We get the feeling each poem emerges from visual turns, his strength that of a photographer curating a dialogue inherent across the compositional visions of each moment. Still I cannot forget the final lines of “The Man Accused of Fucking Horses”: the man’s remembering that first night, “saying/ ‘Sorry’ out loud in the quiet barn,/ thinking to himself as he put himself away,/ <i>There are men like this in this world</i>/ <i>and I am one of them</i>.”</p>
+<p>Smith is not one of them, is not one of the burned Brinkmeiers or the flood-fearers in “Bingo” who evacuated early, quietly, shamed by “the myth that the river could feel fear/ and that the worst floods were after the mass evacuations”; nor is he the photographer in “Aerial Photograph, Glasser Farm, 1972” who sells a farmer the visual secret he has stolen from his farm, “the silo/ exposed to the sky, the rotten grain/ a new moon no one notices but him.” Rather, we sense Smith’s swift presence running between the poems as if looking in the nighttime windows of neighbors that are himself, as if braiding some elegiac Maypole across the 300 acres of his childhood farm.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3379.html#comments-3379" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book-review-almanac-poems/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book-review-almanac-poems/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book-review-almanac-poems/&text=Book+Review%3A+Almanac%3A+Poems"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book-review-almanac-poems/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book-review-almanac-poems/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: Almanac: Poems&body=Book Review: Almanac: Poems%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book-review-almanac-poems/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3368.html">Web Rove: Tiny Art</a></h2>
+	<div class="entrydate">24 Apr 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Erin Schmiel</p>
+<p>As incoming social media editor, I spend a lot of time on Twitter promoting content from Flyway. In so doing, I have discovered short contests available only on social media.</p>
+<p>For instance, CNF magazine has the Tiny Truths #cnftweet contest—to join, follow @cnfonline and tag your tweets #cnftweet. Making art out of 140 characters, Twitter is a perfect venue for a simple moment of clarity.</p>
+<p>In that vein, this web rove deals with tiny art. As a graduate student I appreciate short pieces, pieces I can read on the bus, digest all in one bit—be moved by people&#8217;s true stories, and then move on. Maybe this is just me. Rare is the day I can finish an entire <i>Harper&#8217;s</i> article in one sitting.</p>
+<p>Here are a few links exploring why writers write short pieces and including some great examples of tiny art. I hope they get you through that bus ride to wherever you&#8217;re going. Savor quickly, but these will stay with you.</p>
+<p>&#8220;<a title="Breathless" href="http://brevitymag.com/current-issue/breathless/" target="_blank">Breathless</a>&#8221; by Heather Sellers  (<em>Brevitymag.com</em>)</p>
+<p>This is a one page scene, from the Current Issue 45 Winter 2014. Brevitymag.com is a great source for short pieces.  We get a whole life of the young narrator encapsulated in this dreary walk to her father&#8217;s apartment.</p>
+<p>&#8220;<a title="Seascape" href="http://brevitymag.com/current-issue/seascape/" target="_blank">Seascape</a>&#8221; Nicole Stellen O&#8217;Donnell (<em>Brevitymag.com</em>)</p>
+<p>In &#8220;Seascape&#8221; Nicole Stellen O&#8217;Donnell says, &#8220;Think feathered indifference. Think abstraction. Think stare.&#8221; Here she describes a scene on a beach through many layers of lens, camera and otherwise. <a href="http://brevitymag.com/current-issue/seascape/"><br />
+</a></p>
+<p>&#8220;<a title="The State of Flash (and Prose Poetry) and Why We Write 'Em!" href="http://nanofiction.org/weekly-feature/state-of-flash-weekly-feature/2012/09/the-state-of-flash-and-prose-poetry-why-we-write-em" target="_blank">The State of Flash (and Prose Poetry)—Why we Write &#8216;Em!</a>&#8220;by  Christopher Critro (<i>Nano Fiction). </i></p>
+<p>What&#8217;s great about this piece is it plays with form and function of flash fiction and prose poems in a dialogue back and forth with one another as he explains, why he writes these forms. Very meta, but important in this discussion appreciation of tiny art. <a href="http://nanofiction.org/weekly-feature/state-of-flash-weekly-feature/2012/09/the-state-of-flash-and-prose-poetry-why-we-write-em"><br />
+</a></p>
+<p><a href="http://www.sixwordstories.net">http://www.sixwordstories.net</a>.</p>
+<p>Now for some short fiction. I recently introduced six word short stories to my students. We started with Hemingway&#8217;s infamous, &#8220;For sale/baby shoes/hardly worn&#8221; and they played along with the form, some coming up with some equally creepy pieces. Here is the official website of six word stories, listing them daily in a twitter-like feed. They&#8217;ve had over 5,600 submissions since 2009.</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3368.html#respond-3368" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-tiny-art/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-tiny-art/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-tiny-art/&text=Web+Rove%3A+Tiny+Art"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-tiny-art/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-tiny-art/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Tiny Art&body=Web Rove: Tiny Art%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-tiny-art/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=3365.html">Interview with Justin Madson</a></h2>
+	<div class="entrydate">22 Apr 2014</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Chloe Clark</p>
+<p><b>Justin Madson is an artist and graphic novelist whose work includes <i>Breathers</i> (a completed comic series) and, more recently, <i>Carbon</i>. To learn more about him—follow him on Twitter @justinmadson, on Tumblr </b><a href="http://justinmadson.tumblr.com/" target="_blank"><b>http://justinmadson.tumblr.com/</b></a><b> on Facebook </b><a href="https://www.facebook.com/BreathersComic"><b>https://www.facebook.com/BreathersComic</b></a><b> or check out his website: <a href="http://http://www.justmadbooks.com/" target="_blank">http://www.justmadbooks.com/</a></b></p>
+<p><b>1.)   </b><b>What first got you interested in the graphic novel as a storytelling form?</b></p>
+<p>I had taken some film study classes in high school that sort of ignited my passion for filmmaking and script writing and I really wanted to pursue that avenue as a way of telling stories. This proved a pretty difficult task, simply due to the number of people and resources needed to pull that sort of thing together.  I had been reading a lot of comics at the time, as well, and sort of came to the realization that comics were, more or less, just movies on paper, so I decided to start drawing my stories. And I fell in love with the art form and never looked back.</p>
+<p><b>2.)   </b><b>What do you think the strengths of sequential art are, compared to prose, and compared to other purely visual arts?  What can sequential art offer the cultural community that&#8217;s unique and, perhaps, underdeveloped or unexplored?</b><b></b></p>
+<p>Sequential art is not limited solely by words on a page or by a single piece of visual art. It exists to tell a story through both words and pictures. It is the combination of both of those very different aspects and how they are combined that makes graphic novels so very unique.  A sequential artist may be able to convey more in a single drawn panel on a page than in multiple pages of prose writing. Often times, in my own work, it is the silent panel on a page that says the most. Sequential art offers storytellers the ability to create any type of story, really, and tell it in a variety of ways. There are not many rules when it comes to sequential art, which is why it is an appealing medium to work in. I have seen graphic novels with no words at all and somewhere words exist in panels with no drawings. And, in both these cases, the stories still move forward, time passing from panel to panel.</p>
+<p><b>3.)   </b><b>  How does your sequential art, qua writing, fit within the larger literary community?  Many of us at Flyway are following the growing respect sequential art is garnering in the literary community.  Where do you feel your work fits in that community?  Where do you think sequential art as a genre (if we can call it that) fits?  Where do you think it should fit?  How does/should sequential art question, comment on, and interact with the broader community of books, readers and writers?  What do you see as the future of sequential art within the broader literary community?</b></p>
+<p>In the years I have been producing comics and graphic novels, I have seen a significant jump in the appeal of graphic novels and comics, as well as the number of people creating them. I suppose that says something, that there is something appealing and worthwhile in it. I have a difficult time accepting that sequential art is being thought of very highly in the literary community, though, but I think things are headed in the right direction. More and more distinguished publishing houses now produce graphic novels and promote them as legitimate works of art and literature. Did anyone outside of comics know who Chris Ware was a couple years ago? I still believe the majority of American readers shy away from sequential art and do not really give it much value, treat it like some weird bastard child of words and pictures (which it kind of is). But there is such a plethora of great sequential art stories already produced and being produced today that it’s really just a matter of time before it becomes widely appreciated as the legitimate form of storytelling that it is. And, I do like to think I am producing work that can be thought of as something more than just words and pictures on a page, something with some sort of redeeming quality.</p>
+<p><b>4.)   </b> <b>Following up on this last question: Flyway loves to publish good sequential art.  But we get very few submissions.  How do we better integrate the world of literary magazines and the world of sequential art?  (Or, is this something we should even try to do?)  Do you have suggestions for editors?  Do you have suggestions for writers/artists/creators of sequential art?</b></p>
+<p>I think the main issue is that it is difficult to create a really good story of sequential art in only a few pages. In four pages of prose, one can create a lot more than four pages of sequential art. I am horrible at making short works and tend to create long, sprawling stories, so I don’t know, maybe it can be done, but not by me. I would need the entire magazine to tell a good story.</p>
+<p><b>5.)   </b> <b>Writing and drawing are two talents that don&#8217;t necessarily appear together, and when they do occur in the same person, magic can happen.  Which came first, or most easily for you &#8211; the writing or the drawing?   How do they interact in your own process?  Do you write first (either on paper or in your head) and then draw the story, or do you start drawing and a story develops around your pictures? Could you take us through your process from idea conception to publication?</b></p>
+<p>The writing came first and is still very much my favorite part of the whole process. The drawing part came out of a necessity.  In order to breathe life and personality into the words I had written, I forced myself to draw and draw and draw and learn the tricks of the trade. I have a writer self and an artist self and they sort of work together to keep each other in check. I may write a long piece of dialogue for a character that my writer self thinks is great, but when I’m drawing it, my artist self will see it differently and scrap it completely, or chop it to pieces. It’s a great way to self-edit as I go about creating my stories. I usually work out the main plot for the entire story, and since I see it all as a movie, albeit, it drawn on paper, I hammer a book out scene by scene, writing dialogue, then doing page layouts, then drawing and inking the pages. I have main plot points that I need to hit, but the rest I like to make up as I am actively working on it. If I had every page planned out I would get bored with it.  <b></b></p>
+<p><b>6.)   </b> <b>Your series <i>Breathers</i> has a wonderfully enticing sci-fi concept (a world where everyone wears gas masks to protect them from no longer breathable air)&#8230;When did you first get the idea? Was it prompted by anything in particular?</b></p>
+<p>The gas mask idea just came from me doing some drawings one day, just sort of whatever came to mind. I really liked the visual and thought, “Yeah, I can use this. This could make for a cool story.” My writer self then started to develop a story for these gas masks to exist in. I just tried to really think, rather matter-of-factly, what it would be like to live in a world where you had to wear gas masks all the time and I built a story around that. I really liked that the idea of needing gas masks to breathe affected everyone in this world, that everyone was equal, at least in that one aspect. Everyone needs to breathe.</p>
+<p><b>7.)   </b><b> A great thing about your work, to me, is that you often have sci-fi or &#8220;genre-y&#8221; concepts alongside very day-to-day situations and realistically portrayed families and relationships. Is it a challenge to find that balance? Do you think it is a balance that is needed especially because you deal with genre elements?</b></p>
+<p>I remember reading in an interview with comics writer, Kurt Busiek, back when he was writing the comics series, <i>Astro City</i>, in which he said you have to create an interesting backdrop for your characters, whether it be the strange city they live in or some war time situation. So, I always think of that when I create a story. It sort of adds another layer to the building of the story, a foundation on which to build characters, relationships, intrigue. I always feel that my stories are about people, above all else, but without the genre elements, serving as a backdrop, I think my stories would be kind of boring, like one of those indie films that you just know is not going to go anywhere. And the best sci-fi stories are the ones you can actually believe could happen.</p>
+<p><b>8.)   </b><b> Your latest graphic novel, <i>Carbon</i>, plays really well with tropes of noir. Is that something you wanted to do from the start? Or did that just sort of happen?</b></p>
+<p>I would say <i>Carbon</i> combines a lot of different genres, including, but certainly not limited to, noir. The story finds the city-state of <i>Carbon</i> in political upheaval as a newly elected governor seeks to strip the rights of a certain group of individuals who live there. These individuals are Seers, people with psychic abilities. This political unrest serves as the backdrop to the story, which, at its core, is a mystery involving several characters, each with their own issues to deal with. Like <i>Breathers</i>, the story is very character-driven, although it takes place in a world slightly different than our own.</p>
+<p><b>9.)   </b> <b>Who have been some of your influences (both in writing and in art)?</b></p>
+<p>Over the years many graphic novelists and cartoonists have inspired me. I consider Ted McKeever, Daniel Clowes, Charles Burns, David Lapham, the Hernandez Brothers and Alex Robinson amongst my biggest influences, but, really, there are so many to list. I cannot discount the films of the Coen Brothers, which really fueled that early spark to create stories.</p>
+<p><b>10.)   </b><b>What sort of projects do you have in the works?</b></p>
+<p>In addition to working on <i>Carbon</i>, which I expect will take a good four or five years to complete, I also work on the occasional painting, which is a nice change of pace from the sequential art form. To just focus on one piece of art from start to finish is sometimes like a breath of fresh air.</p>
+<p>&nbsp;</p>
+<p>*-*</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/interview-2/index.html" rel="tag">interview</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=3365.html#respond-3365" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/interview-with-justin-madson/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/interview-with-justin-madson/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/interview-with-justin-madson/&text=Interview+with+Justin+Madson"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/interview-with-justin-madson/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/interview-with-justin-madson/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview with Justin Madson&body=Interview with Justin Madson%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/interview-with-justin-madson/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../6/index.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../8/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>

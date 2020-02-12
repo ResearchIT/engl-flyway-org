@@ -1,0 +1,1343 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page22' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page22' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page22' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page22' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=558.html">Where Are They Now? with Michael Martone</a></h2>
+	<div class="entrydate">21 Nov 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Michael Martone is currently a Professor of English and Director of the Creative Writing Program at      the University of Alabama where he has been teaching since 1996. Michael Martone&#8217;s most recent    books include <em>Four for a Quarter</em>, <em>Not Normal, Illinois: Peculiar Fiction from the Flyover</em>, and <em>Racing  in Place: Collages, Fragments, Postcards, Ruins</em>. Martone has won two Fellowships from the NEA  and a grant from the Ingram Merrill Foundation. His stories have won awards in the <em>Italian  Americana</em> fiction contest, the <em>Florida Review Short Story Contest</em>, the Margaret Jones Fiction Prize  of <em>Black Ice Magazine</em>, and the first World&#8217;s Best Short, Short Story Contest. His stories and essays  have appeared and been cited in the <em>Pushcart Prize</em>, <em>The Best American Stories</em> and <em>The Best American  Essays</em> anthologies. I sat down with Michael Martone to discuss everything from publishing to anthrax.</p>
+<p><strong>Ian John Pisarcik</strong>: First-year students in Iowa State University’s MFA Program in Creative Writing and Environment recently visited two publishing houses in Minneapolis to talk with editors about the publishing process. Some of the students came away from these discussions feeling discouraged. Before getting into what the publishing world looks like today, can you tell us a little about your experiences getting published?</p>
+<p><strong>Michael Martone</strong>: I always thought of writing as a kind of publishing. When I was in grade school, I was publishing a paper. It was a hand written newspaper for the neighborhood and I was publishing another newspaper in high school. So, I never divided these things into two different categories – here’s publishing and here’s a writer. I think that’s one thing that is really exciting today, the fact that those categories are completely collapsed. As a writer today, you expand into these other fields of being a writer, publisher, graphic designer and distributor. So it interests me that you say it’s discouraging. I don’t think it’s discouraging. I think it’s an amazing time if you are a writer.</p>
+<p><strong>IJP:</strong> Are you referring mainly to self-publishing, using tools such as Amazon’s Kindle Bookstore?</p>
+<p><strong>MM:</strong> Oh, yes. I always say to my students, do you want to be published? And they say yes. And I say, well I have a Macintosh and I have the software and I can publish you right now. And they say, well that’s not what we mean. And we spend part of the class trying to examine what it is we mean when we say we want to be “well published.” But your question was about me personally. I’ve been working now as a publishing writer for 30 years and in those 30 years [I&#8217;ve published] everywhere. I resisted what most people do, which is, in some very personal way, to have a hierarchy of what counts and what doesn’t. For me, <em>Mudstump Review</em> is as good as <em>The</em> <em>New Yorker</em>. Back in the old days, when these categories were more stable, you wouldn’t have said self-publishing; you would have said vanity publishing. Because it was thought to be a vain thing that all you wanted to do was be published but you weren’t going through the kind of rigors of this competition that was set up.</p>
+<p><strong>IJP:</strong> The gatekeepers?</p>
+<p><strong>MM:</strong> Exactly.</p>
+<p><strong>IJP:</strong> Do you see any disadvantage to there being no gatekeepers? For example, some people would argue that there needs to be quality control and they might point to the Internet and say there’s a lot of crap that you have to sift through. If book publishing houses disappeared and it was all self-publishing, would that be problematic or ideal?</p>
+<p><strong>MM:</strong> In my case, fine with me. But, I have a lot of colleagues who will whisper to me that there are too many writers – too much stuff. A long while ago, I threw away the notion as a teacher that my job is to get you to write well. My job is to make you write. So a quick answer to your question is no, I think it’s great. Usually when people ask that question they ask ‘are there too many writers?’ I don’t think there are enough. I think it’s great that people want to write, and as a teacher I want to help them write what they want. I’m no longer in the role of a gatekeeper which is, oh, I have to get you to write literary fiction or literary essays. If you want to write fan fiction, I’m here for that. I once had a colleague who said there are too many writers – there needs to be quality control. And I said to him, he was a marathon runner, I said, when you run the marathon do you get right up in front with the Kenyans? He said, well no. And I said, well then why do you run if you’re not going to win? And he said, there are all these other things&#8212; it makes me feel good, it’s good exercise, it’s good to be with all those people – to feel a sense of community. I said, okay, why not extend that to writing? Why do we have to think that the only people who get to write are the Kenyans?</p>
+<p><strong>IJP:</strong> That reminds me of something you said with respect to your teaching. You said that you’re not really interested in what’s good or bad, but rather in teaching the habit of curiosity and exploration. There’s a lot of debate among MFA students about what they are supposed to get out of an MFA program. There are people who say MFA students simply get time to write, but there are others who argue that MFA students need a job once they graduate and thus more time should be spent preparing them for the real world. You have already touched on this, but what do you see as your obligation, if any, to the MFA student?</p>
+<p><strong>MM:</strong> What I promise them is protected time and space. Nobody is going to go in debt at the University of Alabama. I view it as a gift. I’m giving you four years, do with it what you want. It’s been my experience that my students break up into several tracks. One thing we have is a magazine, the <em>Black Warrior Review</em>, and a significant amount of people go in that direction and end up being employed as editors. Other people, because we offer teaching opportunities, will take the teaching track. But also, we have people who graduate, get the job they had before entering the MFA program, but continue to write. Writing programs can train you in a general way so that you’re not the Kenyan winning, but you are someone who can run. The definition of what a writer is has to expand. The university is all about making the writer as a job – a specialist. But, what I try to teach is writing as a general pursuit that will adapt.</p>
+<p><strong>IJP:</strong> In talking about the traditional workshop format, you noted that there is a danger in distinguishing or making sense of what one is doing before one is done doing it. This idea of pigeon-holing the writer. Is there an alternative to the traditional workshop?</p>
+<p><strong>MM:</strong> What you’re getting at is the notion that, we thought the workshop would generate writing, but what it actually does is generate criticism. So in the traditional workshop, you have 12 people and the 12 people are usually broken up into 4 groups of 3. So over a 16 week term, you are up 3 times, maybe, if you’re lucky, and maybe 2 of those times you write a new story and 1 of those times is a revision. What are you doing the rest of the time? You’re reading everybody else’s work and in the classroom you’re actually critiquing. Years ago, I gave that up. My students now write a story a week and the critique section of that story takes only 8 minutes. Again, I think writers were naïve when they came into the university. Because this place is not a creative place by nature. Its DNA is all about criticism and what criticism is, as you were just saying, is pigeon-holing. And when that pigeon-holing is also connected to, this is good, this is bad, one of the things that happens is a person doesn’t write. Because if you’re sitting there writing this new story – you’re saying if I write this, Bobby is going to say that, if I write this, Jimmy is going to say that, if I write this, <em>I’m</em> going to say that. And all the sudden, nobody is writing because the criticism is so dominating. That’s not my job. Our job should be creating things, to be failing magnificently. To try things, because again, the way I view creative writing school is protected time and space. Other people say they give you protected time and space but then they criticize you and say they are running a simulation of the world out there – well why run a simulation of the world out there? This is a different world. This is a time when you can try things.</p>
+<p>Also, in my workshop, I will have a ½ hour conference with each person. But in that conference, first I’ll have the person talk about their work. That is another flaw of the traditional workshop, the gag rule. Again you are just training critics. You are not allowing the writer to think out loud about what he or she is doing. In an 8 minute workshop, you don’t have what you have in a 45 minute workshop, which is that for the first 20 minutes people guess what it is the writing is trying to do and then we tell them it’s wrong. So what I say is, what is it you want to do? What was your intention and what are some of the problems you’ve already identified? Then we can talk about that. We can help you figure that out.</p>
+<p><strong>IJP:</strong> You play a lot with the line between fiction and non-fiction. This is something discussed in my non-fiction workshop. Does the writer have an obligation to the reader to identify whether something is fiction or non-fiction, or should the writing just be called art?</p>
+<p><strong>MM:</strong> Well, even that should be explored. One thing that happens with the workshop is that it talks about the thing on the table, but it doesn’t talk about the context. For example, most workshops won’t have a discussion about the workshop.</p>
+<p><strong>IJP:</strong> It is an important discussion because there are people who feel a violation when these lines are blurred. Just look at the James Fry case. People had a visceral reaction to that case.</p>
+<p><strong>MM:</strong> For the last 25 years, the dominant style of writing fiction and non-fiction was realism. Realism has these interesting and unexamined conventions, a sort of contract between the writer and reader. So it’s interesting that you said “violation.” The reader will only feel violated if the reader is set in a default position. If those things: what’s real and what’s not, when you get to use first person and not use first person, are agreed on by everybody. But there are other kinds of writing that don’t call into question the content of the truth or fiction, but the fact that you are actually reading an artifice – so that all things, fiction and non-fiction, are still artifice – and so those techniques of revealing the artifice or making the audience deal with the structure, the fabrication of a non-fiction, have an alienating effect.</p>
+<p>The classic example of that is the Threepenny opera. Where, even though it’s a fiction, it’s realistic fiction up to a point. At one point Mack the Knife is about to be hanged and a guy runs in and says you’ve been reprieved and Mack throws off the noose and sings, “I’m reprieved.” But then he says to the audience, this always happens doesn’t it? In stories? While outside the theater, people are dying over loafs of bread.</p>
+<p>So that violation of the audiences complacency and comfort is actually done for political purposes – for purposes that are meant to change a reader. Again, it goes back to patrolling. Isn’t it interesting that the writers themselves turn out to be policeman? There is this desire for a lot of people to come to school in order to get the credential to be the cop. And from my point of view, I’m an artist, and part of my job is to mess up the cops. Or at least to show that those boundaries that are natural and legal are just as artificial. What’s real 2 years ago might be completely unreal today.</p>
+<p>This has been going on a long time as you know. <em>Robinson Crusoe</em> was originally published as non-fiction and thus the much more interesting question is why? What was happening that he wanted to do it that way? Or maybe another interesting question is, why don’t poets talk about this? Poets are poets – they are not non-fiction poets and fiction poets. So what is it about poetry that allows them to get away with that? I think part of it is that they have not done the transparent prose style that fictionally says this is real. People look at poetry and say, well this is a construction, this has an artifice, it has its own kind of truth.</p>
+<p><strong>IJP:</strong> There is a desire for people to know the artist behind the art. And some of this relates to that line between non-fiction and fiction. For example with James Fry or with Tim O’Brien, the reader wants to know what happened and what did not. The reader is unable to look at the art independent of the artist.</p>
+<p>I think you’re right. A lot of my writer friends really resist this idea, but I was ready for it. We have to be careful because the university actually acts as sort of a buffer system. It doesn’t allow us to confront these interesting questions. I always tell this story about the anthrax outbreak. It was actually called the Ames strain because it was kept at the university here in Ames, Iowa. Why? Because the larger culture doesn’t want to mess around with anthrax, but it doesn’t want to get rid of it completely. So where do you store stuff like that? In a university. And what happens is people study it, write papers about it, and train others to take care of it. Why? In case there’s an outbreak. So there was an outbreak and they came to these guys and said tell us about it. So the university’s main function is cold storage. And what we forget is that that’s the way it deals with poetry and fiction. The poetry and fiction is mainly in cold storage and we have people who reproduce it and teach people how to do it this particular way. Anyway, there was a poetry outbreak in 2001 in Alabama and I got a phone call – a reporter from the Birmingham news –and he said we are getting a ton of poems. I said, you’re experiencing a poetry outbreak. I asked him what the content of those poems was and he said the content was the death of Dale Earnhardt. So I said, “In a time of trying emotional things, we turn to this ancient way of expressing emotions in this compact, blah, blah, blah . . .” And they quoted it in the newspaper. Just like the anthrax outbreak. A lot of our colleagues and students are being trained as curators rather than creators. We have to prevent ourselves from doing that. We have to create and we have to pay attention to what is being created.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=558.html#comments-558" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/&text=Where+Are+They+Now%3F+with+Michael+Martone"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Where Are They Now? with Michael Martone&body=Where Are They Now? with Michael Martone%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/where-are-they-now-with-michael-martone/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=546.html">Where Are They Now? With Melissa Lamberton</a></h2>
+	<div class="entrydate">3 Nov 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/11/melissa.jpg"><br />
+</a><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/11/melissa.jpg"><img class="alignleft size-full wp-image-548" title="melissa" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/11/melissa.jpg" alt="" width="287" height="400" /></a>Each year, Flyway hosts the Home Voices contest&#8212;an in-house contest open to all the MFA candidates at Iowa State University’s program for Creative Writing and the Environment. In this interview, Flyway talks with last year’s 2010 Home Voices Contest Winner, Melissa Lamberton.</em></p>
+<p><strong>Refresh our memories: what piece did you submit to last year&#8217;s Home Voices contest?</strong></p>
+<p>I sent a short nonfiction essay called &#8220;Tracing the Creek Home.&#8221; The backbone of the story is a walk through [Iowa&#8217;s] Bluff Creek, and I weave in memories of water from my hometown in Tucson, Arizona. In the story I&#8217;m thinking about displacement and loss but also being very present in place &#8211; quietly aware and attuned to the unfamiliar world around me.</p>
+<p><strong>You won the award in your first year at ISU&#8217;s MFA program. That&#8217;s pretty impressive. What caught your attention about ISU&#8217;s MFA program?</strong></p>
+<p>I never intended to apply for an MFA program &#8211; my background is in science &#8211; but the focus on the environment caught my attention. I liked the idea of doing writing that would be relevant to the world &#8211; writing that would become a record, an elegy, maybe a catalyst for change.</p>
+<p><strong>Where were you before you came to ISU?</strong><br />
+I grew up in Tucson, Arizona and attended the University of Arizona as an undergraduate. I had a double major in environmental science and creative writing.</p>
+<p>&nbsp;</p>
+<p><strong>Since you came to ISU to pursuit an MFA, how do you see your taste and writing style changing or developing?</strong></p>
+<p>Landscape has always been important in my work, but I suppose now that I live in a wet, green place I have the ability to compare and contrast, to sharpen my vision of deserts, mountains, home. I&#8217;ve also gained access to a whole host of images that I never used before &#8211; autumn leaves changing color, falling snow, summer thunderstorms flickering on the flat prairie horizon.</p>
+<p><strong>How do you see place and the environment affecting your daily life and your writing?</strong></p>
+<p>I fell into writing about place because I love science. As a kid I wanted to be a geologist &#8211; still do, actually! I like knowing what sort of bedrock I&#8217;m standing on, how the soils were formed. I grew up in the basin-and-range region of southern Arizona, and something about the landscape&#8217;s contours &#8211; islands of mountains in bright, broad plains &#8211; really influenced the way I write. I spent a lot of summers hiking and camping in those mountains. I&#8217;m always interested in the history of a landscape, the way it shapes the plants, animals and people that call it home.</p>
+<p><strong>Any plans for your thesis yet?</strong></p>
+<p>I&#8217;m working on a nonfiction book about rivers in the Southwest. I&#8217;m interested in how humans, faced with arid landscapes, tend to invent water where none exists. Early explorers simply drew mythical rivers on maps, but now we actually engineer them into reality by building dams and canals. I think we lose something vital with this mindset &#8211; we forget that the desert, in all its marvelous complexity, was shaped by the absence of water.</p>
+<p><strong>What advice would you give to those interested in applying to Iowa State&#8217;s MFA program?</strong></p>
+<p>Come visit us if you can. We&#8217;ll have one of our famous potlucks and you can get a sense of what our writing community is like.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=546.html#comments-546" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/&text=Where+Are+They+Now%3F+With+Melissa+Lamberton"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Where Are They Now? With Melissa Lamberton&body=Where Are They Now? With Melissa Lamberton%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/where-are-they-now-with-melissa-lamberton/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=524.html">Interview With Deborah Vetter, Executive Editor of CICADA and Senior Contributing Editor of CRICKET</a></h2>
+	<div class="entrydate">31 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em><br />
+</em></p>
+<p><em><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled1.png"><img class="alignleft size-full wp-image-528" title="Untitled1" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled1.png" alt="" width="125" height="140" /></a>Cricket Magazine Group is a publishing group that offers fourteen award-winning, advertisement-free magazines for babies, toddlers, children, and young adults. The Group first started in 1973 with the literary magazine CRICKET (ages 9-14) and eventually expanded to include four more literary “bug” magazines for other age groups: BABYBUG (ages 6months-3years), LADYBUG (ages 3-6), SPIDER (ages 6-9), and CICADA (ages 14+). Today, Cricket Magazine Group’s fourteen magazines fall into three categories: Science and Ideas, History and Culture, and Literature and Imagination. While the Cricket Magazine Group’s publications in the first two categories—COBBLESTONE, CLICK, CALLIOPE, ASK, MUSE, etc.—have become popular in schools and libraries, as well as with children who love science and history, this interview focuses on the five literary magazines, the magazines which have earned the title “The New Yorker” for children.</em></p>
+<p><em><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled2.png"><img class="alignleft size-full wp-image-529" title="Untitled2" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled2.png" alt="" width="124" height="154" /></a>Flyway </em><em>blogger Mateal Lovaas asks Deborah Vetter, Executive Editor of CICADA and Senior Contributing Editor of CRICKET, questions about the five “bug” magazines. </em></p>
+<p><strong>Mateal Lovaas: </strong>I believe CRICKET<em> </em>was your magazine group’s first publication in 1973. What is the story behind CRICKET, and which “bug” magazines came next?</p>
+<p><strong>Deborah Vetter:</strong> Back in 1973, founder and editor-in-chief Marianne Carus had the idea to start a literary magazine to “create in children a love of reading by sustaining a lively, witty, and cheerful tone and a sense of humor.” She found herself inspired by <em>St. Nicholas</em>, a children’s magazine published from 1873 through the late 1930s. Its editor was none other than Mary Mapes Dodge of <em>Hans Brinker; or the Silver Skates</em> fame. <em>St. Nicholas</em> was filled with stories, poetry, nonfiction articles, and great illustrations—exactly what Marianne envisioned for her magazine.</p>
+<p><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled31.png"><img class="alignleft size-full wp-image-536" title="Untitled3" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled31.png" alt="" width="124" height="155" /></a>Of course, a new magazine has to have a name. Marianne campaigned for <em>Troubadour </em>or <em>Taliesin,</em> but people told her those titles sounded a little “too foreign, too unfriendly, and not accessible enough for children.” Shortly afterward, Marianne was reading Isaac Bashevis Singer’s autobiographical <em>A Day of Pleasure</em>, in which Singer writes about a cricket chirping behind the stove, “telling a story that would never end.” Aha! Now CRICKET had its name—and a new board member in Isaac Bashevis Singer.</p>
+<p>At the Frankfurt Book Fair, Marianne found <em>How Six Found Christmas</em>, written and illustrated by Trina Schart Hyman. She asked Trina to be the first art director, and when Trina said, “I’ve never art directed a magazine before,” Marianne replied, “I’ve never edited a magazine before. We’ll make a good team.” And it was a good team; I had the pleasure of knowing and working with both of them. Trina was the one who came up with the idea for the bug characters who romp in the margins of the magazine.</p>
+<p><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled41.png"><img class="alignleft size-full wp-image-537" title="Untitled4" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled41.png" alt="" width="136" height="165" /></a>Lloyd Alexander joined the editorial board and was an active contributor up until his death in 2007. CRICKET readers might like to know a well-kept secret: this award-winning author of the Prydain Chronicles was also the voice of <em>Old Cricket Says</em>. OCS is a one-page feature that appears at the end of each issue, and many, many of these informative essays came from Lloyd’s old typewriter, which he used for his entire writing career. So if you’re reading back issues and see an <em>Old Cricket Says</em> feature without an attribution, chances are it’s one of Lloyd’s.</p>
+<p>After making its appearance in 1973, CRICKET hopped along telling stories on its own until 1990, when Marianne started LADYBUG, a magazine for preschoolers. After that the “bugs” came quickly: SPIDER (for ages 6–9) in January 1994, BABYBUG (for 6 months–2 years) in September 1994, and CICADA, a teen literary journal for ages 14 and up, in 1998. Times were exciting!</p>
+<p><strong><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled51.png"><img class="alignleft size-full wp-image-538" title="Untitled5" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/10/Untitled51.png" alt="" width="124" height="166" /></a>M.L. : </strong>The “bug” magazines are arguably the highest-quality literary magazines on the market for children. How do you remain advertisement free, especially with the decline of the publishing industry? What changes have you witnessed in the “bug” magazines over your 25 years with the Cricket Magazine Group?</p>
+<p><strong>D.V. :</strong> The “bug” magazines rely mostly on subscriptions, and because we’re advertising-free, we face special challenges. Over the years, for example, we’ve had to pull back a bit on the number of pages in CRICKET and CICADA. As with many other magazine publishers, we’re also facing competition with electronic media. Therefore, we’ve launched lively, interactive Web sites: <a href="http://www.cicadamag.com/">www.cicadamag.com</a>, <a href="http://www.cricketmagkids.com/">www.cricketmagkids.com</a>, <a href="http://www.spidermagkids.com/">www.spidermagkids.com</a>, and <a href="http://www.ladybugkids.com/">www.ladybugkids.com</a>. We’re launching our first e-books, too, this holiday season, including a Best of CICADA anthology featuring contemporary realistic fiction from authors such as Billy Lombardo, Suzanne Kamata, Elizabeth F.A. Meaney, Tony Lindsay, and Chris Wiewiora, who is currently in the MFA program in Creative Writing and Environment at Iowa State University.</p>
+<p><strong>M.L. : </strong>Could you describe your own editorial process of reading over and deciding whether to accept a submission to CICADA, the literary magazine for teens and young adults ages 14 and up? Are there specific features you look for first?</p>
+<p><strong>D.V. : </strong>We’re looking for fiction with literary sophistication and a genuine teen sensibility. Most of our fiction runs between 3,000–5,000 words, which gives authors space to develop plot and characterization fully. Voice is all-important; in addition, most YA fiction is first person and often in present tense, both of which lend an air of immediacy.</p>
+<p>I find that teens and people in their twenties are especially successful at capturing that teen sensibility; many older adult authors are, too, of course, but often adults write “about teens” rather than from within the teen experience itself. For CICADA, we’re looking for those authentic coming-of-age moments; many of our stories revolve around relationships with boyfriends/girlfriends or with family members. Relationships with parents can be especially rocky: great fodder for stories.</p>
+<p><strong>M.L. : </strong>When writers submit manuscripts, what is your general turn around time? How much do you work with authors to edit and adapt their work?</p>
+<p><strong>D.V. :</strong> We are blessed with hundreds and hundreds of submissions, which is fantastic, because it enables us to discover new authors and new voices. In fact, many authors place their first stories for publication in CICADA, or one of our other “bug” magazines, and we’re proud of that. Part of our mission is to nurture new talent.</p>
+<p>Because we do read unsolicited manuscripts, and because we have a small staff, it can take up to six months before an author receives a response. I know that’s a long time to wait, but we are amenable to simultaneous submissions, if you identify them as such in your cover letter.</p>
+<p>If a story makes it through the first read, it will be “set up” and routed for additional reads from up to four or five in-house editors. As you can see, all this takes time. Often we will ask an author for a revision on spec before making a final decision.</p>
+<p>Once we’ve accepted a manuscript for publication, an editor will edit and copyedit the story for house style. Sometimes editing is heavy, sometimes light; usually it’s somewhere in the middle. While it’s important to smooth out the rough spots, we also know that an editor’s job is to preserve the author’s voice. The author always has an opportunity to review and approve the editing before a story goes to press.</p>
+<p><strong>M.L. : </strong>According to your website, writers are supposed to submit their manuscripts directly to the “bug” magazine that best fits their piece. If writers feel their piece might work for more than one age range, may they submit to more than one of the “bug” magazines? If you receive a strong manuscript, but one that fits better in a different age range than CICADA’s 14+ focus, do you pass the manuscript on to one of the other magazines? In general, how much communication is there between you and the editors of the other four magazines, BABYBUG, LADYBUG, SPIDER, and CRICKET?</p>
+<p><strong>D.V. : </strong>That’s a good question, Mateal. In fact, we just updated our guideline page at <a href="http://www.cricketmag.com/6-Submission-Guidelines-for-kids-magazines-for-children-from-toddlers-to-teens">http://www.cricketmag.com/6-Submission-Guidelines-for-kids-magazines-for-children-from-toddlers-to-teens</a> to let authors know that, while it’s good to target a specific magazine, we do pass manuscripts around freely. I can remember one memorable occasion where a LADYBUG submission ended up in CICADA!</p>
+<p><strong>M.L. : </strong>I know the bug magazines publish works written by children, young adults, and adults. Do your standards vary depending on whether the submission is from children and young adults versus adults? Do you seek to represent a range of authors in each issue?</p>
+<p><strong>D.V. :</strong> SPIDER and CRICKET have special pages reserved for young readers; SPIDER has “Spider’s Corner,” and CRICKET has “Cricket League.” CICADA is the only magazine that accepts general submissions from both teens and adults. We don’t have one set of standards for adults and another for teens; teens are amazingly good authors, and believe me, they can hold their own. Log on to <a href="http://www.cicadamag.com/thisissue">www.cicadamag.com/thisissue</a> and read some of the <em>Expressions</em> pieces from current and past issues. Anna Blech’s “Adventure Day” (September/October 2011) is especially compelling.</p>
+<p>Does CICADA seek to represent a range of authors in each issue? Mainly, we’re looking for a variety of styles and genres, and we want a mix of male and female protagonists, but we don’t specifically aim for so many stories written by teens and so many by adults. We just go with the best stories we have, and it all works out.</p>
+<p>CICADA also has sections it reserves for authors ages 14–23, specifically <em>Creative Endeavors</em> (<a href="http://www.cicadamag.com/submitwork">www.cicadamag.com/submitwork</a>) and <em>The Slam</em> (<a href="http://www.cicadamag.com/theslam">www.cicadamag.com/theslam</a>), which is an online critique forum for poetry, microfiction, and creative nonfiction. The <em>Expressions </em>feature, too, is usually written by a teen or “twenty-something” author.</p>
+<p><strong>M.L. : </strong>What closing advice do you have for writers beginning to submit their work to one of the five literary magazines in the Cricket Magazine Group?</p>
+<p><strong>D.V. :</strong> It’s a cliché, and it takes time, but study sample issues. Nothing beats that hands-on analysis. Second, read and follow the guidelines at <a href="http://www.cricketmag.com/6-Submission-Guidelines-for-kids-magazines-for-children-from-toddlers-to-teens">http://www.cricketmag.com/6-Submission-Guidelines-for-kids-magazines-for-children-from-toddlers-to-teens</a><strong>. </strong>We’re always eager to find new authors from undergraduate and MFA programs!</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=524.html#comments-524" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/&text=Interview+With+Deborah+Vetter%2C+Executive+Editor+of+CICADA+and+Senior+Contributing+Editor+of+CRICKET"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview With Deborah Vetter, Executive Editor of CICADA and Senior Contributing Editor of CRICKET&body=Interview With Deborah Vetter, Executive Editor of CICADA and Senior Contributing Editor of CRICKET%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-deborah-vetter-executive-editor-of-cicada-and-senior-contributing-editor-of-cricket/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=522.html">Fall Reads From The Flyway Editors</a></h2>
+	<div class="entrydate">26 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>It&#8217;s chilly here in Iowa.  If you&#8217;re looking for a book to go with your hot tea and couch blankets (Snuggies?) this Fall, here&#8217;s what we&#8217;re reading:</p>
+<p>(If you&#8217;ve read any of these and feel like some book talk, leave comments!  We&#8217;ll answer!)</p>
+<p><strong>John Linstrom, Nonfiction Editor</strong></p>
+<div>Michael Pollan, <em>The Omnivore&#8217;s Dilemma:</em> A modern classic on the food crises facing American consumers (and producers) today &#8212; food&#8217;s <em>Silent Spring</em>.  If you haven&#8217;t read it, fall might be the best time, because it <em>will </em>make you want to take advantage of the autumnal bounties of organic food in your local co-op before winter hits.</div>
+<div>Dean Bakopoulos, <em>Please Don&#8217;t Come Back from the Moon: </em>Evokes so accurately the somehow satisfying sadness of falls spent back in the hometown.  It also comments tenderly and insightfully on the reality of postindustrial working-class America.</div>
+<p><strong>Sarah Burke, Managing Editor</strong></p>
+<div>Jane Hirshfield, <em>The October Palace: </em>Her work is beautiful year-round, but I always seem to come back to it in the fall.</div>
+<div><em><br />
+</em></div>
+<div>Sappho / Anne Carson, <em>If Not, Winter: Fragments of Sappho: </em>This is an amazing book of translations. I love it more every time I read it.</div>
+<p><strong>Xavier Cavazos, Poetry Editor</strong></p>
+<p>David Wagoner<em>, Who Shall Be the Sun: </em> Narrative poems of the Pacific Northwest Coast Indians. Might as well be the BIBLE!</p>
+<p>Michele Devlin, Mark Grey and Aaron Goldsmith, <em>Postville U.S.A.:</em> Nonfiction account of the historic 2009 immigration raids in Postville, Iowa. Shame on you &#8220;ICE&#8221;.  Shame, shame, shame.</p>
+<p>Yoani Sanchez, <em>Havana Real:</em> She&#8217;s a Cuban blogger who has been kidnapped, beaten and threatened with her life because she tells it how it is to be living under Castro&#8217;s Cuba. A must read!</p>
+<p><strong>Genevieve DuBois, Fiction Editor</strong></p>
+<p>Bill Streever, <em>Cold: </em>Because winter&#8217;s just around the corner!  This nonfiction book explores the colder places on earth and some of the various stories, cultures, and ecosystems that have evolved in and because of them.</p>
+<p><strong>Brenna Dixon, Blog Editor</strong></p>
+<p>Wells Tower, <em>Everything Ravaged, Everything Burned</em>:  This collection of stories is a fast read full of memorable characters and moments (Blood Eagle, anyone?).  It&#8217;s perfect for some couch time before bed.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=522.html#respond-522" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/&text=Fall+Reads+From+The+Flyway+Editors"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Fall Reads From The Flyway Editors&body=Fall Reads From The Flyway Editors%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/fall-reads-from-the-flyway-editors/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=517.html">Interview With Managing Editor Tim McKee of The Sun</a></h2>
+	<div class="entrydate">25 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Interview with Managing Editor of <em>The Sun </em>Tim McKee</p>
+<p><em>From their website – <a href="http://www.thesunmagazine.org/">The Sun</a> </em>is an independent, ad-free monthly magazine that for more than thirty years has used words and photographs to invoke the splendor and heartache of being human. <em>The Sun</em> celebrates life, but not in a way that ignores its complexity. The personal essays, short stories, interviews, poetry, and photographs that appear in its pages explore the challenges we face and the moments when we rise to meet those challenges.</p>
+<p>&nbsp;</p>
+<p><strong>Tegan Swanson: </strong>A reader characterizes <em>The Sun</em> as showing “the beauty, the wonder &amp; the dirty truth of the human spirit” – why do you think this is representative of your artistic aesthetic?</p>
+<p><strong>Tim McKee: </strong>The dirty truth is pretty key – beauty and wonder is important, but we don’t want to leave out the hard part.  We don’t shy away from occupying the messy parts of life.  A Sun reader is someone at a party, if you ask them how they are, they’d much prefer to stand in the corner with you and have a conversation for 45 minutes, rather than the superficial social moment.  There are a lot of party conversations in the media – we’re not interested in furthering small talk, or illusions that life is easy or simple.  That’s the writing that we gravitate towards.  People write us letters that ask us why we’re down or dark, but as a staff, we take the opposite position.  We think it’s inspiring to read about people’s own grapplings with the messy parts –  as a community, we feel less alone, and to see something beautiful in all of that, it’s inspiring.  Finally, we might find some way to get out or through these things.</p>
+<p><strong>TS: </strong>Since 1990, <em>The Sun </em>has been an ad-free, non-profit publication.  Founder Sy Safransky started <em>The Sun</em> as a sort of street-side guerilla publication in 1974.  More than 30 years later, how much of that backpack-to-reader intimacy remains in the magazine?  What sort of challenges has the staff faced in order to maintain this status?</p>
+<p><strong>TM:</strong> Sy had nothing against ads, but there was a feeling that the writing and photography is very intimate, sort of a connection developed between the piece of art and the audience.  Anything that rots or dilutes that relationship is undesirable.  We are a nonprofit, so essentially we need to break even, which means there is less pressure to bring in huge dollars.  Everyone is paid well, the offices are comfortable.  We ask our readers once or twice a year to contribute – this is the price that readers pay for not having ads.  The thing is, when people send in donations, they often write that they do so because we don’t take ads.  There is the passive appreciation and the idea that it is nice not to clutter, and also the mere act of support for taking that stand in this world where ads are following us everywhere.</p>
+<p>We have 70,000 readers now, in comparison to the handful which were buying magazines out of Sy’s backpack in 1974.  Back then it was him and one other guy, now we have 14 full time staff, freelancers.  It’s a bigger operation.  But we’re still all about the dirty truth, telling the stories that we don’t necessarily hear in the mainstream media – that remains at the core.  Content is still alternative, but I think the term  “new age-y” would bother him now, because we’ve moved passed that.  Look at an issue from the 1970s, now the tone is slightly different.</p>
+<p><strong>TS:</strong> The motto of the magazine as attributed on the website is “Personal.  Political.  Provocative. Ad-free.”  Features about controversial figures like the interview with Peter Coyote or Sea Shepherd’s Paul Watson certainly typify the “political” aspect of this approach.</p>
+<p><strong>TM: </strong>For the interviews, we try to feature people who are going to make our readers think about something a little differently, learn something new.  Having folks who run against the grain.  We get letters about controversial issues, like the interview with Stewart Brand where he is questioning the “sacred cows” of the environmental movement.  Here’s a guy who was an environmentalist,  and the opinions he’s expressing were sort of unexpected.  People wrote in saying things like – what’s with this guy, he sold out?  But we’re trying to expand the conversations, broadening the market place.  It’s important to feature people who don’t just say exactly what you think you know something about already.</p>
+<p><strong>TS:</strong> In an age of instant accessibility and 24 hour media coverage, what role does print media  &#8211; and <em>The Sun </em>in particular – occupy in the contemporary American political conversation?</p>
+<p><strong>TM:</strong> There is a kind of headspace that the reader has to get into, a particular one.  I still read <em>The Sun</em> sometimes at my house, even though I’ve been involved in the creative process.  It’s a meditative state –  I curl up in my favorite chair by my window, by the fire, try to really have the openness to really take things in.  Besides the Sunbeams feature [ a page of quotations at the end of every issue], nothing in the magazine is something that you could really digest on the go – you’re going to have to give it the time.  It’s a certain line that we’re holding.  We are going to have a digital version for those who prefer to do their reading online, but it’s still “here’s an idea or story, sit and get into it.”</p>
+<p><strong>TS: </strong>I loved the short story by Kathleen Founds in the September 2011 issue, and I was pleasantly surprised by its inclusion because of the nontraditional structure.  In wading through piles of manuscripts and submissions, what characteristics are most appealing for publication?</p>
+<p><strong>TM:</strong> With our fiction, it opens the window, let’s some fresh air in.  There can be so much experimentation with voice, character, narrative perspective, versus the confines of the other forms.  But it still needs to feel real to us, still in the realm that we could come across in daily life.  Founds’ piece was creative and funny and vibrant.  There is some satire in that piece, but it worked because the voices of these high school kids, and the teacher, had a resonance with reality.  We’re not interested with literary sleights of hand, experimentation just for the sake of moving the form forward.   Going to break with form just for some meta-literary thinking, we are utterly uninterested in that.  Sometimes we act like we’re dense, almost purposefully.  When it comes down to it, we’re people around the fire, and someone is telling the story.  The trickery is distracting.</p>
+<p>I’ve done some poetry workshops with  youth – what they think about poetry, what comes to mind.  They say things like “I can’t understand it , doesn’t make sense, I don’t know what’s going on”, and I think this is really counter to what the heart of poetry really is.  I don’t want to have to look it up to get it.  A poem that is doing its job should be understood by a teenager, not because it’s simple, but because you don’t need insider knowledge to get it.</p>
+<p><strong>TS:</strong> When you are considering work for publication, how do you interact with the authors?  Do you work with them on edits, etc.?</p>
+<p><strong>TM:</strong> We have lots of exchange with writers.  We edit heavily.  Always send edited galleys to the writers, and we expect them to exchange opinions.  A sort of back and forth until both parties are pleased.  I only know of one case where we lost a piece because we couldn’t reach agreement with a writer on edits.</p>
+<p><strong>TS:</strong> What suggestions do you have for writers looking to get their work published?</p>
+<p><strong>TM:</strong> I know it’s been said before, but knowing your publication is key; I’m still shocked at number of submissions that are so off of our base, it makes me think that a person has never seen an issue.  It’s hard work getting published.  But literary spamming, the scattershot approach – I don’t think that works.  Find magazines that you as a writer enjoy reading, and those are the ones to keep trying.</p>
+<p><strong>TS:</strong> It seems like this idea of the dirty truth is pervasive on many levels at the magazine.  Any final thoughts about what <em>The Sun</em> means for you personally?</p>
+<p><strong>TM:</strong> It follows a line in my life.  I’m searching for communion with other people.  I also struggle with solitude and alienation, because I’m looking for real conversations – the 45 minute chat at a party – and that can be hard to find.  When we have retreats, a hundred or so readers will come, and it’s amazing even though we’re from really different walks of life, you get them together, and just to see how deep people will go.  It’s not about hearts on our sleeves, trotting out all of our woes, that sort of thing.  I have this neighbor, an old man who lived in a small town for a long time.  He used to say he liked the kind of folks who, when you ask them how they are, they really answered.  That’s the kind of conversation we’re trying to foster.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=517.html#comments-517" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/&text=Interview+With+Managing+Editor+Tim+McKee+of+The+Sun"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview With Managing Editor Tim McKee of The Sun&body=Interview With Managing Editor Tim McKee of The Sun%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-managing-editor-tim-mckee-of-the-sun/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=515.html">Notes From The Field Contest and General Submissions</a></h2>
+	<div class="entrydate">23 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Hi, everyone!</p>
+<p>The deadline for <em>Flyway</em>&#8216;s annual Notes From The Field contest is fast approaching!  Get your prose submissions in via <a href="http://flyway.submishmash.com/submit">Submishmash</a> by midnight on November 4th!  So far we have a handful of entries.  We&#8217;re looking forward to reading them.  We&#8217;d love to read your work, too!</p>
+<p>If you missed our first Notes From The Field post, you can find it <a href="http://www.flyway.org/2011/10/05/2011-notes-from-the-field-contest/">here</a>.  Winners are featured in our Fall issue.</p>
+<p>Speaking of which, our Fall issue is coming together nicely!  We&#8217;re still on the hunt for more work to include, however.  Send us your poetry and prose!</p>
+<p>Questions?  Comment below and we&#8217;ll get back to you as soon as possible!</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=515.html#respond-515" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/&text=Notes+From+The+Field+Contest+and+General+Submissions"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Notes From The Field Contest and General Submissions&body=Notes From The Field Contest and General Submissions%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/notes-from-the-field-contest-and-general-submissions/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=512.html">Interview with Editor Glenn Shaheen of NANO Fiction from Austin, TX</a></h2>
+	<div class="entrydate">16 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Recently, <em>Flyway</em> blogger, Chris Wiewiora, had the chance to ask <em><a href="http://nanofiction.org/">NANO Fiction</a></em> Editor, Glenn Shaheen, a few questions.</p>
+<p><strong>Chris Wiewiora</strong>: I’m curious about the name and background of <em>NANO Fiction</em>. Your guidelines state a 300-word count maximum. That wedges between the heritage of Jerome Stern’s initial 250-word limit of what he called “micro fiction” for the World’s Best Short Short Story Contest in <em>Sundog</em> (currently <em>Southeast Review</em>) and contemporary flash fiction, published in many magazines such as <em>Quick Fiction</em>, with a 500-word count limit.</p>
+<p><strong>Glenn Shaheen</strong>: Well, to be honest I wasn&#8217;t around when <em>NANO Fiction</em> was founded. My coeditor, Kirby Johnson, would probably have better insight into the particular reasons she had for our name, but I&#8217;ll take a shot. We chose the name <em>NANO</em> not to imply any new kind of genre, but just to mean small, as a nanosecond or nanometer, and also a little scientific. The 300 word limit was something we chose because, at the time, there wasn&#8217;t a journal whose wordcount guidelines were so low. The genre of flash fiction is so fluid that I don&#8217;t think breaking stories of less than 1000 words into different, more specific categories. I just call it all flash.</p>
+<p><strong>CW: </strong>Along with names and background, would you share what happened with the IRS labeling <em>NANO Fiction</em> as a publisher of pornography and thus turning down your 501(c)3 application to be recognized as a nonprofit, and how your progress is coming along for reapplication?</p>
+<p><strong>GS: </strong>I feel that I should preface all of this by saying that we are reapplying for 501(c)3 status, and I, therefore, don&#8217;t want to make the IRS look ridiculous, even though accusing any literary or art publication of pornography is very much ridiculous, which they may or may not have done. (I can answer this more specifically if our claim is denied again!) BUT what I should say is that while we were on some shaky ground, we discovered we had a lot of support, both from our readers and from the people of Houston, and through many generous donations and a benefit dance party we threw we managed to secure the funding to reapply. I mean, Donald Rumsfield wanted to cover Justice&#8217;s boobs, right? To certain fetishists a shoe store is pornographic. I have a lot I&#8217;d like to say about this but I feel I can&#8217;t right now, for prudence&#8217;s sake.</p>
+<p><strong>CW: </strong>What has been the biggest surprise/shock from a submission (i.e. big name author, content, resonance)?</p>
+<p><strong>GS: </strong>It&#8217;s always lovely to receive unsolicited work from authors that I love. It&#8217;s weird though when a big name author sends stuff for the contest, which I don&#8217;t feel is exactly ethical. Journal contests, to me, seem to be more of an outlet for writers at the beginning of their careers to gain some recognition. I know it&#8217;s not a <em>rule</em>, but it seems kind of unspoken. Just because you have a couple books, though, doesn&#8217;t mean you&#8217;re rolling in cash, so I guess there&#8217;s that side. Luckily a big name author has never submitted for the contest that we&#8217;ve all wanted to pick as the winner. Once, though, one of my favorite authors submitted, and when I wrote to her to tell her that though the other editors didn&#8217;t want to pick it as the winner, I would still love to publish a couple of her pieces, she said no, she&#8217;d like to save the pieces for somewhere else, so that made me feel like a bit of a chump.</p>
+<p><strong>CW: </strong>I’m aware <em>NANO Fiction</em> not only publishes fiction, but also nonfiction. Do you have plans to include comics and book reviews, and maybe even plays in future issues?</p>
+<p><strong>GS: </strong>We also publish prose poems, don&#8217;t forget! Originally, we did specify comics in our guidelines, but nobody ever sent comics in so we just removed it. Briefly I thought about adding book reviews in so I could get free books, but then my conscience chimed in and said if I love literature I shouldn&#8217;t be a cheapass about it. Plays, I don&#8217;t think so, though &#8211; what counts as a word? Dialogue only? Stage directions? Act or scene titles? Besides, we probably wouldn&#8217;t get any plays.</p>
+<p><strong>CW: </strong>Also, you have interviews online. How about contributors/former contest winners interviewing each other and asking one question with a 300-word limited response?</p>
+<p><strong>GS: </strong>That&#8217;s a good idea, actually. Less work for me as far as creating unique web content goes!</p>
+<p><strong>CW: </strong>It seems like short fiction magazines are unique because they give definite boundaries for writers to follow. Would you give your thoughts on the freedom and confinements of a (small) word-count limit?</p>
+<p><strong>GS: </strong>I think the extreme restrictions of flash fiction force writers to work in an entirely different way than if they were creating a story. I don&#8217;t consider flash fiction to be a subset of fiction in the same way I consider sonnets to be a subset of poetry. In sonnets, you may have some specific moves as far as meter, rhyme scheme, the volta, etc. laid out for you, but you still approach a sonnet on the same general terms of poetry, with attention to line, to image, to stanza, etc. For flash fiction, it&#8217;s such a different creature than fiction &#8211; can you say you place attention to character in a piece that is 250 words? Not in the same way that you would in a 5,000 word piece. Same thing with detail, or setting. You&#8217;re frequently picking the minor tools that you want to amplify briefly. I&#8217;d almost call it a genre on its own. Of course that&#8217;s self-serving, since I edit a journal of flash fiction, but isn&#8217;t life self-serving in its little ways?</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=512.html#comments-512" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/&text=Interview+with+Editor+Glenn+Shaheen+of+NANO+Fiction+from+Austin%2C+TX"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview with Editor Glenn Shaheen of NANO Fiction from Austin, TX&body=Interview with Editor Glenn Shaheen of NANO Fiction from Austin, TX%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-editor-glenn-shaheen-of-nano-fiction-from-austin-tx/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=509.html">Book Review (Short Stories): &#8220;Best American Short Stories 2003&#8221;  edited by Walter Mosley</a></h2>
+	<div class="entrydate">10 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><strong>Review by Tegan Swanson,<em> Flyway</em> Staff</strong></p>
+<p>With hundreds of short stories published every year, the ever-expanding number of worlds contained in 8,000 words can be overwhelming to contemplate.  How does one even choose where to start?  Collections and anthologies make for good filters, providing a smorgasbord of literary styles, voices, and subjects for readers to sample.  Popular volumes from O. Henry, PEN American, and the Best American series are released on an annual basis, each containing a hand-picked selection of some of the most exceptional works of the year.  In <em>The Best American Short Stories 2003</em>, editor Walter Mosley presents a collection which “live(s) with the reader long after the words have been translated into ideas and dreams.”</p>
+<p>Having read multiple volumes of the Best American series, I was particularly struck by the depth of talented women writers who were included in this collection.  Two of the twenty stories in <em>2003</em> were particularly excellent for their diversity of character and voice, and I think their strengths typify the characterization of memorable tales which Mosley explained in his introduction.  Originally published in <em>Zoetrope </em>and <em>Callaloo </em>respectively, the stories detailed below are worthy of any fiction reader’s attention.</p>
+<p>Smart and unflinching in its portrayal of a juvenile detention facility, &#8220;Mines,&#8221;<em> </em>by Susan Straight, follows a guard identified only as Clarette.  Mother of two young children and aunt to one of the “big roundhead fool” inmates, Clarette struggles to balance the demands of a male-dominated workplace while still caring for her family.  “When I get home now,” Clarette narrates, “I have to stand at the sink and wash my hands and change my mouth.  My spit, everything, I think.”  Straight juxtaposes these environments in short, sparse prose, depicting aspects of both the inmates and her children in descriptions of their hair, their schools, their clothes, and their skin.  Even though the inmates are tattooed with gang signs and tough nicknames which make them seem like dogs in “ a damn kennel”, Clarette can’t shake the instinct to think of the young men instead as the sons of other mothers.  Although the title appears as slang reference to “getting mines” in the dialogue, it manifests thematically as a metaphor of violence.  The mines that Straight places in front of her protagonist arise as unexpected outbursts in the detention center, in being in the “wrong place, wrong time”, and in the tenuous conflicts of a crumbling marriage.  In the end, Clarette remains silent and steady in the wake of a prison fight, still determined to “get hers” despite the challenges of her life.</p>
+<p>In Edwidge Danticat’s &#8220;Night Talkers,&#8221; a young Haitian émigré named Dany returns to his ancestral mountain village in order to reconnect with the aunt who cared for him after his parents were killed.  Themes of identity and language manifest in three main characters, all of whom Danticat calls <em>palannits</em>, a Creole word her own aunt created to describe “people who wet the bed with words.”  These characters represent both the multi-faceted demographics of the Haitian village that they inhabit, and the importance of communication and forgiveness in their community.  &#8220;Night Talkers&#8221; is ultimately a story about the release of grief and the power of compassion, both of which are depicted through the act of verbal expression.  Whether speaking aloud during a dream, giving words of comfort, or telling a story too long untold, Danticat’s characters reveal the importance of human communication.  Although their identities in Beau Jour are very different, the maternal aunt, a forgiven criminal and the estranged nephew are all intimately connected by the relationships they form while learning to “speak [their] nightmares to others, in the daytime, even when the moon had completely vanished and the sun had come out.”</p>
+<p>Even for a superlative anthology, the authors showcased in the 2003 edition are intimidating in their accomplishment.  Included here are also stories about a blind malacologist (Anthony Doerr), the congregation of a Baptist church (ZZ Packer), kidnappers on the lamb (E.L. Doctorow), a New York City couple (Nicole Krauss), and a withered Ojibwa who plays the violin (Louise Erdrich).  As Mosley writes in his introduction, “A good short story crosses the borders of our nations and our prejudices and our beliefs,” and almost ten years after their original publication, these stories are still worthy of such acclaim.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=509.html#respond-509" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/&text=Book+Review+%28Short+Stories%29%3A+%26%238220%3BBest+American+Short+Stories+2003%26%238221%3B++edited+by+Walter+Mosley"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review (Short Stories): &#8220;Best American Short Stories 2003&#8221;  edited by Walter Mosley&body=Book Review (Short Stories): &#8220;Best American Short Stories 2003&#8221;  edited by Walter Mosley%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/book-review-short-stories-best-american-short-stories-2003-edited-by-walter-mosley/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=500.html">2011 Notes from the Field Contest</a></h2>
+	<div class="entrydate">5 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Our annual <em>Notes from the Field</em> contest is now open for submissions!  We&#8217;re looking for prose focusing on place and the environmental imagination.</p>
+<p><strong>Word Limit:</strong> 3,500 words</p>
+<p><strong>Prize:</strong> The winner will receive $200 and publication in <em>Flyway: Journal of Writing and Environment</em>.<br />
+The first runner-up will receive $50 and publication consideration.</p>
+<p><strong>Reading Fee:</strong> $19 (includes a one-year subscription to Flyway)</p>
+<p>Submissions should be submitted <a title="online" href="http://flyway.submishmash.com/submit">online</a> by <strong>midnight on November 4th</strong>.</p>
+<p>For details, see our <a title="contest page" href="http://www.flyway.org/contests/">contest page</a>.</p>
+<p>Still have questions?  Comment here and we&#8217;ll be sure to answer!</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/2011/index.html" rel="tag">2011</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/contest/index.html" rel="tag">contest</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/nonfiction/index.html" rel="tag">Nonfiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/notes-from-the-field/index.html" rel="tag">notes from the field</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/prize/index.html" rel="tag">Prize</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=500.html#comments-500" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/&text=2011+Notes+from+the+Field+Contest"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: 2011 Notes from the Field Contest&body=2011 Notes from the Field Contest%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/general-updates/2011-notes-from-the-field-contest/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=484.html">Book Review (YA Fiction): &#8220;Inheritance&#8221; Series by Christopher Paolini</a></h2>
+	<div class="entrydate">3 Oct 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><strong>Review by Mateal Lovaas, <em>Flyway </em>Staff</strong></p>
+<p>“You haven’t read <em>Eragon?</em>” one of my fifth graders asked me, appalled when he found out that I had not yet read this bestselling book. “Do you know a 15-year-old wrote it?” about four more boys chimed in. The next day, I found the book on my desk with a note from the student telling me he’d lend me his book, because I had to read that book <em>right now</em>.</p>
+<p><em> </em></p>
+<p>I first read Christopher Paolini’s <em>Inheritance</em> Series when I was working as a middle school English and history teacher at the Pacific Boychoir Academy in Oakland, California. During what I called “free reading” time, my students would pull out their chosen free-time books, and without fail, I’d have at least one fifth-through-eighth grader reading one of Paolini’s three books, <em>Eragon</em> (self-published in 2001 by a family-owned press and then again in 2003 by Alfred A. Knopf Books for Young Readers), <em>Eldest</em> (2005), and <em>Brisngr</em> (2008). But until one of my students lent me his <em>Eragon </em>book, I had no interest in reading books about dragons, especially ones which had garnered such bad reviews. But I read it, and soon a second student lent me <em>Eldest</em> and a third <em>Brisingr.</em> The writer and grammarian in me winced my way through the books’ deadly-slow pace and choppy, bloated prose, but another part of me reveled in the unique magical elements of this fantasy series—the same part of me that can’t wait for Random House to release the last book on November 8. With this upcoming release of the fourth and final book in the cycle, <em>Inheritance</em> (which is also, confusingly, the name of the whole cycle), it is a good time to revisit this hotly contested series.</p>
+<p>Besides perhaps the <em>Twilight</em> series, I can’t think of any other book in recent young adult literary history that has such critics, such vicious haters, while simultaneously selling millions of copies. Yes, <em>Harry Potter</em> has its critics, but a quick search on the Internet proves that they are much less abundant than anti-<em>Inheritance</em> folks.</p>
+<p>Let me highlight just a handful of critiques about the first three books in the <em>Inheritance </em>series:</p>
+<ul>
+<li>unwieldy      and unchecked prose</li>
+<li>significant      grammatical errors</li>
+<li>meaningless,      overused violence simply for the sake of violence</li>
+<li>Eragon’s      lack of emotion</li>
+<li>general      lack of developed characters, thereby causing a lack of reader investment      in the characters</li>
+<li>weak      dialogue</li>
+<li>clichéd      descriptions and immature style</li>
+<li>over-explanation</li>
+<li>too      many tangents</li>
+<li>off-the-stage      villain (readers never truly see the evil King Galbatorix)</li>
+<li>dropped      characters</li>
+<li>slow      pacing, often for hundreds of pages at a time</li>
+<li>extension      of the series from a trilogy to a quartet</li>
+<li>poor      resolutions</li>
+<li>lack      of originality, sometimes veering on overt copycatting of other fantasy      series</li>
+</ul>
+<p>This last critique is arguably the most salient. Any reader of the series can clearly pick out an uncanny number of similarities to <em>Lord of the Rings</em>, <em>Star Wars</em>, <em>His Dark Materials, Beowulf, </em>and <em>Dune</em>, to the point that Paolini’s series feels simply like an amalgamation of all that came before him. Yet despite these points, and a myriad of other complaints gushing indignantly over the Internet waves, it is undeniable that Paolini is doing something right. To date, the first three books have sold a total of 25 million copies worldwide. The first book, <em>Eragon</em>, stayed on the <em>New York Times </em>bestseller list for 121 weeks. It has been translated into 49 foreign languages and made into a movie. And when I run a Google search for “Inheritance series,” I come up with over 22 million results in 0.14 seconds. The fourth book, <em>Inheritance</em>, is primed for success with an impressive first-printing of 2.5 million copies and an eighteen-city tour starting on the release date. I can’t imagine what Paolini’s advance must have been for this last book.</p>
+<p>I agree with nearly every complaint I have ever read or heard about the series. Yet the series’ redeeming qualities, however sparse, are actually enough to keep me reading. One selling point is Paolini’s fantastical, detailed world that spirits readers away. Even if the world of Alagaësia is a striking mixture of several other fantasy worlds, for me, that does not dilute the fact that Paolini describes it so resolutely and adds his own unique features. Paolini models the ten-mile high Beor Mountains, home to the dwarves, after the jagged Beartooth Mountains of his Montana home. In <em>Eragon</em>, Paoloni takes the time to languish over the land where Eragon is hunting:</p>
+<p><em>The sky was clear and dark, and a slight breeze stirred the air. A silvery cloud drifted over the mountains that surrounded him, its edges glowing with ruddy light cast from the harvest moon cradled between two peaks. Streams flowed down the mountains from stolid glaciers and glistening snowpacks. A brooding mist crept along the valley’s floor. </em>(<em>Eldest)</em></p>
+<p>His descriptions of landscape make me yearn to enter the world of Alagaësia.</p>
+<p>In <em>Eldest</em>, I was impressed with Paolini’s elf land, Ellesméra, despite its similarities to <em>The Lord of the Rings</em>’s Rivendell. One unique element, though, is Paolini’s elven lodgings, grown in and <em>of </em>the trees. When Eragon enters Ellesméra for the first time, he slowly realizes that the trees are in fact dwellings:</p>
+<p><em>But what he had taken to be clusters of lumpy, twisted trees were in fact graceful buildings that grew directly out of the pines. One tree bulged at the base to form a two-story house before sinking its roots into the loam [….] Another house was nestled between three pines, which were joined to it through a series of curved branches. Reinforced by those flying buttresses, the house rose five levels, light and airy. </em>(<em>Eldest </em>222)</p>
+<p>The trees mold themselves into stairways, which spiral around their chunky tree bases and guide elves up into the branches. There are walkways and doorways into the insides of trunks. Eragon’s own tree dwelling, crafted by the trees just for Dragon Riders, is high up, has nearly 360-degree views over the emerald forests of Ellesméra, and feels inspiringly open to the elements. There is also a cavernous entryway for Eragaon’s dragon, Saphira, to enter, and a special, carved-out, wooden, bowl-like area for her to sleep in.</p>
+<p>The fact that Eragon and Saphira share lodgings in Ellesméra speaks to another compelling feature of the <em>Inheritance</em> cycle: rider and dragon share a fiercely loving and unique relationship. Eragon and Saphira spend all their time together, can speak telepathically, and share the same difficult mission. Saphira herself is also such a loveable character. Sometimes she calls Eragon her little “hatchling,” even though it was she who hatched from an egg. Saphira can be sweet as pie with Eragon, but also harsh and sassy. She almost always shares what she thinks, even if just in gestures that show she is bored: “Eragon bowed his head and retreated to Saphira, who lay curled on a bed of moss, amusing herself by releasing plumes of smoke from her nostrils and watching them roil out of sight” (<em>Eldest</em> 220).</p>
+<p>Paolini imaged Saphira as the “perfect friend.” In that, I think he succeeded. As a reader, I found myself loving Eragon and Saphira’s relationship, feeling jealous of the inextricable bond between human and creature.</p>
+<p>Ultimately, perhaps part of the <em>Inheritance </em>series’ success is the simple enduring nature of coming-of-age novels. As with Oliver, Holden Caufield, Scout and Jem, Frodo, Harry Potter, and so many other characters, Eragon and Saphira have to face their world, and they grow up while doing so. And Paolini doesn’t make the growing up process cliché or easy. Eragon, for example, becomes more like the elves, physically and emotionally, but also eventually becomes hardened to killing, which is unlike the elves.</p>
+<p>As an educator, I think any book or series, no matter its flaws, that gets kids passionate about reading—which for this cycle involves reading <em>thousands</em> of pages—is a success. Personally, I’m excited for the November 8th release of the last book in the series, <em>Inheritance</em>, but not excited enough to pre-order my own copy. For this series, the library will do for me.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=484.html#comments-484" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/&text=Book+Review+%28YA+Fiction%29%3A+%26%238220%3BInheritance%26%238221%3B+Series+by+Christopher+Paolini"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review (YA Fiction): &#8220;Inheritance&#8221; Series by Christopher Paolini&body=Book Review (YA Fiction): &#8220;Inheritance&#8221; Series by Christopher Paolini%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/book-review-ya-fiction-inheritance-series-by-christopher-paolini/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../21/index.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../23/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1295 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page17' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page17' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page17' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page17' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=987.html">Resolutions / No Solutions Web Rove</a></h2>
+	<div class="entrydate">17 Jan 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>This week our staff selects material from a range of different genres, all somehow related to how we make resolutions, and, sometimes, what it means to fall short. So go green or go home, run toward or away….or just read through our latest web rove.</p>
+<p>*</p>
+<p><a href="http://grist.org/living/the-greenie-pigs-guide-to-a-cleaner-more-sustainable-2013/">“The Greenie Pig’s guide to a cleaner, more sustainable 2013”</a> by Elisabeth Kwak-Hefferan (from <em>Grist</em>)<br />
+It wouldn’t be a new year without pledges to do better this time around. These five guidelines will help you green your routine whether you’re still us<br />
+ing plastic bags or if you’re a freegan.</p>
+<p><a href="http://hippocketpress.org/canary/index.php#242">&#8220;Flee&#8221;</a> by Catherine Owen (from <em>Canary</em>)We like how the author represents &#8220;us&#8221; (humans-as-readers) as both something to flee from (as in the deer from the car) and entities that contain selves-of-wildness along selves-slated-to-be &#8220;stuffed, extinct&#8221; in this poem.</p>
+<p><a href="http://www.thewritingdisorder.com/fictioneight.html">“Neighborly”</a> by Frances O’Brien (from <em>The Writing Disorder</em>)<br />
+This flash fiction story is told through the eyes of a woman with questionable sanity but who can only see herself as the victim of the injustice her new neighbors have inflicted.  A humorous voice carries the reader through.</p>
+<p><a href="http://www.riverandsoundreview.org/Poetry/Issue7/CReillyYawning.htm">&#8220;The Opposite of Yawning is Holding Your Breath&#8221;</a> by Christine Reilly (from <em>A River and Sound Review</em>)<br />
+This six-part poem lets us eavesdrop on that conversation between opposites we&#8217;re always holding within ourselves. But which side to choose? For the pill-popper, Reilly hints, perhaps it doesn&#8217;t matter. Anything to be on the outside of the pendulum, away from that center when we can fully see.</p>
+<p><a href="http://brevitymag.com/current-issue/perdition/">“Perdition”</a> by Kristen Radtke (from <em>Brevity</em>)<br />
+This graphic essay is as wonderfully surprising as it is brief and simple.</p>
+<p><a href="http://issuu.com/bloodlotus/docs/bl26_final/49">&#8220;The Way You Look in Morning&#8221;</a> by Matthew Brown (from <em>Blood Lotus</em>)<br />
+A rare type of relationship-poem that manages to be tender but feature barbed wire, and, like the fence &#8220;meant neither/to hold something in, nor to keep it out&#8221;, never explicitly mentions the Other.</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/nonfiction/index.html" rel="tag">Nonfiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-comic/index.html" rel="tag">web comic</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-rove/index.html" rel="tag">web rove</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=987.html#respond-987" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/resolutions-no-solutions-web-rove/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/resolutions-no-solutions-web-rove/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/resolutions-no-solutions-web-rove/&text=Resolutions+%2F+No+Solutions+Web+Rove"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/resolutions-no-solutions-web-rove/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/resolutions-no-solutions-web-rove/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Resolutions / No Solutions Web Rove&body=Resolutions / No Solutions Web Rove%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/resolutions-no-solutions-web-rove/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=982.html">Congratulations Past Contributors</a></h2>
+	<div class="entrydate">16 Jan 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Every once in awhile we get some good news at the Flyway office when we hear about past contributors who are out there, continuing to publish and to gather awards for their hard work and talent. Below are some recent contributors who have garnered recent accolades in some way.</p>
+<p>If you are a past (or future) contributor, and you have recently been published or won an award &#8212; tell us about it! Email us at flywayjournal[at]gmail.com with your good news.</p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 13px; line-height: 19px;">*<br />
+</span></p>
+<p><strong>&#8212; Bernadette Geyer</strong>&#8216;s first full-length book of poetry entitled <em>The Scabbard of Her Throat</em> has been selected by Cornelius Eady for publication in 2013 by The Word Works. You can find Bernadette&#8217;s poem, &#8220;I Become Like Proust&#8221; in our spring/fall 2003 issue of Flyway, and the poem will also be reappearing in her new collection. Pre-publication orders are now being taken. <a href="http://bernadettegeyer.homestead.com/ScabbardofHerThroat.html">You can see more about the book at Bernadette Geyer&#8217;s web site.</a></p>
+<p><strong>&#8212; Robert Kostuck</strong> has received a Pushcart nomination for his short fiction piece, &#8220;If I Had the Wings of a Dove,&#8221; which appears in the Spring 2012 issue of <a href="http://sotospeakjournal.org/">So To Speak</a>. Robert was published in Flyway Volume 11.2/11.3/12.1 as the winner of the Sweet Corn writing contest for his non-fiction piece, &#8220;A Brief Guide to the Flowers of the Southwest Deserts.&#8221;</p>
+<p><span style="font-size: 13px; line-height: 19px;">-*-</span></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/awards/index.html" rel="tag">awards</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/good-news/index.html" rel="tag">good news</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/past-contributors/index.html" rel="tag">past contributors</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=982.html#respond-982" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/general-updates/contributorcongrats_jan13/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/general-updates/contributorcongrats_jan13/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/general-updates/contributorcongrats_jan13/&text=Congratulations+Past+Contributors"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/general-updates/contributorcongrats_jan13/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/general-updates/contributorcongrats_jan13/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Congratulations Past Contributors&body=Congratulations Past Contributors%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/general-updates/contributorcongrats_jan13/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=976.html">January&#8217;s Fairy Tale Web Rove</a></h2>
+	<div class="entrydate">15 Jan 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Our fiction editor, Lydia Melby, offers some reading suggestions for all things fairy tale. Too cold outside? Stay in and stoke your imagination with this week&#8217;s web rove, full of interviews, novel excerpts, reviews, and even a web comic.</p>
+<p>-*-</p>
+<p>If you arent reading Electric Literature&#8217;s &#8220;Recommended Reading,&#8221; then you&#8217;ve got some serious catch-up to play. I love this blog as much for the recommender&#8217;s notes as for the brilliant, and usually new to me, stories or excerpts they suggest. Here are some recommendations:<br />
+<a href="http://recommendedreading.tumblr.com/post/37784039877/dan-josefson-feeling">Dan Josefson&#8217;s </a><em><a href="http://recommendedreading.tumblr.com/post/37784039877/dan-josefson-feeling">That&#8217;s Not a Feeling</a>, </em>_novel excerpt<br />
+Here, Soho Press and Tom Bissell suggest an excerpt from Dan Josefson&#8217;s <em>That&#8217;s Not a Feeling</em>&#8211;and yes, this brief taste suggests the book is just as good as everyone and their mother has suggested.</p>
+<p><a href="http://recommendedreading.tumblr.com/post/28479950929/steven-millhauser-cathay">Steven Milhauser&#8217;s &#8220;Cathay&#8221;</a><br />
+Here, Aimee Bender recommends surreal master Steven Milhauser&#8217;s strange and wondrous world, narrated in mysteries.</p>
+<p><a href="http://recommendedreading.tumblr.com/post/34697098370/j-robert-lennon-cottage-hill">J. Robert Lennon&#8217;s &#8220;The Cottage on the Hill&#8221;</a><br />
+And finally, J. Robert Lennon&#8217;s quietly unsettling story offers one much to ponder, and is suggested by the new journal <em>Unstuck.</em><em></em></p>
+<p>*<br />
+Speaking of <em><a href="http://unstuckbooks.org/">Unstuck</a>,</em> our fiction editor would like to point out it&#8217;s the journal she&#8217;s currently most excited about. They explain themselves on their website as an &#8220;independent, non-profit annual journal&#8221; dedicated to literary fiction with elements of the fantastic, the futuristic, or the surreal&#8230; In our pages, you&#8217;ll find everything from straight-up science fiction and fantasy to domestic realism with a twist of the improbable.&#8221;</p>
+<p>While you&#8217;ll have to subscribe to get the full wondrous experience, <em>Unstuck</em>&#8216;s website provides <a href="http://www.unstuckbooks.org/interviews-excerpts">excerpts and interviews</a> that will just make you want more.</p>
+<p>*<br />
+If you&#8217;ve got that constant fairy tale itch, like some of our staff, here&#8217;s a great <a href="http://onpoint.wbur.org/2012/10/17/grimm-brothers-fairy-tales">NPR podcast with Tom Ashbrook and Maria Tatar</a> (high queen of fairy tale scholarship) discussing fairy tales and their history in celebration of her new translation, &#8220;The Annotated Brother&#8217;s Grimm (The Bicentennial Edition).&#8221; Depending on your obsession, you may have come across some of the things and themes covered, but overall it&#8217;s a lovely and interesting discussion of the bedtime tales still affecting us today. <span style="font-size: 13px;line-height: 19px"> </span></p>
+<p>*<br />
+<a href="http://lareviewofbooks.org/article.php?type=&amp;id=1132&amp;fulltext=1&amp;media=">Jill Steinhauer, &#8220;The Gorey Details&#8221;</a></p>
+<p>Jill Steinhauer reviews Edward Gorey&#8217;s works and influence on her and many of us, offering an insightful, interesting discussion of his art, his mystery, and, well, his gorey-ness (pun intended!), ultimately offering us an peek into the artist&#8217;s &#8220;theory of life&#8221; as &#8220;inexplicable&#8221; put into striking, memorable art.</p>
+<p>Also, the Los Angeles Review of Books is such a perfect place to read about all the books and art and themes of life you&#8217;ve always wanted to see discussed.</p>
+<p>*</p>
+<p><a href="http://hemlock.smackjeeves.com/comics/893745/0-00/"> &#8220;Hemlock,&#8221; Joscelyn Fenton</a> (web comic)</p>
+<p>For our readers who love graphic novels and comics as well as the written word, here&#8217;s a great web comic (still updating!) about a Scandinavian country witch named Lumi (whose house is built into the shell of her giant snail). &#8220;Hemlock&#8221; plays on the well-loved Baba Yaga myth, but Lumi&#8217;s story is fresh, fun, and exciting (and quite visually gorgeous).</p>
+<p>-*-</p>
+<p>&nbsp;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/fairy-tale/index.html" rel="tag">fairy tale</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-comic/index.html" rel="tag">web comic</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-rove/index.html" rel="tag">web rove</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=976.html#respond-976" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/fairytale_january/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/fairytale_january/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/fairytale_january/&text=January%26%238217%3Bs+Fairy+Tale+Web+Rove"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/fairytale_january/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/fairytale_january/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: January&#8217;s Fairy Tale Web Rove&body=January&#8217;s Fairy Tale Web Rove%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/fairytale_january/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=971.html">Bare-skinned: A January Webrove</a></h2>
+	<div class="entrydate">8 Jan 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>by Michelle Donahue</em></p>
+<p>January marks the time when weather starts getting cold. <em>Really </em>cold. In most parts of the country there is always snow in January and even if there isn’t, chill has settled in and big, bulky coats become an every day staple. Certainly, no one shows much skin in January. And so, the inner Californian and heat-lover in me, thinks it’s important in these cold times to remember warm, bare-skin weather.</p>
+<p>So in this week’s web-rove, I bring you three short pieces, one from each genre, that feature skin, specifically women’s skin.</p>
+<p><a href="http://www.pankmagazine.com/my-birthday-suit/">“My Birthday Suit”</a> poetry by Mia Sara (on <em>PANK)<br />
+</em>This inventive poem on growing old inverts the ideas of clothing and nakedness. I admire the brutality and sadness and I love how the narrator describes that she is turning inside out.</p>
+<p><a href="http://thefiddleback.com/issue-items/this-land-is-my-land">“This Land is My Land”</a> fiction by Samuel Ligon (on <em>The Fiddleback)<br />
+</em>This short piece packs a powerful punch. Though skin certainly isn’t a main focus of this, a girl “with the skin condition” becomes one of many people who cannot be happy in the narrator’s imagined “intellectual property”. This work is about the illusion of happiness and the illusions inherent in all of our lives.</p>
+<p><a href="http://brevitymag.com/current-issue/in-our-skin/">“In Our Skin”</a> nonfiction by Diana Cage (on <em>Brevity</em>)<br />
+The prose here sings. This beautiful essay touches on skin and heat and love. The beauty of two women, hot and laid out on a quilt juxtaposes wonderfully to more serious ramifications of heat—burnings, deaths by dehydration and more.</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/favorites/index.html" rel="tag">favorites</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/nonfiction/index.html" rel="tag">Nonfiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/reads/index.html" rel="tag">reads</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-rove/index.html" rel="tag">web rove</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=971.html#respond-971" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/janskinwebrove/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/janskinwebrove/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/janskinwebrove/&text=Bare-skinned%3A+A+January+Webrove"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/janskinwebrove/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/janskinwebrove/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Bare-skinned: A January Webrove&body=Bare-skinned: A January Webrove%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/janskinwebrove/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=967.html">2013 Recommendations from our Nonfiction Editor</a></h2>
+	<div class="entrydate">1 Jan 2013</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>Today we&#8217;re ringing in the New Year with a web rove by our nonfiction editor, Lindsay Tigue. </em></p>
+<p>-*-</p>
+<p>This holiday break, my online reading has mostly consisted of poetry. I usually fall down a poem rabbit hole; I search out all of the pieces published online by a certain writer and then realize I should just order their collection.</p>
+<p>One poet I recently stumbled across in this manner is <a href="http://www.nick-lantz.com/Nick_Lantz/About.html"><strong>Nick Lantz</strong></a>. His poems rely on historical research, but they associate to surprising emotional cores. His poems do something I try to do, weaving in facts and the heart of some story, some core feeling at the very bottom of an informative poem.</p>
+<p>Nick Lantz has two published collections of poetry <em>We Don’t Know We Don’t Know</em> which won the Bakeless Prize, and <em>The Lightning That Strikes The Neighbors House</em>. In <em>We Don’t Know We Don’t Know</em>, Lantz explores the way politics degrades language.</p>
+<p>I couldn’t decide which of poems to share, so here are four that can be read online:<br />
+<a href="http://www.poetryfoundation.org/poem/240422" target="_blank">“What We Know of Death by Drowning”<br />
+</a><a href="http://voices.washingtonpost.com/shortstack/2010/03/poets_choice_will_there_be_mor.html" target="_blank">“Will There Be More Than One ‘Questioner’?”<br />
+</a><a href="http://www.poets.org/viewmedia.php/prmMID/21447" target="_blank">“Ancient Theories”<br />
+</a><a href="http://howapoemhappens.blogspot.com/2010/09/nick-lantz.html" target="_blank">“The Year We Blew Up the Whale—Florence, Oregan.”</a></p>
+<p>I’ve also been reading some of those inexhaustible year-end best-of book lists lately, particularly which poetry collections people think top 2012. One collection that appeared on some lists was Rebecca Lindenberg’s debut collection, <em>Love: An Index</em>, a book she wrote about her relationship with poet Craig Arnold, who disappeared while hiking a volcano in Japan in 2009. <a href="http://believermag.tumblr.com/post/20008046344/rlindenberg" target="_blank">In an interview with <em>The Believer,</em>  Lindenberg talks about the seemingly daunting task of writing a love story</a>. She says, “I wanted to write love poems in a poetic and academic culture that insists love poetry is ‘soft,’ sentimental stuff. The kind of stuff girls like. Of course, anybody who’s read anything knows the tradition of the love lyric is much more than that—it’s economic, political, rebellious, religious, clever, kinky, psychologically slippery, deeply humane.” She talks about how adopting the form of an index helped her “render both the passionate and intellectual aspects of a love story.”</p>
+<p>After reading about Lindenberg’s book, I started reading poems by both her and Craig Arnold and thinking about the challenges of writing about love. In the article <a href="http://www.poetryfoundation.org/article/182917" target="_blank">“How to Write Love Poems”</a> on the Poetry Foundation website, Arnold discussed, in 2009, the pitfalls and rewards of writing one of the most universal human emotions. He said, “Let’s face it, nobody in love is original. We all feel and do pretty much the same things, make fools of ourselves in the same ways, and hopefully come through it alive and well and happily in bed with someone else. But that’s also precisely the appeal of love poetry, the intensely humbling nature of the experience it tries to describe.”</p>
+<p>Here are some beautiful poems about love from both Lindenberg and Arnold:<br />
+<a href="http://www.poetryfoundation.org/poem/182920" target="_blank">“Bird-Understander”</a> by Craig Arnold<br />
+<a href="http://www.poetryfoundation.org/poem/243898" target="_blank">“Marblehead”</a> by Rebecca Lindenberg</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/new-year/index.html" rel="tag">new year</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/reads/index.html" rel="tag">reads</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-rove/index.html" rel="tag">web rove</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=967.html#respond-967" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/2013recommends/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/2013recommends/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/2013recommends/&text=2013+Recommendations+from+our+Nonfiction+Editor"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/2013recommends/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/2013recommends/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: 2013 Recommendations from our Nonfiction Editor&body=2013 Recommendations from our Nonfiction Editor%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/2013recommends/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=962.html">Web Rove for the Holidays</a></h2>
+	<div class="entrydate">27 Dec 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>We here at Flyway wish everyone a Happy New Year! Take a break from the festivities to check out our latest Web Rove for this season.</p>
+<p><a href="http://monkeybicycle.net/dirty-birds/">“Dirty Birds”</a> by Blaze Kinzey (from <em>Monkeybicycle)<br />
+</em>This piece of flash fiction jumps right into its story, just as the genre requires, and we learn that the sad reality that this story can be told over and again. Though we don’t really get a clear sense of what’s at stake for these two brothers, we feel like we do, and it doesn’t feel too good.</p>
+<p><a href="http://english.wisc.edu/devilslake/issues/spring2012/Lawless.html"> “Factoryville Eclogue”</a> by Gregory Lawless (from <em>Devil’s Lake</em>)<br />
+I love the terse language of this poem, and really admire the last image of the spilled lumber truck, freezing over and circled by ravens.</p>
+<p><a href="http://www.versedaily.org/2012/onomens.shtml"> “On Omens”</a> by Mark Wunderlich (from <em>Verse Daily</em>)<br />
+This has that really simple but descriptive language that really leaps to different meaning because of the more abstract in the poem. Somehow the simple image of two coyotes crossing the yard hits so well.</p>
+<p><a href="http://www.decompmagazine.com/huntergatherer.htm">“hunter gatherer”</a> by kelly schirmann (from <em>decomP</em>)<br />
+This poem succeeds where I see a lot of other poems failing; it blends the clear narrative story with striking imagery and abstract ideas.</p>
+<p><a href="http://www.poetryfoundation.org/poem/172201"> “Advent”</a> by Mary Jo Salter (from <em>Poetry</em>)<br />
+And a Christmas poem!</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/favorites/index.html" rel="tag">favorites</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/reads/index.html" rel="tag">reads</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-rove/index.html" rel="tag">web rove</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=962.html#respond-962" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/webrove1227/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/webrove1227/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/webrove1227/&text=Web+Rove+for+the+Holidays"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/webrove1227/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/webrove1227/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove for the Holidays&body=Web Rove for the Holidays%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/webrove1227/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=953.html">Congratulations to our &#8220;Home Voices&#8221; Contest Winners</a></h2>
+	<div class="entrydate">11 Dec 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<div>Annually, <em>Flyway </em>hosts a blind-judged contest for graduate students in Iowa State&#8217;s Creative Writing and Environment program.</div>
+<div>
+<div>&#8220;Wunderkammer&#8221; a Prezi, lyric essay by Megan White (third year) and a selection of poems by Claire Kruesel (first year) were chosen as the winner and runner-up of <em>Flyway</em>&#8216;s 2012 Home Voices Contest judged by Michael Martone, author of <em><a href="http://www.fc2.org/authors/martone/four/four.html" target="_blank">Four for a Quarter</a></em>.</div>
+<div></div>
+<div>From Martone:</div>
+<blockquote>
+<div><span>On the essay:<br />
+</span><em>I am a sucker for the lyric, the non-linear. And I think we all as writers should begin to consider this powerful typesetting tool we are now equipped with and what it will mean for the &#8220;writer&#8221; of today and tomorrow to expand beyond the definition of a producer of text alone. I really appreciated the author here discovering what we might be able to do under this emerging definition.</em></div>
+</blockquote>
+<blockquote>
+<div><em> </em>On the poems:<br />
+<em>I enjoyed the sonic nature of this and the, well, clumsiness of it. The mess of the poems and the attempt to revive the latinate and the scientific idiom into a poetic line. The poems themselves were like vernacular junk sequencing the poem itself speaks of. Not afraid of juxtaposition, randomness, accident, chance.</em></div>
+</blockquote>
+<div><span><em> </em>Both Megan and Claire&#8217;s pieces will appear on <em>Flyway&#8217;</em>s relaunched fully online magazine this spring 2013. Additionally, Megan and Claire will read during the Creative Writing and Environment Program&#8217;s 2013 Wildness Symposium.</span></div>
+</div>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/announcement/index.html" rel="tag">announcement</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/contest/index.html" rel="tag">contest</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/home-voices/index.html" rel="tag">home voices</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/prose/index.html" rel="tag">prose</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/winners/index.html" rel="tag">winners</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=953.html#respond-953" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/homevoice2013/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/homevoice2013/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/homevoice2013/&text=Congratulations+to+our+%26%238220%3BHome+Voices%26%238221%3B+Contest+Winners"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/homevoice2013/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/homevoice2013/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Congratulations to our &#8220;Home Voices&#8221; Contest Winners&body=Congratulations to our &#8220;Home Voices&#8221; Contest Winners%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/homevoice2013/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=948.html">2012 Notes from the Field Results</a></h2>
+	<div class="entrydate">7 Dec 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>It&#8217;s been a wonderful, challenging process reading everyone&#8217;s work for this year&#8217;s 2012 Notes from the Field contest. The <em>Flyway</em> editorial staff would like to thank everyone who entered, and we encourage those who did not win to submit again in the future.</p>
+<p>Congratulations to our winners!</p>
+<p><span style="text-decoration: underline">1st prize:</span><br />
+Maya Khosla, &#8220;Notes from the Eastern Edge of Time: A Turtle Diary&#8221;</p>
+<p><span style="text-decoration: underline">Runner-up:</span><br />
+Melissa Mylchreest, &#8220;Unbuilding&#8221;</p>
+<p>Thanks again to all who submitted! We thank you for your support. We will be mailing out back issues for those who submitted requesting one.</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/contest/index.html" rel="tag">contest</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/creative-nonfiction/index.html" rel="tag">creative nonfiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/notes-from-the-field/index.html" rel="tag">notes from the field</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/winners/index.html" rel="tag">winners</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=948.html#respond-948" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/2012nftfresults/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/2012nftfresults/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/2012nftfresults/&text=2012+Notes+from+the+Field+Results"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/2012nftfresults/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/2012nftfresults/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: 2012 Notes from the Field Results&body=2012 Notes from the Field Results%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/2012nftfresults/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=940.html">Tragedy of the Commune:  A Review of Lauren Groff’s Arcadia</a></h2>
+	<div class="entrydate">6 Dec 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p style="text-align: left" align="center"><em>by Stefanie Brook Trout</em></p>
+<p>Lauren Groff’s newly published second novel,<em> Arcadia</em>, opens in the 1960’s on a hippie commune in upstate New York, but it doesn’t stay there.  The book spans approximately fifty years of the life of Ridley Sorrel Stone, the “oldest soul in Arcadia” whose birth on the caravan is a legend by the time he is five years old.  Ridley goes by Bit because of his three-pound birth weight—“the littlest bit of a hippie ever made”—and small size he retains through adulthood, and the story is told in little bits, brief episodes glimpsed through Bit’s perspective.  Throughout the book, Bit loves and loses, but rarely are those moments distinct from one another.  <em>Arcadia</em> is a story about both the ugly side of wonderful and the beautiful side of terrible.</p>
+<p style="text-align: center"><img class="aligncenter" title="Arcadia book cover" alt="" src="http://img2-1.timeinc.net/ew/i/2012/03/07/arcadia-2_320.jpg" width="256" height="389" /><br />
+Following a one-page prologue in which the close third-person protagonist narrates from in utero, the rest of <em>Arcadia</em> is broken up into four parts, each of which consist of several episodes ranging in length from one paragraph to several pages separated by white space.  The first chapter, “City of the Sun,” is set on the commune where Bit is only five years old but more aware of his surroundings than the adults, who are blinded by love, ego, survival, and/or drugs.  Chapter two, “Heliopolis,” flashes forward to fourteen-year-old Bit, falling in love and sharing a swollen commune with nine hundred Arcadians.  Eventually tragedy pulls the community apart.  As crises causes Arcadia’s numbers to spiral downward, Bit’s parents debate the relative merits of staying or leaving.  Chapter three, “Isles of the Blest,” flashes forward decades into the future and Bit’s adulthood in New York City, where he has retained the magic of his youth through photography.  The final chapter, “Garden of Earthly Delights,” flashes still forward.  A different tragedy brings Bit back to Arcadia, which “without people […] is only land,” but through the event’s ugliness, Bit is able to see that “all is well in the world.”</p>
+<p>I was inherently interested in reading a book about a commune, where dozens of hippies do yoga together, midwives strip down to deliver babies in the buff, and everyone enjoys vegan meals together, but the opening line was almost too much for me:  “The women in the river, singing.”  Bit insists on remembering this event, though he wasn’t born for another three weeks.  The effect of the prologue, however, is to force the question of Bit’s reliability as a narrator.  Either he is impossibly aware or the facts with which he presents the reader do not reflect reality.  The story is narrated realistically, but the women in Bit’s life suggest that what he remembers to be true could be unconscious workings of his imagination.  The book consistently omits quotation marks, rendering the dialogue ambiguous.  When do the spoken words stop and Bit’s thoughts on them begin?</p>
+<p>The prologue also introduces two motifs critical to understanding Bit’s perspective.  “He has always loved the voices of women,” and in a sense this book is more about Bit’s women than Bit himself.  Bit also prefers to be incubated from the world, whether by his mother’s womb, by a commune that sets itself apart, or by the darkrooms that he retreats to in adulthood.  The outside world frightens him.  It is “too much,” “too full of terror and beauty.”</p>
+<p>As Bit matures and as the setting of <em>Arcadia</em> moves in time and space, the book’s language evolves.  What the cynical adult Bit calls the “doubleplusgood duckspeak” from his youth, when starvation is euphemized as a form of yoga, becomes more honest as technology and disease distinguish Bit’s new world and embitter his worldview.  The level of characterization also changes throughout the book.  In the first chapter, Bit introduces approximately fifty characters, each of whom plays a distinct role in his life.  By the second chapter, “herds of Trippies,” who should be accompanied by their ”Minders,” and crowds of “Newbies,” “freeloaders,” and “Runaways” swarm anonymously around Bit, whose love for Arcadia derived from a love of community.  After Arcadia peaks and starts to collapse upon itself, the cast of characters to whom Bit pays mind dwindles.  “Sometimes Bit imagines that he, alone, bears witness to the world,” but with age he sees less and less until he realizes that he too has “become a person who stopped <em>noticing</em>.”</p>
+<p>I initially did not appreciate the chapter breaks and their jarring jumps through time.  At the beginning of each chapter, I felt like I was reading a new book featuring the same narrator.  In fact, <em>Arcadia</em> could have been broken up into four books comprising a mini-series.  Each chapter has a new setting in time and place, new characters, and new conflicts.  Bit fills in the skipped time with flashbacks, but these are only brief snapshots that must be developed individually before they can be assembled as a whole.  I especially would have preferred a chapter in between the second and third since that temporal leap is the greatest, but overall I came to appreciate Groff’s structural strategy and the sense of mystery it created.</p>
+<p>Bit learned to read by studying a book of Grimms’ fairy tales, a book that he found and hid as contraband since personal property was forbidden at Arcadia.  He tried to cast the people around him as characters in those magical stories where good always triumphed over evil and everyone lives happily every after.  <em>Arcadia</em> is a story about good and evil, but unlike fairy tales, the two sides do not diametrically oppose each other but are taken together.  That which made the commune wonderful also led to its downfall.  That which provoked Bit to fall in love also insured that his heart would be broken.  And the tragedies that destroyed Arcadia and individuals who beheld it also made them stronger.  In composing <em>Arcadia</em>, Groff thought of everything.  She played with structure, characterization, setting, and language to evoke themes in a seamless way that appears effortless, though as a writer I know better.</p>
+<p>-*-</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/review/index.html" rel="tag">review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=940.html#respond-940" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/groff_arcadiarevie_trout/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/groff_arcadiarevie_trout/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/groff_arcadiarevie_trout/&text=Tragedy+of+the+Commune%3A++A+Review+of+Lauren+Groff%E2%80%99s+Arcadia"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/groff_arcadiarevie_trout/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/groff_arcadiarevie_trout/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Tragedy of the Commune:  A Review of Lauren Groff’s Arcadia&body=Tragedy of the Commune:  A Review of Lauren Groff’s Arcadia%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/groff_arcadiarevie_trout/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=935.html">2013 Pushcart Nominees Announced</a></h2>
+	<div class="entrydate">5 Dec 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Congratulations to our 2013 Pushcart Prize nominees, from our issues in  2011-2012</p>
+<p>Prose:<br />
+Andrew Payton, &#8220;You&#8217;re Not Welcome Here&#8221;<br />
+Tegan Swanson, &#8220;Everything Rises on an Atoll&#8221;<br />
+Rick Bass, &#8220;Sawtooth Ridge&#8221;</p>
+<p>Poetry:<br />
+&#8220;Hometown&#8221; by Ivan Hobson<br />
+&#8220;Brief History of Barbwire&#8221; by Amy Fleury<br />
+&#8220;Gravediggers&#8221; by Jonathan Barrett</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/pushcart/index.html" rel="tag">pushcart</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=935.html#respond-935" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/201-pushcart-nominees/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/201-pushcart-nominees/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/201-pushcart-nominees/&text=2013+Pushcart+Nominees+Announced"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/201-pushcart-nominees/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/201-pushcart-nominees/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: 2013 Pushcart Nominees Announced&body=2013 Pushcart Nominees Announced%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/201-pushcart-nominees/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../16/index.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../18/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>

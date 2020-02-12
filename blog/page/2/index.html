@@ -1,0 +1,1243 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page2' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page2' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page2' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page2' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4406.html">From the Archives: Todd Davis&#8217;s Poetry Volume 8.1/8.2 Spring /Fall 2003, and Volume 9.1 2004</a></h2>
+	<div class="entrydate">1 Apr 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Review and Republishing of Todd Davis&#8217;s Poems: &#8220;Learning to Read&#8221; Vol 9.1 and &#8220;Some Heaven&#8221;Volume 8.1/8.2 Spring /Fall 2003</p>
+<p>by Erin Schmiel</p>
+<p>I love how easily Todd Davis expresses themes of spirituality in his quiet nature poems. He says, in &#8220;Learning to Read,”: “I understand that learning to read,/like so much of life, is about faith and doubt —/the possibility of one, the heaviness of the other.&#8221; In just three narrative stanzas we see the progression from the oblivion of the 5 year old narrator: &#8220;my joy when you told me/I was driving, too young to realize you held /the wheel&#8221;, to the responsibility of road markers: &#8220;signs /sprouted like goldenrod and Queen Anne&#8217;s lace, and you/demanded I read them, pretending not to know/what to do if I didn&#8217;t.&#8221; The final stanza carries the reader forward from this scene and out into the world knowing that what has been said is as true for them as it was for the father and son.</p>
+<p>In &#8220;Some Heaven&#8221; the narrator is a father watching his child pray for &#8220;some heaven/that has no fences,&#8221; after they find a rabbit &#8220;caught between the slats of the fence,” that he has had to kill. I feel he is asking for forgiveness, too, when he believes his child&#8217;s &#8220;prayer is right/ What more should heaven be? /A place made/ of wild carrot and dill…a warm October/day that never ends.&#8221;</p>
+<p>These words cut me to the quick with their urgent, yet natural spirituality. I had to pause and say —yes— this is the way of it not only for the lives in the poems, for me the reader as well.</p>
+<p>Both poems are republished below with permission from the author.  <a href="../../../index.html%3Fp=4406.html#more-4406" class="more-link"><span aria-label="Continue reading From the Archives: Todd Davis&#8217;s Poetry Volume 8.1/8.2 Spring /Fall 2003, and Volume 9.1 2004">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/archives/index.html" rel="tag">archives</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/flyway-20th-birthday/index.html" rel="tag">Flyway 20th Birthday</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/todd-davis/index.html" rel="tag">Todd Davis</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4406.html#respond-4406" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/&text=From+the+Archives%3A+Todd+Davis%26%238217%3Bs+Poetry+Volume+8.1%2F8.2+Spring+%2FFall+2003%2C+and+Volume+9.1+2004"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: From the Archives: Todd Davis&#8217;s Poetry Volume 8.1/8.2 Spring /Fall 2003, and Volume 9.1 2004&body=From the Archives: Todd Davis&#8217;s Poetry Volume 8.1/8.2 Spring /Fall 2003, and Volume 9.1 2004%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/from-the-archives-todd-daviss-poetry-volume-8-18-2-spring-fall-2003-and-volume-9-1-2004/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4396.html">From the Archives: Review of Flyway, Vol. 6.3/7.1 Spring 2002</a></h2>
+	<div class="entrydate">25 Mar 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Reviewed by Samantha Futhey</p>
+<p>Otherness: Flyway’s Asian American Special Issue</p>
+<p><em>Flyway</em> reveals the “other” in identity, cross-cultural mishaps, food, and sense of place with this special Asian American issue. From the black and white photograph of Japanese-Americans departing for WWII internment camps, on the cover, to a white woman’s confusion in her Thai boyfriend’s family in “The Whitest Woman in America,” the writings in this collection reach beyond what it means to be Asian-American. Poems and stories in this issue reveal the collectivity of human experiences, exploring what it means to be human. The following are standout pieces of poetry, fiction, and nonfiction found in this issue:</p>
+<p> <a href="../../../index.html%3Fp=4396.html#more-4396" class="more-link"><span aria-label="Continue reading From the Archives: Review of Flyway, Vol. 6.3/7.1 Spring 2002">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/archives/index.html" rel="tag">archives</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4396.html#respond-4396" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/&text=From+the+Archives%3A+Review+of+Flyway%2C+Vol.+6.3%2F7.1+Spring+2002"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: From the Archives: Review of Flyway, Vol. 6.3/7.1 Spring 2002&body=From the Archives: Review of Flyway, Vol. 6.3/7.1 Spring 2002%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/from-the-archives-review-of-flyway-vol-6-37-1-spring-2002/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4400.html">Celebrating Flyway&#8217;s 20th Birthday</a></h2>
+	<div class="entrydate">25 Mar 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>This year marks twenty years for Flyway: Journal of Writing and Environment. We&#8217;ve grown a lot in the past two decades. Beginning with founding editor Steve Pett&#8217;s inaugural edition, which featured pulitzer-prizing wining author Jane Smiley, to today&#8217;s mobile webpages featuring content from emerging writers and artists such as 2014 Notes From the Field Winner Susannah Clark and paintings from Jake Ford.</p>
+<p>Over the years we transitioned from a print journal to the current on-line format. Flyway also became a journal run exclusively by graduate students of Iowa State&#8217;s Creative Writing and Environment program.</p>
+<p>For the next few weeks, our blog will post reviews of past editions and special republished work to celebrate Flyway&#8217;s past and heritage.</p>
+<p>We’ll also be hosting a special tribute panel to Steve Pett at this year&#8217;s Association of Writers and Writing Program&#8217;s Annual Conference (AWP) held in Minneapolis. Visit our booth, which will feature our first edition, even a signed copy, among many of special editions (Asian American, Native American and Latino editions).</p>
+<p>In the meantime, enjoy these reviews and republished works and let us know what you think!</p>
+<p>*-*</p>
+<p>&nbsp;</p>
+<p><span style="line-height: 1.5;"> </span></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/archive/index.html" rel="tag">archive</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4400.html#respond-4400" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/celebrating-flyways-20th-birthday/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/celebrating-flyways-20th-birthday/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/celebrating-flyways-20th-birthday/&text=Celebrating+Flyway%26%238217%3Bs+20th+Birthday"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/celebrating-flyways-20th-birthday/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/celebrating-flyways-20th-birthday/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Celebrating Flyway&#8217;s 20th Birthday&body=Celebrating Flyway&#8217;s 20th Birthday%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/celebrating-flyways-20th-birthday/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4369.html">Web Rove: Pumped about AWP</a></h2>
+	<div class="entrydate">11 Mar 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>By Claire Kortyna</p>
+<p>Nearly a month from today the Association of Writers and Writing Programs Conference (AWP) and Bookfair opens in the Minneapolis Convention Center and Hilton Minneapolis Hotel. I browsed around their website today, itchy with anticipation. The conference website contains a number of fun and helpful links to things like registration, the Bookfair, and info about twin city entertainment. There’s even a “Walk-To Dining Guide” for guests.</p>
+<p>I am, to put it delicately, pumped, particularly to walk around and interact with all the awesome publishers and journals. Today’s web rove showcases a handful of pieces from the many wonderful literary magazines and presses that will have booths at this year’s AWP Bookfair.</p>
+<p>“<a href="http://www.sugarhousereview.com/sneak_peek.html" target="_blank">Conversation About Water</a>” by Thea Robin Engst (from <em>Sugar House Review</em>)</p>
+<p>In this succinct poem Engst explores illogical fears of the open water. The intensity of her descriptions, “filter teeth lined up like barcodes,” add weight to the ominous tone. But at the same time, she gently mocks herself and her conversation companion by repeatedly describing these fears as “ridiculous.” We laugh too, but cannot hold off a shiver.</p>
+<p>“<a href="http://crazyhorse.cofc.edu/wp-content/uploads/2014/11/86.Kimbell-Proof.pdf" target="_blank">Orphan Girl</a>” by Naomi Kimbell (from <em>Crazyhorse</em>)</p>
+<p>“The sky is coated with scurf the color of tin. Bands of haze hang at the fringe of the valley giving the impression that the mountains have receded into memory. The air is thick and full of grit.” So opens Kimbell’s essay from the current issue of <em>Crazyhorse</em>. Kimbell’s prose is at once crystalline and ambiguous while she discusses coal mining in Montana through its reverberations on her family and the environment.</p>
+<p>“<a href="http://greenmountainsreview.com/?p=5078" target="_blank">Do Us Part</a>” by Dawn Dorland (from <em>Green Mountains Review</em>)</p>
+<p>Innocuously it begins, “I’ve been wanting to ask you, <em>Do you remember what I said at your wedding?</em>” And from there, in long, image-filled sentences, this simple question complicates. With each rambling line, the tension underwriting the prose tightens. Masterfully, Dorland has us rushing along the story, just as breathless as our narrator until we are left again with another haunting question.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4369.html#respond-4369" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-pumped-about-awp/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-pumped-about-awp/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-pumped-about-awp/&text=Web+Rove%3A+Pumped+about+AWP"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-pumped-about-awp/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-pumped-about-awp/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Pumped about AWP&body=Web Rove: Pumped about AWP%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-pumped-about-awp/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4371.html">Book Review: Honeydew by Edith Pearlman</a></h2>
+	<div class="entrydate">6 Mar 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Little, Brown and Company 2015</p>
+<p>Hardback: $25</p>
+<p>Reviewed by Meghann Hart</p>
+<p>In late summer, the pale green honeydew becomes sweet, so sweet that many choose to enjoy its flesh in balls or canoe-like slices as a dessert. I opened <em>Honeydew</em>, not in summer, but in winter. This strange, rectangular melon was authored, not by a gardener, but by a contemporary master of the short story: Edith Pearlman. As I sat up in bed reading Pearlman’s latest gaggle of stories, all situated in the fictive Massachusetts city of Godolphin, a thick, nacreous juice began to drip from the pages and ooze down my wrists. Some might call this magic. I call it good writing. If you still don’t want to read this book, you should. Here are five reasons why:</p>
+<p> <a href="../../../index.html%3Fp=4371.html#more-4371" class="more-link"><span aria-label="Continue reading Book Review: Honeydew by Edith Pearlman">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4371.html#respond-4371" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book-review-honeydew-by-edith-pearlman/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book-review-honeydew-by-edith-pearlman/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book-review-honeydew-by-edith-pearlman/&text=Book+Review%3A+Honeydew+by+Edith+Pearlman"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book-review-honeydew-by-edith-pearlman/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book-review-honeydew-by-edith-pearlman/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: Honeydew by Edith Pearlman&body=Book Review: Honeydew by Edith Pearlman%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book-review-honeydew-by-edith-pearlman/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4364.html">Web Rove: Uncertainty and Narratives of Change, Hope, and Resignation</a></h2>
+	<div class="entrydate">3 Mar 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>By Claire Kortyna</p>
+<p>February is over and theoretically spring is right around the corner. March will roar it’s lion howl, then pad softly away on lamb’s feet. It’s a transitional time. We are caught in between. Today’s web rove showcases that period of uncertainty, with narratives of change, hope, and resignation.</p>
+<p>“<a href="http://www.kenyonreview.org/kr-online-issue/2015-winter/selections/saikat-majumdar-342846/" target="_blank">The Firebird</a>” by Saikat Majumdar (from <em>The Kenyon Review</em>)</p>
+<p>“But he was just a baby then, they would tell him later, a baby who hadn’t started at the clash of steel. He hadn’t cried. As if he were really asleep! They had been stunned. But the brave sleep had led to nothing.” In this excerpt the character Ori, examines life and death on stage through his mother and his intense desire to act himself. <em>Firebird </em>Majumdar’s upcoming novel will be published May 2015 by Hachette India.</p>
+<p>“<a href="http://www.rattle.com/poetry/stardust-by-colette-tennant/" target="_blank">Stardust</a>” by Colette Tennant (from <em>The Rattle</em>)</p>
+<p>In her poem Tennant succinctly and powerfully examines the interplay between scientific terminology and human existence. Somewhat ironically she describes the various objects that comprise the human life while simultaneously proving we are more than our compositions.</p>
+<p>“<a href="http://www.gettysburgreview.com/selections/essays/details.dot?inode=8fd3c9d7-4a4d-4c6f-b8ed-1c3ede948e15&amp;pageTitle=Jeffrey%20Hammond&amp;crumbTitle=Night%20Watch&amp;author=Jeffrey%20Hammond&amp;story=true" target="_blank">Night Watch</a>” by Jeffrey Hammond (from <em>The Gettysburg Review</em>)</p>
+<p>“Even a night person will concede that a really dark night, if one can be found, rehearses our future absence. But such a person might counter this gloom with a question: when has so disturbing a lesson ever been conveyed so peacefully and with such beauty?”</p>
+<p>Hammond examines the night and how it is perceived through the years and through literature, bringing a contemplative silver lining to our darkest hours.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4364.html#respond-4364" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/&text=Web+Rove%3A+Uncertainty+and+Narratives+of+Change%2C+Hope%2C+and+Resignation"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Uncertainty and Narratives of Change, Hope, and Resignation&body=Web Rove: Uncertainty and Narratives of Change, Hope, and Resignation%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-uncertainty-and-narratives-of-change-hope-and-resignation/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4288.html">Book Review: Kings of the F**king Sea</a></h2>
+	<div class="entrydate">26 Feb 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Poems by Dan Boehl</p>
+<p>Images by Jonathan Marshall</p>
+<p>Birds, LLC $18</p>
+<p>Reviewed by Ana Hurtado</p>
+<p><em>Kings of the F**king Sea</em> is an adventure; it is visual art, poetry, and prose. The protagonist, an unnamed American man, enlists as the new crewmember of Kings of the F**king Sea, a pirate ship, and his poems are his preferred method of communication; they are uncanny and extraordinary. Dan Boehl, the author, and Jonathan Marshall, the artist, interweaved English, French, and Latin into a curated literary phenomenon. Through text and images, <em>Kings of the F**king Sea</em> playfully analyzes the roles of pirates in our contemporary world. Aside from poetry, the scattered bits of prose across this book create context. The art portfolio found in the middle of the book acts like gallery show, visually interpreting the book’s themes. As a whole, the book acts like an ongoing reflection of the effects of popular culture and global issues, such as Spiderman films and human trafficking, on what could be interpreted as a dystopian universe. Here are five reasons why I could not put this poetry/art book down: <a href="../../../index.html%3Fp=4288.html#more-4288" class="more-link"><span aria-label="Continue reading Book Review: Kings of the F**king Sea">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4288.html#respond-4288" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book-review-kings-of-the-fking-sea/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book-review-kings-of-the-fking-sea/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book-review-kings-of-the-fking-sea/&text=Book+Review%3A+Kings+of+the+F%2A%2Aking+Sea"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book-review-kings-of-the-fking-sea/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book-review-kings-of-the-fking-sea/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: Kings of the F**king Sea&body=Book Review: Kings of the F**king Sea%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book-review-kings-of-the-fking-sea/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4275.html">Web Rove: Ekphrasis: Exploring the Interplay of Art and Poetry</a></h2>
+	<div class="entrydate">24 Feb 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Camille Meyers</p>
+<p>Of all the written genres, I feel that poetry is closest to visual art. A poet must consider not only the sounds and meanings of their words, but also how they look on the page. The form of a poem can create motion, separation, or sometimes even take on the shape of its subject by creating a literal picture with words.</p>
+<p>It’s not surprising then that poetry has inspired great works of art. Scholars suggest Vincent Van Gogh’s famous <em>Starry Night</em> was inspired by section 21 of Walt Whitman’s “Song of Myself”:</p>
+<p>“Press close bare-bosom&#8217;d night – press close magnetic nourishing night!<br />
+Night of south winds – night of the large few stars!<br />
+Still nodding night – mad naked summer night.”</p>
+<p><a href="http://flyway.org/wp-content/uploads/2015/02/starry-night2.png"><img class="alignnone size-medium wp-image-4281" src="http://flyway.org/wp-content/uploads/2015/02/starry-night2-580x459.png" alt="Starry Night" width="580" height="459" srcset="../../../wp-content/uploads/2015/02/starry-night2-580x459.png 580w, ../../../wp-content/uploads/2015/02/starry-night2.png 774w" sizes="(max-width: 580px) 100vw, 580px" /></a></p>
+<p>“<a href="http://en.wikipedia.org/wiki/The_Starry_Night#mediaviewer/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" target="_blank">Starry Night</a>” by Vincent Van Gogh (from Museum of Modern Art, New York City)</p>
+<p>However, the door of inspiration swings both ways and many great poets have been inspired by the visual arts. For example, William Carlos Williams “Landscape with the Fall of Icarus” is a direct description of Pieter Bruegel the Elder’s painting of the same name and muses on the artist’s intentions. <a href="../../../index.html%3Fp=4275.html#more-4275" class="more-link"><span aria-label="Continue reading Web Rove: Ekphrasis: Exploring the Interplay of Art and Poetry">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4275.html#respond-4275" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/&text=Web+Rove%3A+Ekphrasis%3A+Exploring+the+Interplay+of+Art+and+Poetry"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: Ekphrasis: Exploring the Interplay of Art and Poetry&body=Web Rove: Ekphrasis: Exploring the Interplay of Art and Poetry%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-ekphrasis-exploring-the-interplay-of-art-and-poetry/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4263.html">Book Review: Duplex by Kathryn Davis</a></h2>
+	<div class="entrydate">19 Feb 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>Duplex</em></p>
+<p>by Kathryn Davis</p>
+<p>Graywolf Press</p>
+<p>Paperback: $16</p>
+<p>Reviewed by Renee LeClaire</p>
+<p>Let me just start by saying that I have no idea how this book ends. I have my theories. But the ending of <em>Duplex</em> is like waking up and realizing that the dream-logic you’ve been following all night, which seemed so solid and certain while you were in the middle of it, falls apart like handfuls of wet sand. You can go back and try to piece together the trail you thought you were following, the signs you thought pointed the way — and some of them are there. But this is not a story told neatly in chronological order, and the sentences scattered like clues throughout the book only led me to what I realize is my own perception of the narrative. Kathryn Davis has created a choose-your-own-adventure novel where everyone reads the same pages in the same order, and everyone ends up in a different place in the end.</p>
+<p>So here is my advice for you, if you read <em>Duplex </em>(and you should): Trust Kathryn Davis. Also, pay attention.</p>
+<p>Trying to describe the overall plot of the novel not only makes your friends think you’ve done a lot of drugs before texting them passages (as I can personally attest), but also ruins the experience. So rather than attempting any sort of linear, coherent description or interpretation, here are five of my favorite quotes (clues) from the book. <a href="../../../index.html%3Fp=4263.html#more-4263" class="more-link"><span aria-label="Continue reading Book Review: Duplex by Kathryn Davis">(more&hellip;)</span></a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4263.html#respond-4263" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/book-review-duplex-by-kathryn-davis/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/book-review-duplex-by-kathryn-davis/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/book-review-duplex-by-kathryn-davis/&text=Book+Review%3A+Duplex+by+Kathryn+Davis"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/book-review-duplex-by-kathryn-davis/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/book-review-duplex-by-kathryn-davis/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review: Duplex by Kathryn Davis&body=Book Review: Duplex by Kathryn Davis%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/book-review-duplex-by-kathryn-davis/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=4251.html">Web Rove: For the Love of Television: When Fiction reflects Reality</a></h2>
+	<div class="entrydate">17 Feb 2015</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>by Erin Schmiel</p>
+<p>I love television for both the long story and loyalty to the characters. Television is also able to help us discover something new about our lives and the state of our culture, from the Japanese nuclear disaster at Fukushima to the aftermath of September 11. In the links below, commentators discuss shows by Aaron Sorkin that blend reality and fiction in ways that are poignant, heart-breaking and beautiful. Similarly, in an interview about the new series <em>Fresh off the Boat</em>, Eddie Huang discusses his struggle to watch a sitcom based on his life and memoir of the same name. What happens when life and art collide?</p>
+<p>&#8220;<a title="The West Wing" href="http://www.avclub.com/tvclub/the-west-wing-isaac-and-ishmael-57428" target="_blank">The West Wing: Isaac and Ishmael</a>&#8221; by Steven Heisler (<em>AV Club</em>)</p>
+<p>While author Steve Heisler didn&#8217;t care so much for this episode, “Isaac and Ishmael,” it&#8217;s still important to note when it aired: &#8220;Less than a month after September 11th 2001.&#8221; According to Heisler, this special episode occurred as a type of play between the intense end of the first season and before season two began. It isn&#8217;t as well-crafted as other episodes, but it was an opportunity for television to respond to tragedy.</p>
+<p>&#8220;<a title="Best Moments of Newsroom" href="http://www.rollingstone.com/movies/news/the-best-moments-from-the-newsroom-season-one-20130714" target="_blank">The Best Moments From &#8216;The Newsroom&#8217; Season One</a>&#8221; by Julian Ring (<em>Rolling Stone</em>)</p>
+<p>This article is an overview of season one of <em>News Room</em>, giving video highlights for those unfamiliar with the show. Episode Six is the one to pay attention to: &#8220;Bullies,&#8221; where character Sloan Sabbith reports on the Japanese nuclear disaster at Fukushima. This episode dramatized the idea: What would it be like to report on a moment like this?</p>
+<p>&#8220;<a title="Invisible and Insidious" href="http://harpers.org/archive/2015/03/invisible-and-insidious/" target="_blank">Invisible and Insidious</a>&#8221;  by William T Vollman (<em>Harper&#8217;s</em>)</p>
+<p>We are still living with the fallout of the Fukushima disaster, as seen in this &#8220;Letters From Japan&#8221; feature in <em>Harper&#8217;s. </em>The most startling image, and there are many, is of the seemingly endless pile of orange persimmons laid out along a lake; they were deemed too radioactive to eat.</p>
+<p>&#8220;<a title="ABC Tones Down" href="http://www.npr.org/2015/02/04/383724495/abc-tones-down-authors-fresh-off-the-boat-for-sitcom-audience" target="_blank">ABC Tones Down Author&#8217;s &#8216;Fresh Off the Boat&#8217; for Sitcom Audience</a>&#8221; by Eric Deggans (<em>NPR</em>)</p>
+<p>The new ABC sitcom, &#8220;Fresh off the Boat&#8221; is responding to real events in a different way. Eddie Huang&#8217;s memoir <em>Fresh off the Boat</em> was adapted for ABC and as this NPR interview shows, he struggles with this adaptation.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/web-rove/index.html" rel="tag">web rove</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/web-roves/index.html" rel="tag">web roves</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=4251.html#respond-4251" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/&text=Web+Rove%3A+For+the+Love+of+Television%3A+When+Fiction+reflects+Reality"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Web Rove: For the Love of Television: When Fiction reflects Reality&body=Web Rove: For the Love of Television: When Fiction reflects Reality%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/web-rove-for-the-love-of-television-when-fiction-reflects-reality/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../../../index.html%3Fp=135.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../3/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>

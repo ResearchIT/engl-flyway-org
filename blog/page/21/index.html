@@ -1,0 +1,1322 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- DISABLE MOBILE UNTIL WE'RE READY -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+
+<title>
+Blog &laquo; Flyway</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../wp-content/themes/flyway/style.css" type="text/css" media="screen" charset="utf-8">
+<link rel="alternate" type="application/rss+xml" href="../../../feed/index.html" title="Flyway RSS feed" />
+
+<link rel="shortcut icon" href="../../../wp-content/themes/flyway/img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../../../wp-content/themes/flyway/img/icons/apple-touch-icon-114x114.png">
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../../../wp-content/themes/flyway/js/jquery-1.10.2.min.js"><\/script>');
+</script>
+<script src="../../../wp-content/themes/flyway/js/slides.min.jquery.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.history.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable-0.1.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.sortable.js"></script>
+<script src="../../../wp-content/themes/flyway/js/footable.filter.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.colorbox-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.fullscreen-min.js"></script>
+<script src="../../../wp-content/themes/flyway/js/jquery.cookie.js"></script>
+<script src="../../../wp-content/themes/flyway/js/respond.min.js"></script>
+
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Flyway &raquo; Blog Comments Feed" href="../../feed/index.html" />
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cleaner-gallery-css'  href='../../../wp-content/plugins/cleaner-gallery/css/gallery.min.css%3Fver=20130526.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelementjs-styles-legacy-css'  href='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelementplayer-legacy.min.css%3Fver=5.1.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/plugins/media-element-html5-video-and-audio-player/mediaelement/v4/mediaelement-and-player.min.js%3Fver=4.2.8'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php%3Frsd" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="../../../index.html%3Fp=135.html" />
+<link rel='shortlink' href='../../../index.html%3Fp=135.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fflyway.org%252Fblog%252F&amp;format=xml" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="../../../wp-content/uploads/2015/03/cropped-1040-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="../../../wp-content/uploads/2015/03/cropped-1040-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://flyway.org/wp-content/uploads/2015/03/cropped-1040-270x270.jpg" />
+
+</head>
+
+<body>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47130101-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- FIXED TOP SECTION -->
+<section class="container container-twelve top" id="top">
+	<header>
+	<div class="ten columns title">
+	<h1>
+		<a href="../../../index.html" id="logolink">
+			<img src="../../../wp-content/themes/flyway/img/flyway-logo-horizontal.png" width="456" height="149">
+		</a>
+	</h1>
+	<h2>Journal of Writing &amp; Environment</h2>
+	</div>
+	<div class="two columns buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss"></i></a>
+	</div>
+	<div class="one column mobile controls">
+<div class="wrap">
+	<a href="index.html#" id="menu_link"><i class="icon-reorder"></i></a><a href="index.html#" id="search_link"><i class="icon-search"></i></a>
+</div>
+	</div>
+	</header>
+
+	<br class="clear">
+
+	<nav>
+	<ul>
+		<li class="two columns mobile"><a href="index.html#" class="latest menu-link">Latest</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=137.html" class="archive menu-link">Archive</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=139.html" class="about menu-link">About</a>
+		</li>
+		<li class="two columns"><a href="../../../index.html%3Fp=135.html" class="blog menu-link">Blog</a> 
+		</li>
+		<li class="two columns"><a href="https://flyway.submittable.com/submit" class="submit menu-link">Submit</a>
+		</li>
+		<li class="four columns">
+			<form action="../../../index.html">
+				<label for="search">Search</label>
+				<input type="text" name="s" id="s">
+				<div id="search-icon"><i class="icon-search"></i></div>
+			</form>
+		</li>
+	</ul>
+	<div class="two columns mobile buttons">
+	<a href="https://instagram.com/flyway_journal/"><i class="icon-instagram"></i></a><a href="https://www.facebook.com/FlywayJournal"><i class="icon-facebook icon-large"></i></a><a href="https://twitter.com/Flyway_journal"><i class="icon-twitter icon-large"></i></a><a href="http://feeds.feedburner.com/flywayblog/"><i class="icon-rss icon-large"></i></a>
+	</div>
+	<br class="clear">
+	</nav>
+
+</section>
+<!-- / FIXED TOP SECTION -->
+
+<section class="container container-twelve initial content">
+
+<section class="container container-twelve blog pagetitle" data-pagetitle="Blog &laquo; Flyway">
+
+<aside class="four columns sidebar">
+<header>
+<div class="pad20">
+<h1>Flight Patterns</h1>
+<div class="subtitle">the <cite>flyway</cite> blog</div>
+</div>
+<section class="subscribe">
+<div>Subscribe</div>
+<div>
+<a href="http://feedburner.google.com/fb/a/mailverify?uri=flywayblog&amp;loc=en_US"><i class="icon-envelope-alt"></i>email</a> <a href="http://feeds.feedburner.com/flywayblog"><i class="icon-rss"></i>feed</a>
+</div>
+<br class="clear">
+</section>
+</header>
+
+
+<section class="tabs section">
+<ul class='blog-tabs tab-links'>
+	<li><a href='index.html#blog-cats-page21' class="no-ajax">Categories</a></li>
+	<li><a href='index.html#blog-tags-page21' class="no-ajax">Tags</a></li>
+	<br class="clear">
+</ul>
+<div id='blog-cats-page21' class="tab blog-cats">
+<div><a href="../../../archive/category/blog/interview/index.html">Interviews</a></div>
+<div><a href="../../../archive/category/blog/review-2/index.html">Reviews</a></div>
+<div><a href="../../../archive/category/blog/web-roves/index.html">Web Roves</a></div>
+<div><a href="../../../archive/category/blog/contest-blog/index.html">Contests</a></div>
+</div>
+<div id='blog-tags-page21' class="tab blog-tags">
+<a href="../../../tag/fluttercontest/index.html">#FlutterContest</a>
+<a href="../../../tag/2011/index.html">2011</a>
+<a href="../../../tag/2015/index.html">2015</a>
+<a href="../../../tag/advice/index.html">advice</a>
+<a href="../../../tag/agriculture/index.html">agriculture</a>
+<a href="../../../tag/announcement/index.html">announcement</a>
+<a href="../../../tag/archive/index.html">archive</a>
+<a href="../../../tag/archives/index.html">archives</a>
+<a href="../../../tag/audio/index.html">Audio</a>
+<a href="../../../tag/authors/index.html">authors</a>
+<a href="../../../tag/awards/index.html">awards</a>
+<a href="../../../tag/awp/index.html">AWP</a>
+<a href="../../../tag/book-review/index.html">book review</a>
+<a href="../../../tag/characters/index.html">characters</a>
+<a href="../../../tag/contest/index.html">contest</a>
+<a href="../../../tag/craft/index.html">craft</a>
+<a href="../../../tag/creative-nonfiction/index.html">creative nonfiction</a>
+<a href="../../../tag/december/index.html">December</a>
+<a href="../../../tag/derek-sheffield/index.html">derek sheffield</a>
+<a href="../../../tag/editor-interview/index.html">editor interview</a>
+<a href="../../../tag/editors/index.html">editors</a>
+<a href="../../../tag/environment/index.html">environment</a>
+<a href="../../../tag/fairy-tale/index.html">fairy tale</a>
+<a href="../../../tag/favorites/index.html">favorites</a>
+<a href="../../../tag/fiction/index.html">Fiction</a>
+<a href="../../../tag/five-bullet-review/index.html">Five Bullet Review</a>
+<a href="../../../tag/flutterings/index.html">Flutterings</a>
+<a href="../../../tag/flyway-20th-birthday/index.html">Flyway 20th Birthday</a>
+<a href="../../../tag/friends-of-flyway/index.html">friends of flyway</a>
+<a href="../../../tag/friendship/index.html">friendship</a>
+<a href="../../../tag/good-books/index.html">good books</a>
+<a href="../../../tag/good-news/index.html">good news</a>
+<a href="../../../tag/guns/index.html">guns</a>
+<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html">hazel lipa environmental chapbook award</a>
+<a href="../../../tag/historical-fiction/index.html">historical fiction</a>
+<a href="../../../tag/home-voices/index.html">home voices</a>
+<a href="../../../tag/inklings/index.html">Inklings</a>
+<a href="../../../tag/interview-2/index.html">interview</a>
+<a href="../../../tag/literary-journal/index.html">literary journal</a>
+<a href="../../../tag/little-wolves/index.html">little wolves</a>
+<a href="../../../tag/maltman/index.html">maltman</a>
+<a href="../../../tag/new-content/index.html">New Content</a>
+<a href="../../../tag/new-issue/index.html">New Issue</a>
+<a href="../../../tag/new-writers/index.html">new writers</a>
+<a href="../../../tag/new-year/index.html">new year</a>
+<a href="../../../tag/nonfiction/index.html">Nonfiction</a>
+<a href="../../../tag/notes-from-the-field/index.html">notes from the field</a>
+<a href="../../../tag/novel/index.html">novel</a>
+<a href="../../../tag/past-contributors/index.html">past contributors</a>
+<a href="../../../tag/peter-heller/index.html">peter heller</a>
+<a href="../../../tag/poetry-2/index.html">poetry</a>
+<a href="../../../tag/prize/index.html">Prize</a>
+<a href="../../../tag/prose/index.html">prose</a>
+<a href="../../../tag/pushcart/index.html">pushcart</a>
+<a href="../../../tag/readers/index.html">readers</a>
+<a href="../../../tag/reading/index.html">reading</a>
+<a href="../../../tag/reads/index.html">reads</a>
+<a href="../../../tag/research/index.html">research</a>
+<a href="../../../tag/review/index.html">review</a>
+<a href="../../../tag/richard-preston/index.html">Richard Preston</a>
+<a href="../../../tag/science/index.html">science</a>
+<a href="../../../tag/short-stories/index.html">short stories</a>
+<a href="../../../tag/stories/index.html">stories</a>
+<a href="../../../tag/summer-reads/index.html">Summer Reads</a>
+<a href="../../../tag/sweet-corn-short-fiction-winners/index.html">Sweet Corn Short Fiction Winners</a>
+<a href="../../../tag/the-dog-stars/index.html">the dog stars</a>
+<a href="../../../tag/todd-davis/index.html">Todd Davis</a>
+<a href="../../../tag/twitter/index.html">twitter</a>
+<a href="../../../tag/twitter-contest/index.html">Twitter Contest</a>
+<a href="../../../tag/update/index.html">update</a>
+<a href="../../../tag/violence/index.html">violence</a>
+<a href="../../../tag/visual-art/index.html">visual art</a>
+<a href="../../../tag/web-comic/index.html">web comic</a>
+<a href="../../../tag/web-rove/index.html">web rove</a>
+<a href="../../../tag/web-roves/index.html">web roves</a>
+<a href="../../../tag/what-we-like/index.html">what we like</a>
+<a href="../../../tag/where-are-they-now/index.html">where are they now</a>
+<a href="../../../tag/wild/index.html">wild</a>
+<a href="../../../tag/wildness-symposium/index.html">Wildness Symposium</a>
+<a href="../../../tag/winners/index.html">winners</a>
+<a href="../../../tag/woodrell/index.html">woodrell</a>
+<a href="../../../tag/writers/index.html">writers</a>
+<a href="../../../tag/writing/index.html">writing</a>
+</div>
+</section>
+
+</aside>
+
+<section class="blogentries">
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=641.html">Interview With Rhett Trull, Editor and Founder of Cave Wall</a></h2>
+	<div class="entrydate">25 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>Rhett Trull is the editor and founder of <a href="http://www.cavewallpress.com/index.html">Cave Wall</a>, a biannual print journal out of Greensboro, North Carolina. Flyway blogger Andrew Payton got the chance to ask Ms. Trull a few questions about her work.</em></p>
+<p><strong>Andrew Payton: </strong>What is the story behind Cave Wall? How did it start? What was the driving force?</p>
+<p><strong>Rhett Trull: </strong>My husband Jeff and I started <em>Cave Wall </em><em>five years ago </em>in order to celebrate poems we love. I’ve been a collector of favorite poems my whole life and for years have kept notebooks and files of them, returning to them often. Also, I love literary journals. I’ve subscribed to many over the years and always wanted to start my own. When I met Jeff, someone else who appreciates journals and poetry, the timing was right and <em>Cave Wall</em> was born. Maybe it sounds kind of cheesy, but the driving force is love. When a poem excites me I want to shout it out to the whole world; I want everyone to experience it. <em>Cave Wall </em>is a way to try to share those poems with, if not the whole world, at least an enthusiastic, appreciative group of readers.</p>
+<p><strong>AP: </strong>Would you say that you have a particular aesthetic as an editor? What do you look for in a poem or poet?</p>
+<p><strong>RT: </strong>Whatever my editorial aesthetic is remains somewhat of a mystery to me, and I like it that way. My tastes in poetry are ever-changing. I try to be open to all styles, as do Jeff and our other main <em>Cave Wall </em>reader, Michael Boccardo. We like poems that are long, short, lyric, narrative, funny, sad, and everything in between, as long as they move us. I guess that’s what I’m looking for when I read through a stack of submissions: I want a poem to leave me somewhere different than it finds me. I want to be changed by a poem. Also, I’m looking for a voice, one that engages my attention in a way that makes me forget everything else but this poem in this moment.</p>
+<p>One interesting thing I’ve noticed as I put together these issues is how each one ends up developing its own aesthetic; certain themes emerge and are echoed. Sometimes, at the end of a reading period, when we’re trying to figure out which poem out of twenty worthy poems gets the last slot in an issue, one of the deciding factors becomes which poem fits best with the others we’ve gathered.</p>
+<p><strong>AP: </strong>Your first collection of poetry, <em>The Real Warnings</em>, was published in 2009 by Anhinga Press. How does being a poet yourself inspire your work as an editor? Where do these two roles intersect?</p>
+<p><strong>RT: </strong>I think the main intersection between editing and writing, at least for me, has to do with an exchange of energy. Getting to spend the majority of my time bouncing between two types of work about which I’m passionate is a luxury I try not to take for granted. If the work on one gets frustrating, I turn to the other and am refreshed, renewed. Certainly, working on <em>Cave Wall </em>has improved my writing, as does any time spent reading and studying good poetry. Plus, spending time with poetry I love makes me a happier person, fills me with gratitude, and that good energy gets carried over into all other parts of my life. As for how being a poet might inspire my work as an editor, well, it helps me appreciate how much work goes into each line, each word, of each poem. I hope this appreciation comes out in my responses to submissions. We receive many strong poems and have room to publish just a few, but I try whenever possible to respond personally to those we don’t accept, pointing out something I liked about the poems, letting the poet know that I value the time I spent with their work.</p>
+<p><strong>AP: </strong>As I’ve said, I found the most recent issue of <em>Cave Wall</em> superb. As the magazine is not affiliated with a university, like many seem to be these days, how do you promote <em>Cave Wall</em>? Who are most of your readers? And do you hope to expand that base of readers?</p>
+<p><strong>RT: </strong>Thank you. Your enthusiasm about issue 10 makes me happy. And this interview will, I hope, bring a few more readers our way. Word of mouth and advertisements here and there are our main method of promoting <em>Cave Wall, </em>as well as venues like <em>Poetry Daily, Verse Daily, Luna Park Review, </em>and <em>New Pages</em>. The editors of those sites are invaluable when it comes to letting readers know what’s going on in the world of small presses. It helps to win some awards recognition, too, and we’re thrilled that two poems from issue 7 were chosen by Kevin Young for the <em>Best American Poetry </em>that came out this fall.<em> </em>Our subscription numbers continue to climb each year, and yes, we want to keep that number growing. We try to expand our advertising a little every year. We go to AWP. Meanwhile, we try to keep the subscription cost low, knowing how many good journals are out there and how precious each dollar is these days.</p>
+<p><strong>AP: </strong>Cave Wall publishes exclusively in print and exclusively poetry. Is there any impetus to move some material online or to work in other genres?</p>
+<p><strong>RT: </strong>I love all genres, but <em>Cave Wall </em>is strictly a poetry and art journal. We like the size of it: just 72 pages each issue. And although we put a few poems from each issue online and may add some other digital supplemental features, <em>Cave Wall </em>will remain a print journal always. The simple reason is that I love books and don’t enjoy reading on a screen for long periods of time. We’re happy with <em>Cave Wall </em>just the way it is. Technology is exciting and fun to explore, but isn’t there something about print publications that ought to be celebrated and continued, too? I think so. I’m going to keep celebrating. I’m in love with books.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/editor-interview/index.html" rel="tag">editor interview</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/fiction/index.html" rel="tag">Fiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/interview-2/index.html" rel="tag">interview</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/nonfiction/index.html" rel="tag">Nonfiction</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/poetry-2/index.html" rel="tag">poetry</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/writing/index.html" rel="tag">writing</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=641.html#comments-641" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/&text=Interview+With+Rhett+Trull%2C+Editor+and+Founder+of+Cave+Wall"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview With Rhett Trull, Editor and Founder of Cave Wall&body=Interview With Rhett Trull, Editor and Founder of Cave Wall%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-rhett-trull-editor-and-founder-of-cave-wall/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=636.html">Flyway&#8217;s Weekly Updates</a></h2>
+	<div class="entrydate">20 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Hey there, blog enthusiasts! Here are Flyway&#8217;s updates for this week:</p>
+<p>1. We&#8217;re still looking for your poetry chapbook submissions for our <strong>Hazel Lipa Chapbook contest</strong>! Get published, win money and prosper.</p>
+<p>2. Find our table at <strong>AWP</strong>. Look for our awesome paper-mache tree, stop by for some freebies,  get information on subscriptions, and tell us who you are &#8212; we want to know!</p>
+<p>3. Are you an artist or photographer? Looking for a way to get your work out there? Flyway wants YOUR <strong>art submissions</strong> for the cover of our upcoming Spring 2011 issue. Please send all inquiries to <strong>flywaypub@gmail.com</strong>! Attach your submission and write a cover letter in the body of the email. Submit before 3/20. We&#8217;re especially looking for art with a focus on place and environment &#8212; up for all interpretation.</p>
+<p>Oh &#8212; and, have you found us on twitter? @flyway_journal</p>
+<p>&nbsp;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/update/index.html" rel="tag">update</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=636.html#respond-636" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/general-updates/flyways-wk-2-20/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/general-updates/flyways-wk-2-20/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/general-updates/flyways-wk-2-20/&text=Flyway%26%238217%3Bs+Weekly+Updates"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/general-updates/flyways-wk-2-20/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/general-updates/flyways-wk-2-20/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Flyway&#8217;s Weekly Updates&body=Flyway&#8217;s Weekly Updates%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/general-updates/flyways-wk-2-20/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=617.html">Meet the Editor:  Genevieve DuBois, Fiction Editor</a></h2>
+	<div class="entrydate">14 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><strong><a href="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/editorphoto.jpg"><img class="aligncenter  wp-image-624" title="Gen DuBois, fiction editor" src="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/editorphoto.jpg" alt="Gen DuBois, fiction editor" width="304" height="222" /></a><br />
+</strong></p>
+<p><strong>Who are your favorite authors?</strong></p>
+<p>That’s a hard question. Haruki Murakami, Lorrie Moore, T.C. Boyle, George Saunders, too many to all list here.</p>
+<p><strong>What is your favorite book?</strong></p>
+<p>No such thing.</p>
+<p><strong>What does “place” mean to you?</strong></p>
+<p>Place grounds experience and thought. There’s more to the story than what the characters think and do. Place is both the physical and intangible environment in which story happens. It&#8217;s what makes fiction resonate.</p>
+<p><strong>What is your favorite place or environment?</strong></p>
+<p>I haven’t yet become the kind of person to feel like any one place is home, so my favorite places are scattered around. I like quiet places. The high desert. The redwoods. The more rugged stretches of the Pacific coast. I like mountains. The Cascades. The alpine Sierras.</p>
+<p><strong>What do you look for in a piece of writing?</strong></p>
+<p>First I look for something that captures me as a reader, not an editor. I look for fiction that takes stylistic and structural risks. I look for a story that has something to say about the world but doesn’t beat me over the head with it. I want a story to linger with me after I have finished reading it.</p>
+<p><strong>What’s something surprising you learned last week?</strong><br />
+Whales have different dialects and accents—each whale family has its own song patterns. That probably should have surprised me less than it did. There’s an online experiment called Whale FM where you can match similar whale songs to help scientists understand whale communication better.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/editors/index.html" rel="tag">editors</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=617.html#respond-617" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/&text=Meet+the+Editor%3A++Genevieve+DuBois%2C+Fiction+Editor"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Meet the Editor:  Genevieve DuBois, Fiction Editor&body=Meet the Editor:  Genevieve DuBois, Fiction Editor%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/meet-the-editor-genevieve-dubois-fiction-editor/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=601.html">Book Review:  &#8220;Citrus County&#8221; by John Brandon</a></h2>
+	<div class="entrydate">14 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><a href="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/citrus.jpg"><img class="alignleft size-full wp-image-602" title="citrus" src="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/citrus.jpg" alt="" width="300" height="300" /></a></p>
+<p><strong><em>Flyway</em> editor, Chris Wiewiora, reviews John Brandon&#8217;s, <em>Cirtus County</em>.</strong></p>
+<p>John Brandon focuses <em>Citrus County</em>, his second novel, on a trifecta of characters: Toby, an orphan and the track team’s solo pole-vaulter, who lives in the muck house of his drug-dealing uncle; Shelby, the new kid in school, shadowed by her mother’s death that lingers over her father and sister; and Mr. Hibma—Toby and Shelby’s geography teacher at the middle school—numbed by a routine of student presentations and bogus lectures.</p>
+<p>As a fellow Floridian, I appreciate that Brandon sets <em>Citrus County</em> west of Orlando’s Disney developments and north of Tampa Bay’s beaches. Instead of trite lush sprawl and touristy hot spots, Brandon submerges his characters in cracked concrete, dried palm fronds, and thick, sticky heat. Unable to escape, Toby, Shelby, and Mr. Hibma take drastic actions to redefine themselves. Toby kidnaps Kaley, Shelby’s younger sister, but discovers that “whatever had been wrong seemed more wrong now.” Shelby, who doesn’t know of Toby’s transgression, develops a crush on his loner attitude and then acts out in school to get his attention. Mr. Hibma plots to murder Mrs. Connors&#8211;the English teacher next to his classroom who tells him that he needs to post class rules identical to the school rules, reminds him his shirts are wrinkled, and has a poster in her classroom with the word PERSISTANCE underneath a sailing ship.</p>
+<p>Just as Kaley needs rescue, Mr. Hibma, Shelby, and Toby need to be saved from themselves. However, is there a hero in Citrus County? Brandon reveals the crux of this question—you survive things by making it through them, alone—when Mr. Hibma tries to assure, but ends up over-sharing with Shelby:</p>
+<p>“We never know what’s going to screw us up,” he said. “We think it has to be glaring tragedies, but that’s not always the case.”</p>
+<p>Mr. Hibma wasn’t sure where he was going with this. He was, to his own surprise, taking a stab at being profound and helpful:</p>
+<p>“Sometimes the tragedies strengthen us in the end. They make us more ourselves, you know—concentrate us.”</p>
+<p>Mr. Hibma, Shelby, and Toby&#8217;s lives are braided together in Citrus County. However, their redemptions occur separately. And so, Brandon gives his reader the relief of being able to exit <em>Citrus County</em> along with the grief of leaving the three characters behind.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/book-review/index.html" rel="tag">book review</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=601.html#comments-601" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/&text=Book+Review%3A++%26%238220%3BCitrus+County%26%238221%3B+by+John+Brandon"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Book Review:  &#8220;Citrus County&#8221; by John Brandon&body=Book Review:  &#8220;Citrus County&#8221; by John Brandon%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/book-review-citrus-county-by-john-brandon/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=608.html">Flyway&#8217;s February Valentine&#8217;s Week Updates</a></h2>
+	<div class="entrydate">13 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Whether you&#8217;re single or &#8220;settled,&#8221; here are some updates from Flyway:</p>
+<p>Flyway will be at <strong>AWP</strong> this year. Look for our paper-mache Flyway tree and snag some freebies when you stop by the table to say hello. We hope to see you there!</p>
+<p>Here&#8217;s a reminder in Valentine&#8217;s poem to submit to our annual <strong>Hazel Lipa Chapbook Contest</strong>:</p>
+<p><em>Roses are red, </em><br />
+<em>Violets are blue, </em><br />
+<em>We want your chapbooks </em><br />
+<em>Before the deadline is through.</em></p>
+<p>..Submit your as-of-yet unpublished poetry chapbooks <strong>by 3/15</strong>! Submission costs include a one-year subscription to Flyway.</p>
+<p>We&#8217;re also looking forward to Iowa State&#8217;s upcoming <strong><a href="http://engl.iastate.edu/programs/creative_writing/mfa/visiting-writers-series/8th-annual-symposium-on-wildness-wilderness-and/" target="_blank">8th Annual Symposium on Wildness</a>  </strong>featuring the geniuses of Amy Nezhukumatathil, Rolf Potts, Daniel Woodrell and Anthony Doerr. If you&#8217;re in Ames, be sure to check out a few of the amazing events Sunday 2/26 and Monday 2/27.</p>
+<p>Keep checking the Flyway blog for more updates and fun stuff.</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/awp/index.html" rel="tag">AWP</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/hazel-lipa-environmental-chapbook-award/index.html" rel="tag">hazel lipa environmental chapbook award</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/wildness-symposium/index.html" rel="tag">Wildness Symposium</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=608.html#comments-608" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/general-updates/febvalentineswupdates/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/general-updates/febvalentineswupdates/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/general-updates/febvalentineswupdates/&text=Flyway%26%238217%3Bs+February+Valentine%26%238217%3Bs+Week+Updates"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/general-updates/febvalentineswupdates/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/general-updates/febvalentineswupdates/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Flyway&#8217;s February Valentine&#8217;s Week Updates&body=Flyway&#8217;s February Valentine&#8217;s Week Updates%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/general-updates/febvalentineswupdates/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=597.html">Meet the Editor:  Sarah Burke, Managing Editor</a></h2>
+	<div class="entrydate">5 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><strong><br />
+<a href="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/sarah-photo.jpg"><img class="alignleft size-full wp-image-598" title="sarah photo" src="http://www.flyway.org/wordpress/wp-content/uploads/2012/02/sarah-photo.jpg" alt="" width="270" height="484" /></a>What drives you to write?</strong> I’d be lying if I didn’t say that workshop deadlines often provide a magical and much-needed kick in the pants. In the absence of deadlines, I write to explore, to play with language, and to figure out what I know. Writing is sometimes exciting and sometimes awful and soul-crushing, but it’s something I’ve always done and found worth doing.</p>
+<p>&nbsp;</p>
+<p><strong>Who is your favorite author?</strong> Sappho for the win! More recent obsessions include Carolyn Forché and Terry Tempest Williams.</p>
+<p>&nbsp;</p>
+<p><strong>What does &#8220;place&#8221; mean to you?</strong> Aldo Leopold’s “The Land Ethic” has really shaped my understanding of place—not a static backdrop, but a dynamic community. I find place in connection and relationship, all the complex ties that bind me to land, air, water, plants, animals, and other humans.</p>
+<p>&nbsp;</p>
+<p><strong>What is your favorite place or environment</strong>? Oh man, I miss Burlington, VT, so much. Church Street, Lake Champlain, slouching porches, weird talkative strangers, community gardens, art and music everywhere, quick summers and endless snow, <a href="http://www.flickr.com/photos/cbeana/2612157296/" target="_blank">Nader Guy</a>, and visible mountains—little ones, but still, <em>topography</em>. What more could a person want?</p>
+<p>&nbsp;</p>
+<p><strong>What do you look for in a piece of writing? </strong>What most readers look for: a piece that sparks my interest early, keeps me reading, and stays with me after I’ve reached the end. I’m a sucker for beauty, authority, honesty, and fresh, compelling language. Humor, when it works, is also a plus.<strong></strong></p>
+<p>&nbsp;</p>
+<p><strong>What&#8217;s something surprising you learned last week? </strong><a href="http://www.npr.org/blogs/krulwich/2011/10/28/141795907/who-left-a-tree-then-a-coffin-in-the-library" target="_blank">This story</a> about a mysterious artist leaving gorgeous, intricate sculptures in Scottish libraries and museums made me ridiculously happy.</p>
+<p>&nbsp;</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=597.html#respond-597" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/&text=Meet+the+Editor%3A++Sarah+Burke%2C+Managing+Editor"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Meet the Editor:  Sarah Burke, Managing Editor&body=Meet the Editor:  Sarah Burke, Managing Editor%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/meet-the-editor-sarah-burke-managing-editor/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=593.html">Flyway Asks: What Makes a Fairy Tale?</a></h2>
+	<div class="entrydate">4 Feb 2012</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><em>Flyway</em>’s Lydia Melby talks with <strong>Kate Bernheimer</strong>, independent editor of <em>The Fairy Tale Review</em>, about colored issues, communication, comics and “fabulism.” So what actually makes a fairy tale? We’re here to find out!</p>
+<p>&#8211; * &#8211;<strong></p>
+<p>LM: What is the story behind <em>Fairy Tale Review</em>? When and how did it come to be?</strong><strong></strong></p>
+<p><strong></strong>KB: I established <em>Fairy Tale Review</em> in 2005 after scheming it up over Bloody Marys at The Space Room in Portland, OR a few years prior to that. It had been on my mind for a very long time when I finally rented a post office box for the journal—the first thing I did officially for it.</p>
+<p>The idea grew organically from the work I had been doing nearly my entire life, but especially since my twenties when I started my first novel based on fairy tales.  I had long noticed the profound influence of fairy tales on a great deal of contemporary books, yet as an avid reader of journals, it was impossible to ignore that overt fairy-tale work was marginalized into “special issues” dedicated to fabulism or magical realism. I knew of writers who had stories turned down because the work was deemed ‘not-literary’ or because editors had “already published a magical story this year [or in a special issue five years ago],” I had decided pretty consciously to advocate for fairy tales every way that I could, and give them a home. I did not realize at the time how many people would arrive at the scene.</p>
+<p>In sum I established the journal as an act of resistance to the idea of dominant forms.</p>
+<p><strong><br />
+LM: Tell me a little bit about your new program, &#8220;Fairy Tale Book Repository&#8221;. Where did you get the idea? Can you give me a summary of the &#8220;long range plan&#8221; your website mentions, or is it a secret?</strong><strong></strong></p>
+<p>KB: I got the idea to establish a Fairy-Tale Book Repository over many years of finding discarded fairy-tale books at garage sales, thrift shops, or (along with other sad characters) in cartons on the sidewalk intended for garbage. I was frequently receiving new and used fairy-tale books in the mail from acquaintances, friends, and complete strangers who just thought I might like them. My shelves had become a sort of informal safe haven for fairy-tale books—an unofficial Island of Misfit Fairy-Tale Books.  So I decided to make it official and posted an announcement on the <em>Fairy Tale Review</em> website. So far The Fairy-Tale Book Repository exists in my study, my closets, my attic, and some boxes in the garage. I would love to give the books a more public home someday too, and I share these whenever I can. Anyone who knows me knows it is hard to leave my house or office without an armload of recommended fairy-tale reading.</p>
+<p>Part of <em>Fairy Tale Review</em>’s mission is to “preserve” fairy tales of all kinds (more like preserving a delicious jam than some fragile artifact).  This is one of the ways.  I’m working on cataloguing the books and writing up descriptions of their contents and how they made their way to the Repository. Plans are not “secret” at all.  The Fairy-Tale Book Repository has been slow to venture from its current domestic space, but one day it will.</p>
+<p><strong><br />
+LM: Your website states you do not accept unsolicited submissions, but you put out a call for submissions for the Grey Issue&#8211; was this a one time event, or do you often accept unsolicited submissions, or plan to in the future?</strong><strong></strong></p>
+<p>KB: Fairy Tale Review Press, the book imprint of <em>Fairy Tale Review</em>, is not open to unsolicited submissions at this time.  Yet the annual journal, <em>Fairy Tale Review</em>, has always had, and has always relied heavily on, open reading periods.  Our next reading period is opening up at the time of the next AWP conference—the end of February 2012—and will be announced on our website, with submission guidelines available there.</p>
+<p>In fact—and I really don’t know how common this is for other journals, perhaps many—100 percent of every single issue of <em>Fairy Tale Review</em> that I personally put together from 2006 to 2010 consisted of work I found exclusively through unsolicited submissions. Since then the journal has been guest edited and I don’t know the ratio of unsolicited to solicited work, but I do know the guest editors avidly and carefully read the unsolicited submissions (thousands of them) and responded personally in many cases to these.</p>
+<p>To the open calls, of course, sometimes work has been submitted by writers whose work I know already, and this work, along with the rest, is screened anonymously by a dedicated volunteer team and then passed on to me for a final decision (I have in the past read just about every submission, though I’m now on a necessary editorial hiatus to meet other deadlines, and assigning Guest Editors to the new issues). <em>Fairy Tale Review</em> relies on the chance element of fairy-tale luck for what comes down our hatch.  We get many more manuscripts for each issue than we can possibly publish so decisions are hard—especially because the work we receive to consider is often lovingly, carefully sent in our direction by ardent fairy-tale fans. It’s not willy-nilly and so the whole endeavor feels very personal.</p>
+<p>There was one exception to the open submission process: when I began <em>Fairy Tale Review</em> in 2005, I solicited work for the first issue, The Blue Issue (available as a <a href="http://www.fairytalereview.com/images/fullblue.pdf">free download here</a>).  The debut issue was by and large gathered via word of mouth—I sent around an email to some writers asking them if they had anything for my new fairy-tale journal.  I didn’t know there would be such broad interest, and I started this way not to be exclusive but because I considered it a modest endeavor.  I did not establish any administrative apparatus (website, proper email account) before launching the journal. I guess I was following bread crumbs one by one as I tossed them down on the path. For all I knew, the plan would, you know, go to the birds before I put it together.  I intended the first issue to be a sort of personal revivalist announcement, a trumpet call for fairy tales, quietly putting forward the “fairy-tale feel” of the journal, its affect. I sent it around myself to readers once it was in print, and then sold out the few hundred remaining copies at AWP that year.</p>
+<p>The Yellow Issue, the next issue we’ll be reading for (which will be the ninth annual issue, to come out in 2013) will be guest edited by Lily Hoang (Assistant Professor at New Mexico State University and author of <em>Changing</em>, a novel Fairy Tale Review Press published in 2008 which then won a PEN/Beyond Margins Award). She’s written a marvelous call for submissions that will go up on our website.</p>
+<p><strong><br />
+LM: Do you charge a reading fee for submissions? As an independent journal (not one connected to a university) where does most of your funding come from? </strong><strong></strong></p>
+<p>KB: I think it is very polite to ask about funding because people might be curious, when they send work to a journal or read it, “how” these things come to be and it’s good when things are transparent. Sometimes such information helps a reader understand a journal’s artistic vision or mission. Also it seems to me like a lot of people want to start journals, and actually need to know the range of answers to this very question.  So I’m happy to tell you about how funding works for <em>Fairy Tale Review</em>. In a nutshell, we have none! Before I founded the journal, for all I knew literary journals were funded by these marvelous patrons who also supplied their dedicated, bookworm editors with offices in Victorian houses with wood-burning fireplaces and bottomless pots of hot tea in flowered china. Au contraire. I had no funding when I started.  I asked for and received a gift from someone I knew to print up the first couple of issues, get my post office box, and have a website designed and hosted.</p>
+<p>In my experience, people who edit and publish literary journals are pretty much doing it out of great love of reading and out of respect for readers and writers, paired with an inclination toward editing is an art form—not for pay.  No one I personally know who edits a journal is making any monetary profit from it—or a salary, even.  They earn income from elsewhere or editing a journal is a part of their other job—often journal editors have many jobs.  Universities that fund literary journals are actively supporting this work, and along with it, advocating for literacy—nurturing readers.  It’s great when that happens. Yet funding situations vary for many reasons and my journal does not have any funding. It’s just out of pocket and whatever comes in from sales goes toward replenishing the ever-shrinking funds available to me for it.  The journal would not exist were it not for the in-kind funding that comes via interns and volunteers (i.e. their valuable and generous time).</p>
+<p>All human hours for <em>Fairy Tale Review </em>are donated.  The brilliant Tara Reesor of the Publication Unit of Indiana State University works with her talented students to design the journal and our books and get the files printer-ready.   I recently received a small grant from the Spanish Embassy to cover production costs for the recently published novel <em>Irlanda</em> by Espido Freire, translated by Toshiya Kamei.  Other invoices have been paid out of my own tattered pocket—these include things like the not-insignificant cost of mailing things to the distributor and reviewers and contributors; website hosting and updates;  tables at the Book Fair of AWP, etc. It takes sacrifice. But what a pleasure it is to give things up for fairy tales, and such small things, for me.</p>
+<p>Fairy tales save people in all sorts of ways: it’s no accident Anne Frank wrote fairy tales. Historically a lot of authors say they first fell in love with reading through fairy-tale books.  The journal was established, quite simply, to give an open home to fairy tales and to preserve them for future generations of readers. It has never been about “silver coins,” though it takes some money to do this.  With a little fairy-tale luck the work will continue.</p>
+<p>As for fees, no, <em>Fairy Tale Review</em> does not and never will charge a reading fee for general submissions. We will charge a fee if we establish a contest (and we’d offer something in return to those who enter).  We have had so many requests to conduct a contest over the years, so we think about it, even though contests are a little antithetical to the nonhierarchical art of fairy tales.  Still, there is a clamoring for one, so we are listening. I often toy with the idea of making the journal entirely free and online, but it’s actually less expensive to print it because getting all the back issue material up on a website would, you know, cost money itself (time, talent, technology).<strong></strong></p>
+<p><strong><br />
+LM: I&#8217;ve seen a lot of my favorite authors published in your journal, some that one wouldn&#8217;t necessarily think of when imagining a traditional fairy tale. How does your reading staff interpret the term &#8220;fairy tale&#8221; when go soliciting (or reading unsolicited) submissions?</strong><strong></strong></p>
+<p>KB: Thank you for the kind words about <em>Fairy Tale Review</em>’s diverse and growing list of generous writers who send work to us, from high school students to Pulitzer Prize nominees! It’s been pretty remarkable over the years to see how fairy tales provide so many readers an invisible key to the secret garden of story.  The journal has received submissions from indie darlings; bestselling authors with books prominently displayed in airports; writers who have stapled together their manifestoes; preschool teachers on behalf of their classes; and from MFA students, biology professors, nurses, janitors, chefs, psychiatrists, performance artists, sculptors, romance novelists, playwrights and, as many journals do, lonely prisoners too.</p>
+<p>There is no singular, representative style to the work that we publish.  We have published work that falls all over the spectrum from mainstream to experimental.  From commercial to avant garde.  It’s the fairy-tale effect we look for—it’s a sensation, felt through a process of reading.  You get that special ‘once upon a time’ feeling, which can be a chill or a shudder, a glow or a pulse.   Certainly the team of readers I rely on have a certain dexterity with the aesthetics of fairy tales—an area I delight in teaching—but every new work is different and we could never say what we’re looking for except new fairy tales.  Fairy tales are possibility spaces—their borders cannot be closed. Fairy tales always are changing—that is their history, their present, their future.</p>
+<p>Fairy tales are <em>minoritarian</em>: they elude definition by status quo terms. As such they survive via becoming—not by being defined. This does not mean that one cannot categorize their techniques (or style) in a given moment in history. To describe is not to identify, if those techniques themselves are seen as always evolving.<strong></strong></p>
+<p><strong><br />
+LM: Your blog on Jan. 31st states that you accept comic and illustration submissions&#8211;how often do you receive submissions of themed illustrations/art and sequential art? Do you often solicit visual art submissions?</strong><strong></strong></p>
+<p>KB: Timothy Schaffert, who guest edited The Brown Issue (now in print and available <a href="http://www.spdbooks.org/Producte/155661537/fairy-tale-review-the-brown-issue.aspx">here</a>), solicited work from an artist he admires named Peter Kuper, whose work is terrific.  For The Blue Issue, and for the journal’s cover, I solicited images from Kiki Smith; I had been invited to speak for the Museum of Modern Art about her work, and had fallen in love with it.</p>
+<p>Recently, we were absolutely delighted to publish, as a downloadable PDF on our website, in conjunction with The Red Issue, <a href="http://fairytalereview.com/theymetinadream.pdf">a mini-comic by the artist Jennifer Parks, “They Met in a Dream.”</a>  Here’s an example where fairy-tale luck came into play.  A dear friend of mine, the amazing novelist and musician Willy Vlautin, had picked up a postcard in Portland, OR—I might be remembering wrong, but I think he’d picked it up from a pile of them in a coffee shop or bar, near where newspapers and ephemera like these things sometimes sit. It was a postcard advertising a gallery show for Parks’ work, and he gave it to me saying something like, “I think you’d dig this.” I promptly lost the postcard in one of the volcanic piles of paperwork on my desk and a couple of years later, after a move, the postcard showed up again. (I never lose anything—my papers are just nomads.)  I looked at Parks’ blog, where she had recently posted a few images from a Little Red Riding Hood graphic novelette and I loved them.   I asked if we could feature her work on our website and Justin Runge, whom I had taught in a graduate program, designed the PDF for the website (and for a special web edition of The Red Issue).  We also solicited a beautiful cover image from Parks for “Songs for Fairy Tales,” the CD of songs that <em>Fairy Tale Review</em> issued in 2010.</p>
+<p>There is a deep connection between visual art and fairy tales. In many fairy-tale books language and image may not even be considered separate entities.  So we honor that tradition.</p>
+<p>The journal receives many submissions of artwork but we cannot include much art with each issue, in large part because it is very expensive to reproduce artwork in color.  But I often write lectures and essays about fairy-tale art and keep images on file for those.</p>
+<p><strong>The National Book Foundation&#8217;s frustrating (and frankly, puzzling) exclusion of “collections and/or retellings of folk-tales, myths, and fairy-tales” is a prime example of how the &#8220;literary&#8221; field so often dismisses works involving fairy tales, myths and well-known folklore. How do you feel <em>Fairy Tale Review</em> is affected by this bias, and how has <em>FTR</em> already helped change it in it&#8217;s short life?</strong><strong></strong></p>
+<p>Harvard fairy-tale scholar and advocate Maria Tatar and I co-authored<a href="http://www.salon.com/2010/11/17/fairy_tales/singleton/"> a letter to the National Book Foundation</a> two years ago, respectfully asking that they kindly remove this little-known and, truly, not particularly actively followed, exclusion of folktales, myths, and fairy tales from their prestigious National Book Awards. When the response was very polite but not affirmative we posted our letter online on our respective websites and created a Facebook page, seeking “petition” support. Hundreds of people have signed on to the petition there, including several National Book Awards finalists, winners, and judges.  We would like to continue the conversation with the National Book Foundation; and I am trying to research the history of this exclusion, which must be a fascinating history indeed: who is the person who put this exclusion on the agenda list of a meeting? I would love to know how this person dressed and what cocktail he or she preferred.  The fear of fairy tales—fascinating, really, historically speaking. All kinds of prejudice bond up in the act.  Sadly, this literary prejudice is fairly widespread.</p>
+<p>On a basic level, fairy tales are not considered ‘major’ art works.  Fine, by this fairy-tale author—as soon as something is by definition “major,” its ethics can reasonably be called into question.</p>
+<p>But it is sad that fairy tales—and other underdog heroes—suffer from prejudice in many circles, among them certain literary circles, as you point out.  This trouble with fairy tales, it is a very American problem in its own way—I’m told by authors and editors in other areas of the world that the same prejudices don’t really hold—and this should be an area of research interest to someone, I think: a comparison of how fairy tales fare in contemporary “literary circles” internationally.  The prejudices, by the way, aren’t always visible to readers; a lot of people are astonished to learn fairy tales might be excluded from any prize. Fairy tales are also very popular, of course. And that too leads to an underestimation, etc.  It has to do with the fact that in order to have capital-L Literature, we must leave something out: how can you have something if it includes everything? To have a defined entity, how can the borders be open?  Fairy tales elude definition.</p>
+<p>I cannot offer any objective assessment about whether <em>Fairy Tale Review</em> has helped improve the situation, but I think it may have.   I have long dedicated myself to the fairy-tale revival—to helping reverse the clichés and damages done to fairy tales (and thus to readers who need these stories so often about the weak triumphing over the strong) many years ago, and have never turned back.  I have received many letters of gratitude from readers and hear increasingly often from teachers using fairy tales in the classroom, and I see graduate students studying fairy tales and more and more writers working with a sense of awareness from them. I’m invited to talk about fairy tales at museums, universities, libraries each week—I have to turn requests down!  So from 1995, the year that marked my conscious dedication to fairy tales as an author and editor, when saying “I write fairy tales” could pretty much end a conversation with a lot of people I knew, things have changed one hundred percent.</p>
+<p>It would be lovely to think my work at <em>Fairy Tale Review </em>has helped; and my own work couldn’t exist without the prior efforts of authors like Italo Calvino, Angela Carter, and current fairy-tale heroes Maria Tatar, Donald Haase, and Jack Zipes.<strong></strong></p>
+<p><strong><br />
+If you do plan to accept unsolicited submissions in the future, what advice would you give emerging writers who are interested in submitting to <em>Fairy Tale Review</em>?</strong></p>
+<p>It’s a very relevant question.  Read fairy tales—then read some more fairy tales, to paraphrase Einstein.<br />
+&#8211; * &#8211;</p>
+<p><strong><br />
+Kate Bernheimer</strong> is the author of a trilogy of novels and the story collection <em>Horse, Flower, Bird</em> (Coffee House Press), and editor of three anthologies including the World Fantasy Award winning <em>My Mother She Killed Me, My Father He Ate Me: Forty New Fairy Tales</em> (Penguin). Founder and Editor of <em>Fairy Tale Review</em>, she is an Associate Professor at the University of Louisiana in Lafayette. Her next book, a children&#8217;s book, comes out in April: <em>The Lonely Book</em> with illustrations by Chris Sheban (Schwartz &amp; Wade/Random House).</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i><a href="../../../tag/friends-of-flyway/index.html" rel="tag">friends of flyway</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/interview-2/index.html" rel="tag">interview</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="../../../tag/literary-journal/index.html" rel="tag">literary journal</a></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=593.html#comments-593" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/literary-journal/fairytalebernheimer/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/literary-journal/fairytalebernheimer/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/literary-journal/fairytalebernheimer/&text=Flyway+Asks%3A+What+Makes+a+Fairy+Tale%3F"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/literary-journal/fairytalebernheimer/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/literary-journal/fairytalebernheimer/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Flyway Asks: What Makes a Fairy Tale?&body=Flyway Asks: What Makes a Fairy Tale?%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/literary-journal/fairytalebernheimer/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=583.html">Interview With Author Megan Mayhew Bergman</a></h2>
+	<div class="entrydate">22 Dec 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p><a href="http://www.flyway.org/wordpress/wp-content/uploads/2011/12/MMBwithgoats.jpg"><img class="alignleft size-full wp-image-584" title="MMBwithgoats" src="http://www.flyway.org/wordpress/wp-content/uploads/2011/12/MMBwithgoats.jpg" alt="" width="334" height="260" /></a> Megan Mayhew Bergman lives on a small  farm in Shaftsbury, Vermont. Her work has  twice been nominated for the Pushcart Prize  and has appeared in the <em>New York Times,  Best American Short Stories 2011, New  Stories from the South 2010, Oxford  American, Narrative, Ploughshares, One  Story</em>, and elsewhere. Her first story  collection, <em>Birds of a Lesser Paradise</em>, will  be published by Scribner in March 2012.  <em>Flyway </em>blogger Ian Pisarcik recently had  the opportunity to ask Megan a few  questions.</p>
+<p>&nbsp;</p>
+<p><strong>Ian John Pisarcik: </strong>You were raised in Rocky Mount, North Carolina and currently live on a small farm in rural Vermont. How much does your environment shape your writing? <strong></strong></p>
+<p><strong>Megan Mayhew Bergman: </strong>I’m very focused on place.  I think that’s what happens with distance – moving from North Carolina to Vermont feels like expatriation – you see “home” with fresh eyes.  <strong></strong></p>
+<p>Growing up I was tapped into that southern current which has been running through my family for generations.  It’s embedded in my language, my mannerisms, my blood.</p>
+<p>Though I’m always homesick, my best life is in Vermont.  And that tension makes for great investigation, and I hope good writing.</p>
+<p><strong>IJP:</strong> Your first story collection, <em>Birds of a Lesser Paradise</em>, will be published by Scribner in March 2012. What advice can you give to writers hoping to get their work published?</p>
+<p><strong>MMB:</strong> Don’t rush to publish early; I have mediocre work out in the world that I wish I could take back.  Know what matters to you artistically.  Ask yourself why you want to write and why you want to be published, and be comfortable with your answer.  Make more time for reading.  Be patient.  Bottle up the small victories for later, when you haven’t had any for a while, and you need to remind yourself that being a writer can feel good.</p>
+<p><strong>IJP:</strong> You spent some time working as a reader for the <em>New England Review</em>. What do you look for in a story? What effect can a compelling story have on you?</p>
+<p><strong>MMB:</strong> I want to forget I’m reading (e.g. I don’t have the urge to check Facebook during the second paragraph).  I want to feel a certain amount of freshness in a narrative; you begin to realize, as a reader, that some ideas are just done and redone ad nauseum. I look for economical, controlled prose that doesn’t forego passion and energy.  I look for the writer’s own interest in a subject:  obsession, insight, or intellectual curiosity.  I want believable characters.  I’m an impatient reader; writing must hold me with beauty, promise, or narrative energy.</p>
+<p>When I’ve read a good story, I feel it.  I usually swear.  This happened to me today when I was selecting stories from <em>In Our Time</em> to teach.  I read the last lines of Hemingway’s <em>On the Quai at Smyrna</em> – about the donkeys trying to swim with the broken forelegs – and I felt that punch in the gut, that visceral response to a story that I crave.</p>
+<p><strong>IJP:</strong> Animals play a prominent role in many of your stories. I suppose this is inevitable given that you are married to a veterinarian and share your home with several dogs, four cats, two goats and a horse. Aside from simply being present, is there something about animals that motivates you to explore them in your stories?</p>
+<p><strong>MMB:</strong> You’re right – mostly I write about the animal world because it’s just part of my life.  But it’s a life I opted into, and I like the physicality of it.  Physical lives take us outside of our heads and pixilated microcosms.  I don’t mean a run outside – I’m thinking of meaningful interaction with nature on a regular basis.  Throwing hay, trimming hooves, stealing an egg from underneath a broody chicken, hiking up a mountain, knowing the birdsongs in your yard.  I need that connection.  I need to break away from my computer and get my hands and eyes on something real.</p>
+<p>I’m also interested in notions of primal innocence, and our own animal nature.  I’m intrigued by –and wary of &#8211; anthropocentrism and human exceptionalism.  Relationships with animals illuminate so much about characters.</p>
+<p><strong>IJP:</strong> You have a vegetable garden and participate in a farm share. On your blog you promote several local bookstores. Do you see a connection between these things?</p>
+<p><strong>MMB:</strong> Our livelihood is tied to a local business, so we try and reciprocate.  I like that about Vermont.  There aren’t a lot of jobs, so we support each other in a lot of agricultural and artistic endeavors.  CSAs and local bookstores can be more expensive than their bigger relatives, but I enjoy these places, and am thankful to have them in our community.  I think it’s important to put my money back into the local economy as much as I can.  I’d rather give my money to a friend, you know?</p>
+<p><strong>IJP:</strong> Who are the writers you get excited about reading today?</p>
+<p><strong>MMB:</strong> I just plain get excited about reading.  I have two children under 3, and I’ve been in Baby Mode, which can eat away significant reading time.  I have a friend who speaks beautifully and passionately about books, and at a recent dinner I realized that I was woefully under-read in comparison.  I re-committed to reading that night, and silently vowed to get hungry again, and to read more widely instead of feeding my biases.</p>
+<p>I’m excited to read John D’Agata’s <em>About a Mountain</em>.  Lauren Groff has a book coming out in March called <em>Arcadia</em> which I can’t wait to read.  Stephen Dau, a fellow Bennington grad, is debuting in 2012 with <em>Book of Jonas</em>.  There are authors I return to, like Mary Gaitskill, Henry Miller, and Willa Cather.  I’m just going to stop now because this list is going to get long.  As I said above, I’m just excited about reading.</p>
+<p><strong>IJP:</strong> Congratulations on having your second child. Do you follow modern children’s literature? Is there a book, new or old, which you are particularly excited to share with your children?</p>
+<p><strong>MMB: </strong>I do not follow modern children’s literature, but should.  I go to the library every two weeks for my girls.  (Okay – every three to four weeks.  I pay a lot of fines.)  But I’m particularly excited to share <em>The Secret Garden</em>, <em>The Westing Game</em>, and, if I’m honest, vintage <em>Nancy Drew</em>.  None of that modern Nancy-with-a-cell-phone stuff, just Nancy in her convertible with her trusty friends, unmasking prowlers.  I want to expose them to wholesome and plucky stuff for their manners and sense of self, and mystery for their imaginations.</p>
+<p>&nbsp;</p>
+<p>Read more about Megan Mayhew Bergman and pre-order <em>Birds of a Lesser Paradise</em> at: <a href="http://mayhewbergman.com/Home.aspx">http://mayhewbergman.com/Home.aspx</a></p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=583.html#comments-583" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/&text=Interview+With+Author+Megan+Mayhew+Bergman"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview With Author Megan Mayhew Bergman&body=Interview With Author Megan Mayhew Bergman%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-author-megan-mayhew-bergman/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=562.html">Interview with Meredith Fraser, Managing Editor of Ecotone</a></h2>
+	<div class="entrydate">30 Nov 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Recently, <em>Flyway </em>blogger Lydia Melby had the chance to ask Ms. Fraser a few questions about <a href="http://www.ecotonejournal.com/">Ecotone</a>.</p>
+<p><strong>Lydia Melby: </strong>What is the story behind Ecotone? When and how did it come to be?</p>
+<p><strong>Meredith Fraser: </strong><em>Ecotone</em> was founded in 2005 and is published at UNC Wilmington. It is a semiannual journal that seeks to reimagine place. Each issue brings together the literary and the scientific, the personal and the biological, the urban and the rural. David Gessner originally began the magazine, then passed the editorship onto Ben George in 2008, I believe. From the start Ecotone has been run mostly by students at UNCW, along with a minimal (myself and Ben) paid staff.</p>
+<p><strong>LM:  </strong>Your magazine is published through UNC-Wilmington&#8211; does Ecotone receive support and/or funding from the university? As you don&#8217;t charge a reading fee for submissions, where does most of your funding come from? (if that&#8217;s polite to ask).</p>
+<p><strong>MF: </strong>The university is generous to us, and fronts most of our bills, although we do bring in a significant amount of money through subscriptions and the selling of individual issues. We operate on a very tight budget (hence our tiny staff), but we’ve been lucky enough to receive several grants from the National Endowment for the Arts (NEA), which have helped ease the costs tremendously. (On another note, we’re about to launch our online submission service, so writers can submit without the extra trip to the post office—our reading fee for online submissions will be $3.)</p>
+<p><strong>LM:</strong>  Your website defines the title of your journal as &#8220;a transition zone between two adjacent ecological communities, containing the characteristic species of each.&#8221; From one place-themed journal to another, how do you feel inhabiting the &#8216;grey man&#8217;s land&#8217; between literary and scientific has helped distinguish your journal?</p>
+<p><strong>MF:</strong>  I think we get more science-related articles than your average lit journal, that’s for sure, but not as many as you may expect. In recent years, we’ve loosened our specific guidelines and focus on simply publishing the best writing we can find. If it fits our journal’s overarching theme, that’s just a cherry on top, so to say.</p>
+<p><strong>LM: </strong> Your submissions page mentions <em>Ecotone</em> is &#8220;always looking for dynamic, original artwork which reflects the inherent themes of the journal, such as borders and boundaries between the natural world and the human world.&#8221;  How does your staff generally interpret how visual art submissions interact with these themes? What genres of art (traditional, graphic, sequential) do you generally accept?</p>
+<p><strong>MF:  </strong>In general, we leave the art selections up to our publishing laboratory experts, as they have more of an eye for good art than Ben or I. We actually rarely receive art submissions; usually we solicit our art from specific artists. We accept all forms of art, and there have been many inclusions of art that reflect our journal’s theme, but again, we’ve become less concerned with our content interpreting the theme than with finding the best art we can find.</p>
+<p><strong>LM:</strong>  Similarly, do you feel <em>Ecotone</em>&#8216;s over-arcing theme gives writers some tangible parameters, or does it actually grant submitters more freedom in exploring?</p>
+<p><strong>MF:</strong>  It depends. I would say there are groups of writers who look at the theme in both ways; some stick to it very closely, while it clearly opens doors for others to think about new ways of looking at things and their work.</p>
+<p><strong>LM:</strong>  In the field of literary publications today, it&#8217;s really unusual to find a publication that does not accept submissions online&#8211; how has this affected your general submission pool, especially your &#8216;slush pile&#8217;?</p>
+<p><strong>MF:  </strong>There’s no way to know how it affects our slush pile, but we’re very aware that we’ll probably begin to receive more submissions once our online system is available. Submittable (the company we are working with for online submissions) should be available to contributors within the next week or so, so if you’d like, you can check back in with me in a few weeks and I’ll let you now how it’s going or what a difference it has made!</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=562.html#respond-562" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/&text=Interview+with+Meredith+Fraser%2C+Managing+Editor+of+Ecotone"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Interview with Meredith Fraser, Managing Editor of Ecotone&body=Interview with Meredith Fraser, Managing Editor of Ecotone%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/interview-with-meredith-fraser-managing-editor-of-ecotone/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<article class="eight columns blogentry">
+	<header>
+	<h2 class="entrytitle"><a class="no-ajax" href="../../../index.html%3Fp=556.html">Notes from the Field</a></h2>
+	<div class="entrydate">21 Nov 2011</div>
+		<br class="clear">
+	</header>
+	<div class="entrycontent section pad20">
+<p>Hello, loveliest of readers!  <em>Flyway</em> headquarters have been hectic the last couple of weeks.  Here&#8217;s a quick catch-up:</p>
+<p><em>-Notes from the Field  </em>entries are in and going through the second round of readings.  All 27 (27!) entries are read by at least 3 of our 5 editors, so the process takes a little while, but we&#8217;ll be in touch with the winners soon!</p>
+<p>-We raised close to $3,000 at our annual auction/poetry slam this year!  Thanks to everyone who came out and supported us.  Without you all, we wouldn&#8217;t be able to publish such incredible writing.</p>
+<p>-Fun fact:  Did you know that <em>Flyway</em> used to be <em>Poet and Critic</em>?  Former <em>Poet and Critic</em> editor, Michael Martone, came to town for a reading.  One of our bloggers had the opportunity to ask him a few questions.  Read the interview<a href="http://www.flyway.org/2011/11/21/where-are-they-now-with-michael-martone/"> here</a>.</p>
+<p>Happy Thanksgiving to you and yours from the <em>Flyway</em> team!  We&#8217;re grateful for YOU.  What are you grateful for?</p>
+	</div>
+	<footer>
+		<div class="entrytags"><i class="icon-tags" title="Tags"></i></div>
+		<div class="entryactions"><a href="../../../index.html%3Fp=556.html#respond-556" class="comment-link no-ajax"><i class="icon-comment" title="Comments"></i></a><a href="index.html#" class="share-link no-ajax"><i class="icon-share-alt" title="Share"></i></a> 
+</div>
+		<br class="clear">
+	</footer>
+	<section class="share">
+		<div class="permalink"><i class="icon-link icon-large" title="Permalink"></i><input class="permalink-url" value="https://flyway.org/blog/uncategorized/notes-from-the-field/"></div>
+		<div class="social-buttons">
+			<a href="http://www.facebook.com/share.php?u=https://flyway.org/blog/uncategorized/notes-from-the-field/" target="_blank"><i class="icon-facebook-sign icon-large" title="Facebook"></i></a><a href="http://twitter.com/share?url=https://flyway.org/blog/uncategorized/notes-from-the-field/&text=Notes+from+the+Field"><i class="icon-twitter icon-large" title="Twitter"></i></a><a href="https://plus.google.com/share?url=https://flyway.org/blog/uncategorized/notes-from-the-field/"><i class="icon-google-plus-sign icon-large" title="Google Plus"></i></a><a href="http://pinterest.com/pin/create/button/?url=https://flyway.org/blog/uncategorized/notes-from-the-field/"><i class="icon-pinterest icon-large" title="Pinterest"></i></a><a target="_blank" href="mailto:?subject=Flyway: Notes from the Field&body=Notes from the Field%0D%0Aon%20Flight%20Patterns%2C%20the%20Flyway%20blog%0D%0A%0D%0Ahttps://flyway.org/blog/uncategorized/notes-from-the-field/"><i class="icon-envelope-alt icon-large" title="Email"></i></a>
+		</div>
+		<br class="clear">
+	</section>
+</article>
+
+
+<div class="eight columns pagination">
+<div class="previous-page"><a href="../20/index.html" ><i class="icon-angle-left"></i>&nbsp;&nbsp;Previous Page</a></div>
+<div class="next-page"><a href="../22/index.html" >Next Page&nbsp;&nbsp;<i class="icon-angle-right"></i></a></div>
+
+</section>
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+
+	setupTabs();
+
+	$('.blogentries').on('click', '.share-link', function() {
+		$(this).parent().parent().siblings('.share').slideToggle();
+		event.preventDefault();
+	});
+});
+</script>
+
+</section>
+</section> <!-- / .content -->
+
+<div class="loading">
+<i class="icon-spinner icon-large icon-spin"></i>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function setupTabs() {
+
+	$('.tab-links:visible').each(function(){
+		// For each set of tabs, we want to keep track of
+		// which tab is active and it's associated content
+		var $active, $content, $links = $(this).find('a');
+
+		// If the location.hash matches one of the links, use that as the active tab.
+		// If no match is found, use the first link as the initial active tab.
+		$active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+		$active.addClass('active');
+		$content = $($active.attr('href'));
+
+		// Hide the remaining content
+		$links.not($active).each(function () {
+			$($(this).attr('href')).hide();
+		});
+
+		// Bind the click event handler
+		$(this).find('a').click(function(e){
+			// Make the old tab inactive.
+			$active.removeClass('active');
+			$content.hide();
+
+			// Update the variables with the new link and content
+			$active = $(this);
+			$content = $($(this).attr('href'));
+
+			// Make the tab active.
+			$active.addClass('active');
+			$content.show();
+
+			// Prevent the anchor's default click action
+			e.preventDefault();
+			return false;
+		});
+	});
+}
+
+function setupSlideshow() {
+	/* setup slides */
+	$slides = $('#slideshow .slide');
+	$slides.each(function() {
+		if ($(this).data('bgurl')) {
+			$(this).css('background-image', "url('" + $(this).data('bgurl') + "')");
+		}
+		if ($(this).data('bgoffset')) {
+			$(this).css('background-position', '50% ' + $(this).data('bgoffset') + '%');
+		}
+	});
+	$slideTitles = $('#slideshow .slide_title');
+	$slideTitles.each(function() {
+		if ($(this).data('bgcolor')) {
+			$(this).css('background-color', $(this).data('bgcolor'));
+		}
+	});
+
+	/* load slider */
+	$("#slideshow").slides({
+		play: 15000,
+			container: 'slides',
+			fadeSpeed: 2000,
+			effect: 'fade',
+			crossfade: true,
+			pause: 5000,
+			animationComplete: function() {
+					/*
+						$('.slide_info').hide();
+					$('.slide').filter(':visible').children('.slide_info').delay(1000).fadeIn(1000).delay(9000).fadeOut(1000);
+					 */
+			}
+	});
+}
+
+function setupArchive() {
+	var $checkboxes = $(':checkbox:visible'),
+		$table = $('.footable:visible'),
+		$filter = $('input.filter:visible'),
+		$archiveSelectAll = $('#archive-select-all:visible'),
+		$archiveSelectNone = $('#archive-select-none:visible');
+
+	function checkCats() {
+		$checkboxes.each(function() {
+			name = $(this).attr('name');
+			if($(this).is(':checked')) {
+				$table.attr('data-' + name, 'true');
+			}
+			else {
+				$table.attr('data-' + name, 'false');
+				$table.find('tr.cat-' + name).hide();
+			}
+		});
+		return;
+	}
+	$footable = $('.footable').filter(':visible').footable({
+		breakpoints: {
+			tablet: 768,
+			phone: 480
+		},
+		filter: {
+			disableEnter: true
+		}
+	});
+	// Bind onclick for rows
+	$table.find('tbody tr').click(function() {
+		link = $(this).find('td:first a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+	// Check for filter content on page load (mostly for category archives)
+	$filter.keyup();
+	$checkboxes.change(function() {
+		checkCats();
+		$filter.keyup();
+	});
+	$archiveSelectAll.click(function() {
+		$checkboxes.prop('checked', true).change();
+		event.preventDefault();
+	});
+	$archiveSelectNone.click(function() {
+		$checkboxes.prop('checked', false).change();
+		event.preventDefault();
+	});
+	checkCats();
+}
+
+function setupColorbox() {
+	if (!/android|iphone|ipod|series60|symbian|windows ce|blackberry/i.test(navigator.userAgent)) {
+		$(".content:visible a[rel^='lightbox']").colorbox({
+			width: '100%',
+			height: '100%',
+			maxWidth: '100%',
+			maxHeight: '100%',
+			fixed: true,
+			transition: "none",
+			previous: '<i class="icon-circle-arrow-left icon-2x"></i>',
+			next: '<i class="icon-circle-arrow-right icon-2x"></i>',
+			close: '<i class="icon-remove-sign icon-2x"></i>',
+			current: "{current} of {total}",
+			returnFocus: false,
+			title: function(){
+				return $(this).data('title');
+			}
+		});
+	}
+}
+
+function setupControls() {
+
+	// toggle fullscreen
+	$('body').on('click', 'a.fullscreen', function() {
+		$(document).toggleFullScreen();
+		event.preventDefault();
+	});
+
+	// scroll to top
+	$('body').on('click', 'a.gotoTop', function() {
+		$('body').animate({scrollTop : 0}, 'slow');
+		event.preventDefault();
+	});
+
+	// toggle font/share controls
+	$('body').on('click', 'a.toggleControl', function() {
+		$current = $('.content:visible');
+		if($(this).is('.fontSettings')) {
+			$current.find('form.fontSettings').toggle().siblings('.shareThis').hide();
+		}
+		else {
+			$current.find('div.shareThis').toggle().siblings('.fontSettings').hide();
+		}
+		event.preventDefault();
+	});
+}
+
+function setupFontSettings() {
+	$current = $('.content:visible');
+
+	// load font settings
+	$radios = $current.find('form.fontSettings input:radio');
+	$post = $current.find('article .section');
+	font = $.cookie('font');
+	fontsize = $.cookie('fontsize');
+	linespacing = $.cookie('linespacing');
+	if (font) {
+		$post.addClass(font);
+		$radios.filter('[value=' + font + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('font-serif');
+		$.cookie('font', 'font-serif', { expires: 3650 });
+		$radios.filter('[value=font-serif]').prop('checked', true);
+	}
+	if (fontsize) {
+		$post.addClass(fontsize);
+		$radios.filter('[value=' + fontsize + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('text-medium');
+		$.cookie('fontsize', 'text-medium', { expires: 3650 });
+		$radios.filter('[value=text-medium]').prop('checked', true);
+	}
+	if (linespacing) {
+		$post.addClass(linespacing);
+		$radios.filter('[value=' + linespacing + ']').prop('checked', true);
+	}
+	else {
+		$post.addClass('line-medium');
+		$.cookie('linespacing', 'line-medium', { expires: 3650 });
+		$radios.filter('[value=line-medium]').prop('checked', true);
+	}
+
+	// font settings
+	$($radios).click(function() {
+		switch ($(this).val()){
+		case 'font-serif':
+			$post.addClass('font-serif').removeClass('font-sans-serif');
+			$.cookie('font', 'font-serif', { expires: 3650 });
+			break;
+		case 'font-sans-serif':
+			$post.addClass('font-sans-serif').removeClass('font-serif');
+			$.cookie('font', 'font-sans-serif', { expires: 3650 });
+			break;
+		case 'text-small':
+			$post.addClass('text-small').removeClass('text-medium text-large');
+			$.cookie('fontsize', 'text-small', { expires: 3650 });
+			break;
+		case 'text-medium':
+			$post.addClass('text-medium').removeClass('text-small text-large');
+			$.cookie('fontsize', 'text-medium', { expires: 3650 });
+			break;
+		case 'text-large':
+			$post.addClass('text-large').removeClass('text-small text-medium');
+			$.cookie('fontsize', 'text-large', { expires: 3650 });
+			break;
+		case 'line-tight':
+			$post.addClass('line-tight').removeClass('line-medium line-loose');
+			$.cookie('linespacing', 'line-tight', { expires: 3650 });
+			break;
+		case 'line-medium':
+			$post.addClass('line-medium').removeClass('line-tight line-loose');
+			$.cookie('linespacing', 'line-medium', { expires: 3650 });
+			break;
+		case 'line-loose':
+			$post.addClass('line-loose').removeClass('line-medium line-tight');
+			$.cookie('linespacing', 'line-loose', { expires: 3650 });
+			break;
+		}
+	});
+}
+
+function setupLatestLinks() {
+	/* make latest pieces on homepage clickable */
+	$('.latest-item:visible').click(function() {
+		link = $(this).find('a').attr('href');
+		History.pushState(null,null,link);
+		return false;
+	});
+}
+
+function setupSidebar() {
+	$sidebar = $('.sidebar.sideToggle:visible');
+
+	if ($sidebar.length) {
+		var showTimeout, hideTimeout;
+		hideTimeout = setTimeout(function() {
+			toggleSidebar(false);
+		},1000);
+
+		$sidebar.mouseenter(function() {
+			clearTimeout(hideTimeout);
+			showTimeout = setTimeout(function() {
+				toggleSidebar(true);
+			},500);
+		});
+
+		$sidebar.mouseleave(function() {
+			clearTimeout(showTimeout);
+			hideTimeout = setTimeout(function() {
+				toggleSidebar(false);
+			},500);
+		});
+		$('.controls:visible').mouseenter(function() {
+			$sidebar.mouseenter();
+		});
+		$('.controls:visible').mouseleave(function() {
+			$sidebar.mouseleave();
+		});
+	}
+}
+
+// Show or hide the sidebar on a single entry
+function toggleSidebar(show) {
+	$current = $('.content:visible');
+	$sidebar = $current.find('.sidebar');
+	show = typeof show != 'undefined' ? show : true;
+	$elements = $('.sideToggle:visible');
+	mainWidth = $current.innerWidth();
+	if ($elements.first().hasClass('sideHidden') || show) {
+		$elements
+			.filter('.sidebar, .controls')
+			.animate({
+				right : 0
+			},'slow')
+			.end()
+			.filter('article')
+			.animate({
+				width : (mainWidth == 768 ? 492 : 620)
+			},'slow')
+			.end()
+			.removeClass('sideHidden');
+	} else {
+		$elements
+			.filter('article')	
+			.animate({
+				width : mainWidth - 60
+			},'slow')
+			.end()
+			.filter('.sidebar, .controls')
+			.animate({
+				right : -($sidebar.innerWidth() - 20)
+			},'slow')
+			.end()
+			.addClass('sideHidden');
+	}
+}
+
+function fixIcons() {
+	var head = document.getElementsByTagName('head')[0],
+	    style = document.createElement('style');
+	style.type = 'text/css';
+	style.styleSheet.cssText = ':before,:after{content:none !important';
+	head.appendChild(style);
+	setTimeout(function(){
+	    head.removeChild(style);
+	}, 0);
+}
+
+// HTML Helper
+// from Ajaxify (https://github.com/browserstate/ajaxify/)
+var documentHtml = function(html){
+        // Prepare
+        var result = String(html)
+                .replace(/<\!DOCTYPE[^>]*>/i, '')
+                .replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
+                .replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
+        ;
+        
+        // Return
+        return $.trim(result);
+};
+
+$(function() {
+
+	$current = $('.content:visible');
+
+	// // Disable search for now.
+	// $('nav form').submit(function() {
+	// 	alert("Sorry, search doesn't work yet.");
+	// 	event.preventDefault();
+	// });
+
+	setupControls();
+	<!--[if lt IE 9]>fixIcons();<![endif]-->
+
+	// Prepare our Variables
+	var
+		History = window.History,
+		document = window.document;
+
+	// Check to see if History.js is enabled for our Browser
+	if ( History.enabled ) {
+
+		var	$window = $(window),
+			$body = $(document.body),
+			rootUrl = History.getRootUrl().replace(/\/+$/, ""),
+			cache = {};	
+
+		// Internal Link Helper (from Ajaxify)
+		$.expr[':'].internal = function(obj, index, meta, stack){
+			// Prepare
+			var	$this = $(obj),
+				url = $this.attr('href')||'',
+				isInternalLink;
+
+			// Check link
+			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
+
+			// Ignore or Keep
+			return isInternalLink;
+		};
+
+		// replace default action for internal links
+		$('body').on('click', 'a#logolink,a[href$="/"]:internal:not(".no-ajax"),a[href$=".php"]:internal:not(".no-ajax"),a[href$=".html"]:internal:not(".no-ajax")', function(e) {
+			// Prepare
+			var	$this = $(this),
+				url = $this.attr('href'),
+				title = 'Flyway: Journal of Writing and Environment';
+
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			// Ajaxify this link
+			History.pushState(null,title,url);
+			e.preventDefault();
+			return false;
+		});
+
+		// Add the initial content element to the cache
+		var	State = History.getState(),
+			url = State.url,
+			relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, "");
+
+		cache[relativeUrl] = $('.initial.content');
+
+		// When an internal link is clicked, either show an element in the cache,
+		// or load content into a new element via AJAX (and add it to the cache).
+		$window.on('statechange',function(){
+			// Prepare Variables
+			var	State = History.getState(),
+				url = State.url,
+				relativeUrl = url.replace(rootUrl,'').replace(/\/+$/, ""),
+				$current = $( '.content' ).filter(':visible');
+
+			// Hide any visible ajax content and scroll to top.
+			$body.animate({scrollTop: 0},'slow');
+			$current.animate({
+				opacity: 0
+			},1000,function() {
+				$(this).hide().css('margin-left','100%');
+			});
+			
+			if ( cache[ relativeUrl ] ) {
+				// Since the element is already in the cache, it doesn't need to be
+				// created, so instead of creating it again, let's just show it!
+				cache[ relativeUrl ].css('margin-left','0').show().animate({
+					opacity: 1,
+				},1000,function() {
+					// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+					$(window).resize();
+				});
+				// Update the page title with the loaded content
+				title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+				document.title = title;
+				<!--[if lt IE 9]>fixIcons();<![endif]-->
+			} else {
+
+				$.ajax({
+					url: url,
+					success: function(data, textStatus, jqXHR){
+                            // Prepare
+                            var
+                                    contentSelector = '.initial',
+                                    $data = $(documentHtml(data)),
+                                    $dataBody = $data.find('.document-body'),
+                                    $dataContent = $dataBody.find(contentSelector).filter(':first'),
+                                    contentHtml, $scripts;
+
+                            console.log($dataBody.html());
+                            
+                            // Fetch the scripts
+                            $scripts = $dataContent.find('.document-script');
+                            if ( $scripts.length ) {
+                                    $scripts.detach();
+                            console.log('scripts detached');
+                            }
+
+                            // Fetch the content
+                            contentHtml = $dataContent.html()||$data.html();
+                            if ( !contentHtml ) {
+                                    document.location.href = url;
+                                    return false;
+                            }
+
+                            // Append element to body, add it to cache, and show it
+                            cache[relativeUrl] = $dataContent.appendTo("body").removeClass('initial').show()
+                            .animate({
+                            	opacity: 1,
+                            },1000,function() {
+                            	// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+                            	$(window).resize();
+                            });
+
+                            console.log('element appended');
+
+                            // Update the title
+                            document.title = $data.find('.document-title:first').text();
+                            try {
+                                    document.getElementsByTagName('title')[0].innerHTML = document.title.replace('<','&lt;').replace('>','&gt;').replace(' & ',' &amp; ');
+                            }
+                            catch ( Exception ) { }
+
+                            console.log('title updated');
+                            
+                            // Add the scripts
+                            $scripts.each(function(){
+                                    var $script = $(this), scriptText = $script.text(), scriptNode = document.createElement('script');
+                                    if ( $script.attr('src') ) {
+                                            if ( !$script[0].async ) { scriptNode.async = false; }
+                                            scriptNode.src = $script.attr('src');
+                                    }
+                                        scriptNode.appendChild(document.createTextNode(scriptText));
+                                    cache[relativeUrl].get(0).appendChild(scriptNode);
+                            console.log('script attached');
+                            });
+
+
+                            // Inform Google Analytics of the change
+                            if ( typeof window._gaq !== 'undefined' ) {
+                                    window._gaq.push(['_trackPageview', relativeUrl]);
+                            }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                            document.location.href = url;
+                            return false;
+                    } 
+				});
+			}
+
+			// 	// Create container for this url's content and store a reference to it in
+			// 	// the cache.
+			// 	$('<div/>')
+
+			// 		// Append the content container to the parent container.
+			// 		.appendTo( 'body' )
+
+			// 		// Load external content via AJAX. Note that in order to keep this
+			// 		// example streamlined, only the content in .infobox is shown. You'll
+			// 		// want to change this based on your needs.
+			// 		.load( url + " .content", function() {
+			// 			// Update the page title with the loaded content
+			// 			cache[relativeUrl] = $(this).children().unwrap().removeClass('initial').show()
+			// 			.animate({
+			// 				opacity: 1,
+			// 			},1000,function() {
+			// 				// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+			// 				$(window).resize();
+			// 			});
+
+			// 		document.title = cache[relativeUrl].find('.pagetitle').attr('data-pagetitle')||'Flyway: Journal of Writing and Environment';
+			// 		});
+			// }
+			// // Inform Google Analytics of the change
+			// if ( typeof window._gaq !== 'undefined' ) {
+			// 	window._gaq.push(['_trackPageview', relativeUrl]);
+			// }
+		});
+
+		$(window).resize(function() {
+			$current = $('.content:visible');
+			$indivTabs = $('.indiv-tabs:visible');
+			$blogTabs = $('.blog-tabs:visible');
+			$sidebar = $('.sidebar:visible');
+			$header = $sidebar.find('header:first');
+			// for tabs on single entry page
+			if ($indivTabs.length) {
+				$sidewrap = $('.sidewrap:visible');
+				$tabs = $current.find('.tab');
+				$controls = $('.controls:visible');
+				$set = $sidebar.find('.set');
+				setHeight = $set.length ? $set.outerHeight() : 0;
+				ht = $(window).height() -
+					$sidewrap.position().top - 
+					$header.outerHeight() -
+					$controls.outerHeight() - 
+					$indivTabs.outerHeight() -
+					setHeight -
+					40;
+				$tabs.height(ht);
+			}
+			// for tabs on blog page
+			if ($blogTabs.length) {
+				$tabs = $current.find('.tab');
+				ht = $(window).height() -
+					$sidebar.position().top - 
+					$header.outerHeight(true) -
+					$blogTabs.outerHeight() -
+					20;
+				$tabs.height(ht);
+			}
+		});
+		// Trigger resize event to make sure scrollbars on tabbed content appear correctly
+		$(window).resize();
+	}
+
+});
+
+
+
+if ($(window).width() < 768) {
+
+	/* MOBILE */
+
+	$(function() {
+		setupTabs('.tabs');
+		search = $('#top #search');
+		nav = $('#top nav');
+
+		// MOBILE nav/search toggle
+	/*
+		$('.mobile.controls a').click(function() {
+		// is this link currently active?
+		// is any content section currently visible?
+		$(this).toggleClass('active').siblings().removeClass('active');
+		switch ($(this).attr('id')) {
+		case 'menu_link':
+			console.log('menu1');
+			search.hide();
+			if(nav.filter(':visible')) {
+				nav.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				nav.fadeIn();
+			}
+			break;
+
+		case 'search_link':
+			console.log('search1');
+			nav.hide();
+			if(search.filter(':visible')) {
+				search.fadeOut();
+				$('mobileHide').fadeIn().removeClass('mobileHide');
+			}
+			else {
+				$('.content').filter(':visible').addClass('mobileHide');
+				search.fadeIn();
+			}
+			break;
+		}
+		event.preventDefault();
+	});
+	 */
+	});
+
+} else { 
+
+	/* DESKTOP */
+
+
+}
+
+</script>
+
+</body>
+
+</html>
